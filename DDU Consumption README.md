@@ -1,7 +1,7 @@
 ## DDU Consumption
 DDU Consumption Dashboards for BizOpsConfigurator
 
-![DDU Consumption](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/DDU%20Consumption.png)
+![DDU Consumption](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/DDU_Consumption.png)
 
 ## Summary:
 This repo is a collection of JSON files designed for automating the deployment of the DDU Consumption dashboards in Dynatrace, with the BizOpsConfigurator.

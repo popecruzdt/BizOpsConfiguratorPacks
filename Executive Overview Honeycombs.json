@@ -1,0 +1,174 @@
+{
+    "metadata": {
+        "configurationVersions": [3],
+        "clusterVersion": "1.208.111.20210118-141438"
+    },
+    "id": "6c3d6f68-4b79-459a-b157-5eec91c70887",
+    "dashboardMetadata": {
+        "name": "Executive Overview (Honeycombs)",
+        "shared": false,
+        "owner": "anthony.pope-cruz@dynatrace.com",
+        "sharingDetails": {
+            "linkShared": true,
+            "published": false
+        },
+        "tags": ["Executive", "Overview", "Start Here"]
+    },
+    "tiles": [{
+        "name": "!host",
+        "tileType": "HOSTS",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 1482,
+            "width": 152,
+            "height": 152
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "HOST",
+            "customName": "${host.val}",
+            "defaultName": "${host.val}",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {
+                "HOST": {
+                    "AUTO_TAGS": ["${host}:${host.val}"]
+                }
+            }
+        },
+        "chartVisible": true
+    }, {
+        "name": "Hosts",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 1482,
+            "width": 456,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "!service",
+        "tileType": "SERVICES",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 494,
+            "width": 152,
+            "height": 152
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "SERVICE",
+            "customName": "${service.val}",
+            "defaultName": "${service.val}",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {
+                "SERVICE": {
+                    "AUTO_TAGS": ["${service}:${service.val}"]
+                }
+            }
+        },
+        "chartVisible": true
+    }, {
+        "name": "Applications",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 0,
+            "width": 456,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Services",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 494,
+            "width": 456,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "!application",
+        "tileType": "APPLICATIONS",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 0,
+            "width": 152,
+            "height": 152
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "APPLICATION",
+            "customName": "${application.val}",
+            "defaultName": "${application.val}",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {
+                "APPLICATION": {
+                    "AUTO_TAGS": ["${application}:${application.val}"]
+                }
+            }
+        },
+        "chartVisible": true
+    }, {
+        "name": "Databases",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 988,
+            "width": 456,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "!database",
+        "tileType": "DATABASES_OVERVIEW",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 988,
+            "width": 152,
+            "height": 152
+        },
+        "tileFilter": {},
+        "filterConfig": {
+            "type": "DATABASE",
+            "customName": "${database.val}",
+            "defaultName": "${database.val}",
+            "chartConfig": {
+                "legendShown": true,
+                "type": "TIMESERIES",
+                "series": [],
+                "resultMetadata": {}
+            },
+            "filtersPerEntityType": {
+                "DATABASE": {
+                    "AUTO_TAGS": ["${database}:${database.val}"]
+                }
+            }
+        },
+        "chartVisible": true
+    }]
+}
