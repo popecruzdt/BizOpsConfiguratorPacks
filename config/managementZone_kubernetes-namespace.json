@@ -1,0 +1,91 @@
+{
+  "id": "${managementZone_id}",
+  "name": "${managementZone_name}",
+  "rules": [
+    {
+      "type": "PROCESS_GROUP",
+      "enabled": true,
+      "propagationTypes": [
+        "PROCESS_GROUP_TO_SERVICE",
+        "PROCESS_GROUP_TO_HOST"
+      ],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+            "dynamicKey": "KUBERNETES_NAMESPACE",
+            "type": "PROCESS_PREDEFINED_METADATA_KEY"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EQUALS",
+            "value": "${kubernetes_namespace}",
+            "negate": false,
+            "caseSensitive": false
+          }
+        },
+        {
+          "key": {
+            "attribute": "KUBERNETES_CLUSTER_NAME"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EQUALS",
+            "value": "${kubernetes_cluster-name}",
+            "negate": false,
+            "caseSensitive": false
+          }
+        },
+        {
+          "key": {
+            "attribute": "HOST_CLOUD_TYPE"
+          },
+          "comparisonInfo": {
+            "type": "CLOUD_TYPE",
+            "operator": "EQUALS",
+            "value": "${kubernetes_cloud-type}",
+            "negate": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "CLOUD_APPLICATION_NAMESPACE",
+      "enabled": true,
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "CLOUD_APPLICATION_NAMESPACE_NAME"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EQUALS",
+            "value": "${kubernetes_namespace}",
+            "negate": false,
+            "caseSensitive": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "KUBERNETES_CLUSTER",
+      "enabled": true,
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "KUBERNETES_CLUSTER_NAME"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EQUALS",
+            "value": "${kubernetes_cluster-name}",
+            "negate": false,
+            "caseSensitive": true
+          }
+        }
+      ]
+    }
+  ]
+}
