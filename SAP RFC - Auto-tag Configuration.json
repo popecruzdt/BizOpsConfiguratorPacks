@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "configurationVersions": [
+      7
+    ],
+    "clusterVersion": "1.221.85.20210706-125915"
+  },
+  "id": "5bd9e646-f952-4554-9a87-e4f991fc992e",
+  "name": "SAP RFC",
+  "description": null,
+  "rules": [
+    {
+      "type": "CUSTOM_DEVICE",
+      "enabled": true,
+      "valueFormat": "{CustomDevice:Name}",
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "CUSTOM_DEVICE_TECHNOLOGY",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "SIMPLE_TECH",
+            "operator": "EQUALS",
+            "value": {
+              "type": "SAP"
+            },
+            "negate": false
+          }
+        },
+        {
+          "key": {
+            "attribute": "CUSTOM_DEVICE_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    }
+  ],
+  "entitySelectorBasedRules": []
+}
