@@ -839,7 +839,7 @@
       "tileFilter": {}
     },
     {
-      "name": "Outgoing Execution Response Time",
+      "name": "Outgoing Execution Response Time (milliseconds)",
       "tileType": "HEADER",
       "configured": true,
       "bounds": {
@@ -875,7 +875,7 @@
       "tileFilter": {}
     },
     {
-      "name": "Outgoing Call Response Time",
+      "name": "Outgoing Call Response Time (milliseconds)",
       "tileType": "HEADER",
       "configured": true,
       "bounds": {

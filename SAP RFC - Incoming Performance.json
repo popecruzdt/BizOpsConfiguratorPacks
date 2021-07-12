@@ -34,7 +34,7 @@
       "tileFilter": {}
     },
     {
-      "name": "Incoming Execution Response Time",
+      "name": "Incoming Execution Response Time (milliseconds)",
       "tileType": "HEADER",
       "configured": true,
       "bounds": {
@@ -70,7 +70,7 @@
       "tileFilter": {}
     },
     {
-      "name": "Incoming Call Response Time",
+      "name": "Incoming Call Response Time (milliseconds)",
       "tileType": "HEADER",
       "configured": true,
       "bounds": {
