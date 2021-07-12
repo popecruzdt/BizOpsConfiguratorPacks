@@ -34,7 +34,7 @@
       "tileFilter": {}
     },
     {
-      "name": "Incoming Execution Response Time - Average",
+      "name": "Incoming Execution Response Time - Average (milliseconds)",
       "tileType": "HEADER",
       "configured": true,
       "bounds": {
@@ -301,7 +301,7 @@
       }
     },
     {
-      "name": "Incoming Execution Response Time - Median",
+      "name": "Incoming Execution Response Time - Median (milliseconds)",
       "tileType": "HEADER",
       "configured": true,
       "bounds": {
@@ -313,7 +313,7 @@
       "tileFilter": {}
     },
     {
-      "name": "Incoming Execution Response Time - 90th Percentile",
+      "name": "Incoming Execution Response Time - 90th Percentile (milliseconds)",
       "tileType": "HEADER",
       "configured": true,
       "bounds": {
