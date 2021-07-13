@@ -18,7 +18,7 @@ This dashboard displays the throughput and response time of incoming RFC calls. 
 
 ### SAP RFC - Outgoing Performance
 This dashboard displays the throughput and response time of outgoing RFC calls.  The parent view aggregates all RFC calls.  The incoming performance breakdowns splits the metrics by the selected dimension.
-![SAP RFC Outgoing Performance](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/SAP_RFC_Incoming_Performance_screenshot.png)
+![SAP RFC Outgoing Performance](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/SAP_RFC_Outgoing_Performance_screenshot.png)
 
 ## Prerequisites:
 #### Deploy the SAP Application Server Extension
