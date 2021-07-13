@@ -1,5 +1,5 @@
 ## SAP RFC Overview
-![SAP RFC Overview](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/Kubernetes_Namespace_Overview.png)
+![SAP RFC Overview](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/SAP_RFC_Overview_screenshot.png)
 
 ## Summary:
 This is a collection of dashboards that present the SAP RFC metrics gathered by the Dynatrace Extension for SAP Application Server.
