@@ -70,7 +70,7 @@
       "tileFilter": {}
     },
     {
-      "name": "Incoming Call Response Time - Average",
+      "name": "Incoming Call Response Time - Average (milliseconds)",
       "tileType": "HEADER",
       "configured": true,
       "bounds": {
@@ -829,7 +829,7 @@
       }
     },
     {
-      "name": "Incoming Call Response Time - Median",
+      "name": "Incoming Call Response Time - Median (milliseconds)",
       "tileType": "HEADER",
       "configured": true,
       "bounds": {
@@ -841,7 +841,7 @@
       "tileFilter": {}
     },
     {
-      "name": "Incoming Call Response Time - 90th Percentile",
+      "name": "Incoming Call Response Time - 90th Percentile (milliseconds)",
       "tileType": "HEADER",
       "configured": true,
       "bounds": {
