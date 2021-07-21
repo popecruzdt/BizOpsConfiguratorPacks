@@ -1,0 +1,1 @@
+{"name": "Boomi - handleRequest", "enabled": true, "rules": [{"enabled": true, "fileName": "", "className": "org.restlet.Uniform", "matcher": "EQUALS", "methodRules": [{"methodName": "handle", "argumentTypes": ["org.restlet.data.Request"], "returnType": "org.restlet.data.Response"}], "annotations": []}], "queueEntryPoint": false, "queueEntryPointType": null, "processGroups": []}
