@@ -1,1 +1,131 @@
-{"name": "Boomi - ShapeName", "enabled": true, "dataType": "STRING", "dataSources": [{"enabled": true, "source": "METHOD_PARAM", "valueProcessing": {"splitAt": "", "trim": false}, "technology": "JAVA", "methods": [{"method": {"visibility": "PUBLIC", "modifiers": [], "className": "com.boomi.process.shape.MessageShape", "methodName": "execute", "argumentTypes": ["com.boomi.store.ReadStore"], "returnType": "void"}, "capture": "THIS", "deepObjectAccess": ".getShapeLabel()"}]}, {"enabled": true, "source": "METHOD_PARAM", "valueProcessing": {"splitAt": "", "trim": false}, "technology": "JAVA", "methods": [{"method": {"visibility": "PUBLIC", "modifiers": [], "className": "com.boomi.process.shape.DocumentPropertyShape", "methodName": "execute", "argumentTypes": ["com.boomi.store.ReadStore"], "returnType": "void"}, "capture": "THIS", "deepObjectAccess": ".getShapeLabel()"}]}, {"enabled": true, "source": "METHOD_PARAM", "valueProcessing": {"splitAt": "", "trim": false}, "technology": "JAVA", "methods": [{"method": {"visibility": "PUBLIC", "modifiers": [], "className": "com.boomi.process.shape.DecisionShape", "methodName": "execute", "argumentTypes": ["com.boomi.store.ReadStore"], "returnType": "void"}, "capture": "THIS", "deepObjectAccess": ".getShapeLabel()"}]}, {"enabled": true, "source": "METHOD_PARAM", "valueProcessing": {"splitAt": "", "trim": false}, "technology": "JAVA", "methods": [{"method": {"visibility": "PUBLIC", "modifiers": [], "className": "com.boomi.process.shape.MapShape", "methodName": "execute", "argumentTypes": ["com.boomi.store.ReadStore"], "returnType": "void"}, "capture": "THIS", "deepObjectAccess": ".getShapeLabel()"}]}, {"enabled": true, "source": "METHOD_PARAM", "valueProcessing": {"splitAt": "", "trim": false}, "technology": "JAVA", "methods": [{"method": {"visibility": "PUBLIC", "modifiers": [], "className": "com.boomi.process.shape.DataProcessShape", "methodName": "execute", "argumentTypes": ["com.boomi.store.ReadStore"], "returnType": "void"}, "capture": "THIS", "deepObjectAccess": ".getShapeLabel()"}]}, {"enabled": true, "source": "METHOD_PARAM", "valueProcessing": {"splitAt": "", "trim": false}, "technology": "JAVA", "methods": [{"method": {"visibility": "PROTECTED", "modifiers": ["FINAL"], "className": "com.boomi.process.shape.ReturnDocumentsShape", "methodName": "execute", "argumentTypes": ["com.boomi.store.ReadStore"], "returnType": "void"}, "capture": "THIS", "deepObjectAccess": ".getShapeLabel()"}]}], "normalization": "ORIGINAL", "aggregation": "FIRST", "confidential": false, "skipPersonalDataMasking": false}
+{
+  "id": "594d1a78-5d73-4e0b-8861-ca76d81e8023",
+  "name": "Boomi - ShapeName",
+	"enabled": true,
+	"dataType": "STRING",
+	"dataSources": [{
+		"enabled": true,
+		"source": "METHOD_PARAM",
+		"valueProcessing": {
+			"splitAt": "",
+			"trim": false
+		},
+		"technology": "JAVA",
+		"methods": [{
+			"method": {
+				"visibility": "PUBLIC",
+				"modifiers": [],
+				"className": "com.boomi.process.shape.MessageShape",
+				"methodName": "execute",
+				"argumentTypes": ["com.boomi.store.ReadStore"],
+				"returnType": "void"
+			},
+			"capture": "THIS",
+			"deepObjectAccess": ".getShapeLabel()"
+		}]
+	}, {
+		"enabled": true,
+		"source": "METHOD_PARAM",
+		"valueProcessing": {
+			"splitAt": "",
+			"trim": false
+		},
+		"technology": "JAVA",
+		"methods": [{
+			"method": {
+				"visibility": "PUBLIC",
+				"modifiers": [],
+				"className": "com.boomi.process.shape.DocumentPropertyShape",
+				"methodName": "execute",
+				"argumentTypes": ["com.boomi.store.ReadStore"],
+				"returnType": "void"
+			},
+			"capture": "THIS",
+			"deepObjectAccess": ".getShapeLabel()"
+		}]
+	}, {
+		"enabled": true,
+		"source": "METHOD_PARAM",
+		"valueProcessing": {
+			"splitAt": "",
+			"trim": false
+		},
+		"technology": "JAVA",
+		"methods": [{
+			"method": {
+				"visibility": "PUBLIC",
+				"modifiers": [],
+				"className": "com.boomi.process.shape.DecisionShape",
+				"methodName": "execute",
+				"argumentTypes": ["com.boomi.store.ReadStore"],
+				"returnType": "void"
+			},
+			"capture": "THIS",
+			"deepObjectAccess": ".getShapeLabel()"
+		}]
+	}, {
+		"enabled": true,
+		"source": "METHOD_PARAM",
+		"valueProcessing": {
+			"splitAt": "",
+			"trim": false
+		},
+		"technology": "JAVA",
+		"methods": [{
+			"method": {
+				"visibility": "PUBLIC",
+				"modifiers": [],
+				"className": "com.boomi.process.shape.MapShape",
+				"methodName": "execute",
+				"argumentTypes": ["com.boomi.store.ReadStore"],
+				"returnType": "void"
+			},
+			"capture": "THIS",
+			"deepObjectAccess": ".getShapeLabel()"
+		}]
+	}, {
+		"enabled": true,
+		"source": "METHOD_PARAM",
+		"valueProcessing": {
+			"splitAt": "",
+			"trim": false
+		},
+		"technology": "JAVA",
+		"methods": [{
+			"method": {
+				"visibility": "PUBLIC",
+				"modifiers": [],
+				"className": "com.boomi.process.shape.DataProcessShape",
+				"methodName": "execute",
+				"argumentTypes": ["com.boomi.store.ReadStore"],
+				"returnType": "void"
+			},
+			"capture": "THIS",
+			"deepObjectAccess": ".getShapeLabel()"
+		}]
+	}, {
+		"enabled": true,
+		"source": "METHOD_PARAM",
+		"valueProcessing": {
+			"splitAt": "",
+			"trim": false
+		},
+		"technology": "JAVA",
+		"methods": [{
+			"method": {
+				"visibility": "PROTECTED",
+				"modifiers": ["FINAL"],
+				"className": "com.boomi.process.shape.ReturnDocumentsShape",
+				"methodName": "execute",
+				"argumentTypes": ["com.boomi.store.ReadStore"],
+				"returnType": "void"
+			},
+			"capture": "THIS",
+			"deepObjectAccess": ".getShapeLabel()"
+		}]
+	}],
+	"normalization": "ORIGINAL",
+	"aggregation": "FIRST",
+	"confidential": false,
+	"skipPersonalDataMasking": false
+}

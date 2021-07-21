@@ -1,1 +1,44 @@
-{"name": "Boomi - HandleRequestURI", "enabled": true, "dataType": "STRING", "dataSources": [{"enabled": true, "source": "METHOD_PARAM", "valueProcessing": {"splitAt": "", "trim": false}, "technology": "JAVA", "methods": [{"method": {"visibility": "PUBLIC", "modifiers": ["ABSTRACT"], "className": "org.restlet.Uniform", "methodName": "handle", "argumentTypes": ["org.restlet.data.Request", "org.restlet.data.Response"], "returnType": "void"}, "capture": "ARGUMENT", "argumentIndex": 1, "deepObjectAccess": ".getResourceRef().toString()"}, {"method": {"visibility": "PUBLIC", "modifiers": ["FINAL"], "className": "org.restlet.Uniform", "methodName": "handle", "argumentTypes": ["org.restlet.data.Request"], "returnType": "org.restlet.data.Response"}, "capture": "ARGUMENT", "argumentIndex": 1, "deepObjectAccess": ".getResourceRef().toString()"}]}], "normalization": "ORIGINAL", "aggregation": "FIRST", "confidential": false, "skipPersonalDataMasking": false}
+{
+  "id": "1b5e0f37-6db6-4579-b1f0-2de569dea01c",
+  "name": "Boomi - HandleRequestURI",
+	"enabled": true,
+	"dataType": "STRING",
+	"dataSources": [{
+		"enabled": true,
+		"source": "METHOD_PARAM",
+		"valueProcessing": {
+			"splitAt": "",
+			"trim": false
+		},
+		"technology": "JAVA",
+		"methods": [{
+			"method": {
+				"visibility": "PUBLIC",
+				"modifiers": ["ABSTRACT"],
+				"className": "org.restlet.Uniform",
+				"methodName": "handle",
+				"argumentTypes": ["org.restlet.data.Request", "org.restlet.data.Response"],
+				"returnType": "void"
+			},
+			"capture": "ARGUMENT",
+			"argumentIndex": 1,
+			"deepObjectAccess": ".getResourceRef().toString()"
+		}, {
+			"method": {
+				"visibility": "PUBLIC",
+				"modifiers": ["FINAL"],
+				"className": "org.restlet.Uniform",
+				"methodName": "handle",
+				"argumentTypes": ["org.restlet.data.Request"],
+				"returnType": "org.restlet.data.Response"
+			},
+			"capture": "ARGUMENT",
+			"argumentIndex": 1,
+			"deepObjectAccess": ".getResourceRef().toString()"
+		}]
+	}],
+	"normalization": "ORIGINAL",
+	"aggregation": "FIRST",
+	"confidential": false,
+	"skipPersonalDataMasking": false
+}

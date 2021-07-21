@@ -1,1 +1,20 @@
-{"name": "Boomi - handleRequest", "enabled": true, "rules": [{"enabled": true, "fileName": "", "className": "org.restlet.Uniform", "matcher": "EQUALS", "methodRules": [{"methodName": "handle", "argumentTypes": ["org.restlet.data.Request"], "returnType": "org.restlet.data.Response"}], "annotations": []}], "queueEntryPoint": false, "queueEntryPointType": null, "processGroups": []}
+{
+  "id": "21a4a92a-9b92-47e8-9366-8b7a56468b74",
+  "name": "Boomi - handleRequest",
+	"enabled": true,
+	"rules": [{
+		"enabled": true,
+		"fileName": "",
+		"className": "org.restlet.Uniform",
+		"matcher": "EQUALS",
+		"methodRules": [{
+			"methodName": "handle",
+			"argumentTypes": ["org.restlet.data.Request"],
+			"returnType": "org.restlet.data.Response"
+		}],
+		"annotations": []
+	}],
+	"queueEntryPoint": false,
+	"queueEntryPointType": null,
+	"processGroups": []
+}

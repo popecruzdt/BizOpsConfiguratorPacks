@@ -1,1 +1,24 @@
-{"name": "Boomi - Process", "enabled": true, "rules": [{"enabled": true, "fileName": "", "className": "com.boomi.execution.ExecutionTask", "matcher": "EQUALS", "methodRules": [{"methodName": "call", "argumentTypes": [], "returnType": "java.lang.Object"}, {"methodName": "call", "argumentTypes": [], "returnType": "com.boomi.execution.ExecutionResponse"}], "annotations": []}], "queueEntryPoint": false, "queueEntryPointType": null, "processGroups": []}
+{
+  "id": "0c60a157-d538-4072-a320-290354b908f5",
+  "name": "Boomi - Process",
+	"enabled": true,
+	"rules": [{
+		"enabled": true,
+		"fileName": "",
+		"className": "com.boomi.execution.ExecutionTask",
+		"matcher": "EQUALS",
+		"methodRules": [{
+			"methodName": "call",
+			"argumentTypes": [],
+			"returnType": "java.lang.Object"
+		}, {
+			"methodName": "call",
+			"argumentTypes": [],
+			"returnType": "com.boomi.execution.ExecutionResponse"
+		}],
+		"annotations": []
+	}],
+	"queueEntryPoint": false,
+	"queueEntryPointType": null,
+	"processGroups": []
+}

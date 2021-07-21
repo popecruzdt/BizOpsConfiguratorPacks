@@ -1,1 +1,31 @@
-{"name": "Boomi - ExecutionTaskName", "enabled": true, "dataType": "STRING", "dataSources": [{"enabled": true, "source": "METHOD_PARAM", "valueProcessing": {"splitAt": "", "trim": false}, "technology": "JAVA", "methods": [{"method": {"visibility": "PUBLIC", "modifiers": [], "className": "com.boomi.execution.ExecutionTask", "methodName": "call", "argumentTypes": [], "returnType": "com.boomi.execution.ExecutionResponse"}, "capture": "THIS", "deepObjectAccess": ".getProcessName()"}]}], "normalization": "ORIGINAL", "aggregation": "FIRST", "confidential": false, "skipPersonalDataMasking": false}
+{
+  "id": "7bf2eedd-068a-455c-92b1-fd5c14b89184",
+  "name": "Boomi - ExecutionTaskName",
+	"enabled": true,
+	"dataType": "STRING",
+	"dataSources": [{
+		"enabled": true,
+		"source": "METHOD_PARAM",
+		"valueProcessing": {
+			"splitAt": "",
+			"trim": false
+		},
+		"technology": "JAVA",
+		"methods": [{
+			"method": {
+				"visibility": "PUBLIC",
+				"modifiers": [],
+				"className": "com.boomi.execution.ExecutionTask",
+				"methodName": "call",
+				"argumentTypes": [],
+				"returnType": "com.boomi.execution.ExecutionResponse"
+			},
+			"capture": "THIS",
+			"deepObjectAccess": ".getProcessName()"
+		}]
+	}],
+	"normalization": "ORIGINAL",
+	"aggregation": "FIRST",
+	"confidential": false,
+	"skipPersonalDataMasking": false
+}
