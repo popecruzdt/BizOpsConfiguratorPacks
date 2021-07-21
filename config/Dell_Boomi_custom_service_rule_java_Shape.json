@@ -1,1 +1,20 @@
-{"name": "Boomi - Shape", "enabled": true, "rules": [{"enabled": true, "fileName": "", "className": "com.boomi.process.graph.ProcessShape", "matcher": "EQUALS", "methodRules": [{"methodName": "execute", "argumentTypes": ["com.boomi.store.ReadStore"], "returnType": "void"}], "annotations": []}], "queueEntryPoint": false, "queueEntryPointType": null, "processGroups": []}
+{
+  "id": "88882b60-113f-4c38-bd81-dbd015bed75e"
+  "name": "Boomi - Shape",
+	"enabled": true,
+	"rules": [{
+		"enabled": true,
+		"fileName": "",
+		"className": "com.boomi.process.graph.ProcessShape",
+		"matcher": "EQUALS",
+		"methodRules": [{
+			"methodName": "execute",
+			"argumentTypes": ["com.boomi.store.ReadStore"],
+			"returnType": "void"
+		}],
+		"annotations": []
+	}],
+	"queueEntryPoint": false,
+	"queueEntryPointType": null,
+	"processGroups": []
+}
