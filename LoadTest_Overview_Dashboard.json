@@ -1,0 +1,1320 @@
+ {
+  "metadata": {
+    "configurationVersions": [
+      5
+    ],
+    "clusterVersion": "1.223.81.20210806-160551"
+  },
+  "id": "c41589cf-ace3-4f92-8dc5-bda3444a96c0",
+  "dashboardMetadata": {
+    "name": "LoadTest Overview",
+    "shared": true,
+    "owner": "anthony.pope-cruz@dynatrace.com",
+    "dashboardFilter": {
+      "timeframe": "-7d to now"
+    },
+    "dynamicFilters": {
+      "filters": [
+        "SERVICE_TAG_KEY:LoadTest"
+      ]
+    }
+  },
+  "tiles": [
+    {
+      "name": "Load Test Requests by Test Name",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 76,
+        "left": 0,
+        "width": 380,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.ltn_request_count",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Dimension"
+          ],
+          "sortBy": "DESC",
+          "limit": 10,
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "columnId": "LoadTest.LTN_Request_Count",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "LoadTest Request Count by Test Step Name",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 76,
+        "left": 418,
+        "width": 1368,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_request_count",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Dimension"
+          ],
+          "sortBy": "DESC",
+          "limit": 20,
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "Load Test Response Time by Test Step Name (AVG)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 380,
+        "left": 418,
+        "width": 684,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_response_time",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Dimension"
+          ],
+          "sortBy": "DESC",
+          "limit": 20,
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "Load Test Response Time by Test Step Name (MED)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 684,
+        "left": 418,
+        "width": 684,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_response_time",
+          "spaceAggregation": "MEDIAN",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Dimension"
+          ],
+          "sortBy": "DESC",
+          "limit": 20,
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "Load Test Response Time by Test Step Name (90TH)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 988,
+        "left": 418,
+        "width": 684,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_response_time",
+          "spaceAggregation": "PERCENTILE_90",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Dimension"
+          ],
+          "sortBy": "DESC",
+          "limit": 20,
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "Load Test Failure Rate by Test Step Name (AVG)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 380,
+        "left": 1102,
+        "width": 684,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_failure_rate",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Dimension"
+          ],
+          "sortBy": "DESC",
+          "limit": 20,
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "Load Test Failure Rate by Test Step Name (MAX)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 684,
+        "left": 1102,
+        "width": 684,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_failure_rate",
+          "spaceAggregation": "MAX",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Dimension"
+          ],
+          "sortBy": "DESC",
+          "limit": 20,
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "Load Test Failed Request Count by Test Step Name",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 988,
+        "left": 1102,
+        "width": 684,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_failed_request_count",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Dimension"
+          ],
+          "sortBy": "DESC",
+          "limit": 20,
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "Load Test Successful/Failed Requests",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 76,
+        "left": 1824,
+        "width": 760,
+        "height": 570
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_successful_request_count",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Dimension"
+          ],
+          "sortBy": "DESC",
+          "limit": 20,
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "metric": "calc:service.loadtest.tsn_failed_request_count",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Dimension"
+          ],
+          "sortBy": "DESC",
+          "limit": 20,
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TABLE",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "columnId": "LoadTest.TSN_Failed_Request_Count",
+            "rules": [
+              {
+                "value": 0,
+                "color": "#7dc540"
+              },
+              {
+                "value": 10,
+                "color": "#f5d30f"
+              },
+              {
+                "value": 100,
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "Successful Requests",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 532,
+        "left": 0,
+        "width": 190,
+        "height": 152
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_successful_request_count",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE",
+          "hasTrendline": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "Failed Requests",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 532,
+        "left": 190,
+        "width": 190,
+        "height": 152
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_failed_request_count",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE",
+          "hasTrendline": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "AVG Response Time",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 684,
+        "left": 0,
+        "width": 190,
+        "height": 152
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_response_time",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE",
+          "hasTrendline": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "MED Response Time",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 684,
+        "left": 190,
+        "width": 190,
+        "height": 152
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_response_time",
+          "spaceAggregation": "MEDIAN",
+          "timeAggregation": "DEFAULT",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE",
+          "hasTrendline": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "90TH Response Time",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 836,
+        "left": 0,
+        "width": 190,
+        "height": 152
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_response_time",
+          "spaceAggregation": "PERCENTILE_90",
+          "timeAggregation": "DEFAULT",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE",
+          "hasTrendline": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "MAX Response Time",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 836,
+        "left": 190,
+        "width": 190,
+        "height": 152
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_response_time",
+          "spaceAggregation": "MAX",
+          "timeAggregation": "DEFAULT",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE",
+          "hasTrendline": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "LoadTest Services",
+      "tileType": "SERVICES",
+      "configured": true,
+      "bounds": {
+        "top": 380,
+        "left": 0,
+        "width": 190,
+        "height": 152
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "SERVICE",
+        "customName": "LoadTest Services",
+        "defaultName": "LoadTest Services",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {
+          "SERVICE": {
+            "AUTO_TAGS": [
+              "LoadTest"
+            ]
+          }
+        }
+      },
+      "chartVisible": true
+    },
+    {
+      "name": "Load Test Response Time",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 76,
+        "left": 2584,
+        "width": 760,
+        "height": 570
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_response_time",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Dimension"
+          ],
+          "sortBy": "DESC",
+          "limit": 20,
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "metric": "calc:service.loadtest.tsn_response_time",
+          "spaceAggregation": "MEDIAN",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Dimension"
+          ],
+          "sortBy": "DESC",
+          "limit": 20,
+          "enabled": true
+        },
+        {
+          "id": "C",
+          "metric": "calc:service.loadtest.tsn_response_time",
+          "spaceAggregation": "PERCENTILE_90",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Dimension"
+          ],
+          "sortBy": "DESC",
+          "limit": 20,
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TABLE",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "columnId": "LoadTest.TSN_Response_Time (Average)",
+            "rules": [
+              {
+                "value": 0,
+                "color": "#7dc540"
+              },
+              {
+                "value": 250000,
+                "color": "#f5d30f"
+              },
+              {
+                "value": 500000,
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "Top 10 Slowest Test Steps (AVG)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 684,
+        "left": 1824,
+        "width": 380,
+        "height": 608
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_response_time",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Dimension"
+          ],
+          "sortBy": "DESC",
+          "limit": 10,
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "columnId": "LoadTest.TSN_Response_Time (Average)",
+            "rules": [
+              {
+                "value": 0,
+                "color": "#7dc540"
+              },
+              {
+                "value": 250000,
+                "color": "#f5d30f"
+              },
+              {
+                "value": 500000,
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "Slowest Test Steps (MED)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 684,
+        "left": 2204,
+        "width": 380,
+        "height": 608
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_response_time",
+          "spaceAggregation": "MEDIAN",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Dimension"
+          ],
+          "sortBy": "DESC",
+          "limit": 10,
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "columnId": "LoadTest.TSN_Response_Time (Average)",
+            "rules": [
+              {
+                "value": 0,
+                "color": "#7dc540"
+              },
+              {
+                "value": 250000,
+                "color": "#f5d30f"
+              },
+              {
+                "value": 500000,
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "Slowest Test Steps (90TH)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 684,
+        "left": 2584,
+        "width": 380,
+        "height": 608
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_response_time",
+          "spaceAggregation": "PERCENTILE_90",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Dimension"
+          ],
+          "sortBy": "DESC",
+          "limit": 10,
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "columnId": "LoadTest.TSN_Response_Time (Average)",
+            "rules": [
+              {
+                "value": 0,
+                "color": "#7dc540"
+              },
+              {
+                "value": 250000,
+                "color": "#f5d30f"
+              },
+              {
+                "value": 500000,
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "Slowest Test Steps (MAX)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 684,
+        "left": 2964,
+        "width": 380,
+        "height": 608
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_response_time",
+          "spaceAggregation": "MAX",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Dimension"
+          ],
+          "sortBy": "DESC",
+          "limit": 10,
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "columnId": "LoadTest.TSN_Response_Time (Average)",
+            "rules": [
+              {
+                "value": 0,
+                "color": "#7dc540"
+              },
+              {
+                "value": 250000,
+                "color": "#f5d30f"
+              },
+              {
+                "value": 500000,
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "Performance Outliers",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 1824,
+        "width": 1520,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 380,
+        "height": 76
+      },
+      "tileFilter": {},
+      "markdown": "## Load Test Summary\nResults include integrated load tests outlined below."
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 418,
+        "width": 1368,
+        "height": 76
+      },
+      "tileFilter": {},
+      "markdown": "## Load Test Results Trending\nLoad test performance indicators trending over time.  Includes throughput, response time, and failure rate metrics split by load test step name."
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1824,
+        "width": 760,
+        "height": 76
+      },
+      "tileFilter": {},
+      "markdown": "## Functional Results Summary\nBreakdown of successful vs failed requests by load test step name."
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 2584,
+        "width": 760,
+        "height": 76
+      },
+      "tileFilter": {},
+      "markdown": "## Performance Results Summary\nBreakdown of individual request response time by load test step name - average, median, and 90th percentile."
+    },
+    {
+      "name": "Total Requests",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 380,
+        "left": 190,
+        "width": 190,
+        "height": 152
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "calc:service.loadtest.tsn_request_count",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE",
+          "hasTrendline": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        }
+      }
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 988,
+        "left": 0,
+        "width": 380,
+        "height": 304
+      },
+      "tileFilter": {},
+      "markdown": "## Analysis Links\n\n[Multidimensional Analysis](/ui/diagnostictools/mda?mdaId=topweb&metric=REQUEST_COUNT&dimension=%7BRequest:Name%7D&mergeServices=false&aggregation=COUNT&percentile=80&chart=COLUMN&servicefilter=0%1E26%112%1026%111%1048%11LoadTest%1015%11c1cb05d0-6d7c-43d0-acea-ef07743bdde7)\n\n[Throughput by Test Step Name and Test Name](/ui/diagnostictools/mda?mdaId=topweb&metric=REQUEST_COUNT&dimension=%7BRequestAttribute:LoadTest%20TSN%7D%20(%7BRequestAttribute:LoadTest%20LTN%7D)&mergeServices=true&aggregation=COUNT&percentile=80&chart=COLUMN&servicefilter=0%1E26%112%1026%111%1048%11LoadTest%1015%11c1cb05d0-6d7c-43d0-acea-ef07743bdde7)\n\n[Response Time by Test Step Name and Test Name](/ui/diagnostictools/mda?mdaId=topweb&metric=RESPONSE_TIME&dimension=%7BRequestAttribute:LoadTest%20TSN%7D%20(%7BRequestAttribute:LoadTest%20LTN%7D)&mergeServices=true&aggregation=AVERAGE&percentile=80&chart=COLUMN&servicefilter=0%1E26%112%1026%111%1048%11LoadTest%1015%11c1cb05d0-6d7c-43d0-acea-ef07743bdde7)\n\n[Failure Rate by Test Step Name and Test Name](/ui/diagnostictools/mda?mdaId=topweb&metric=FAILURE_RATE&dimension=%7BRequestAttribute:LoadTest%20TSN%7D%20(%7BRequestAttribute:LoadTest%20LTN%7D)&mergeServices=true&aggregation=AVERAGE&percentile=80&chart=COLUMN&servicefilter=0%1E26%112%1026%111%1048%11LoadTest%1015%11c1cb05d0-6d7c-43d0-acea-ef07743bdde7)"
+    }
+  ]
+}

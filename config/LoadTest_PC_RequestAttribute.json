@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "configurationVersions": [
+      3
+    ],
+    "clusterVersion": "1.223.81.20210806-160551"
+  },
+  "id": "18f4e84d-4953-45ed-a230-28946c0f412a",
+  "name": "LoadTest PC",
+  "enabled": true,
+  "dataType": "STRING",
+  "dataSources": [
+    {
+      "enabled": true,
+      "source": "REQUEST_HEADER",
+      "valueProcessing": {
+        "splitAt": "",
+        "trim": false,
+        "extractSubstring": {
+          "position": "BETWEEN",
+          "delimiter": "PC=",
+          "endDelimiter": ";"
+        }
+      },
+      "parameterName": "x-dynatrace-test",
+      "capturingAndStorageLocation": "CAPTURE_AND_STORE_ON_SERVER"
+    }
+  ],
+  "normalization": "ORIGINAL",
+  "aggregation": "FIRST",
+  "confidential": false,
+  "skipPersonalDataMasking": false
+}

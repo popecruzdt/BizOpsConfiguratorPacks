@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "configurationVersions": [
+      3
+    ],
+    "clusterVersion": "1.223.81.20210806-160551"
+  },
+  "id": "31ca5d64-f2c3-424c-b525-a09a210e8ea4",
+  "name": "LoadTest VU",
+  "enabled": true,
+  "dataType": "STRING",
+  "dataSources": [
+    {
+      "enabled": true,
+      "source": "REQUEST_HEADER",
+      "valueProcessing": {
+        "splitAt": "",
+        "trim": false,
+        "extractSubstring": {
+          "position": "BETWEEN",
+          "delimiter": "VU=",
+          "endDelimiter": ";"
+        }
+      },
+      "parameterName": "x-dynatrace-test",
+      "capturingAndStorageLocation": "CAPTURE_AND_STORE_ON_SERVER"
+    }
+  ],
+  "normalization": "ORIGINAL",
+  "aggregation": "FIRST",
+  "confidential": false,
+  "skipPersonalDataMasking": false
+}

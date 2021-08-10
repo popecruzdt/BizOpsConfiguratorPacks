@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "configurationVersions": [
+      7
+    ],
+    "clusterVersion": "1.223.81.20210806-160551"
+  },
+  "id": "1ba0f046-a75d-48c1-b49a-96e48d5ad822",
+  "name": "LoadTest",
+  "description": null,
+  "rules": [
+    {
+      "type": "SERVICE",
+      "enabled": true,
+      "valueFormat": "Placeholder",
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "SERVICE_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "CONTAINS",
+            "value": "Placeholder",
+            "negate": false,
+            "caseSensitive": false
+          }
+        }
+      ]
+    }
+  ],
+  "entitySelectorBasedRules": []
+}

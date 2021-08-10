@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "configurationVersions": [
+      3
+    ],
+    "clusterVersion": "1.223.81.20210806-160551"
+  },
+  "id": "3356aa90-73f7-4e86-9001-38c73d43efb8",
+  "name": "LoadTest TSN",
+  "enabled": true,
+  "dataType": "STRING",
+  "dataSources": [
+    {
+      "enabled": true,
+      "source": "REQUEST_HEADER",
+      "valueProcessing": {
+        "splitAt": "",
+        "trim": false,
+        "extractSubstring": {
+          "position": "BETWEEN",
+          "delimiter": "TSN=",
+          "endDelimiter": ";"
+        }
+      },
+      "parameterName": "x-dynatrace-test",
+      "capturingAndStorageLocation": "CAPTURE_AND_STORE_ON_SERVER"
+    }
+  ],
+  "normalization": "ORIGINAL",
+  "aggregation": "FIRST",
+  "confidential": false,
+  "skipPersonalDataMasking": false
+}

@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "configurationVersions": [
+      0
+    ],
+    "clusterVersion": "1.222.83.20210728-093710"
+  },
+  "tsmMetricKey": "calc:service.loadtest.tsn_successful_request_count",
+  "name": "LoadTest.TSN_Successful_Request_Count",
+  "enabled": true,
+  "metricDefinition": {
+    "metric": "SUCCESSFUL_REQUEST_COUNT",
+    "requestAttribute": null
+  },
+  "unit": "COUNT",
+  "unitDisplayName": null,
+  "entityId": null,
+  "managementZones": [],
+  "conditions": [
+    {
+      "attribute": "SERVICE_TYPE",
+      "comparisonInfo": {
+        "type": "SERVICE_TYPE",
+        "comparison": "EQUALS_ANY_OF",
+        "value": null,
+        "values": [
+          "WEB_SERVICE",
+          "WEB_REQUEST_SERVICE"
+        ],
+        "negate": false
+      }
+    },
+    {
+      "attribute": "SERVICE_TAG",
+      "comparisonInfo": {
+        "type": "TAG",
+        "comparison": "TAG_KEY_EQUALS",
+        "value": {
+          "context": "CONTEXTLESS",
+          "key": "LoadTest"
+        },
+        "values": null,
+        "negate": false
+      }
+    },
+    {
+      "attribute": "SERVICE_REQUEST_ATTRIBUTE",
+      "comparisonInfo": {
+        "type": "STRING_REQUEST_ATTRIBUTE",
+        "comparison": "EXISTS",
+        "value": null,
+        "values": null,
+        "negate": false,
+        "requestAttribute": "LoadTest LTN",
+        "caseSensitive": false,
+        "matchOnChildCalls": false,
+        "source": null
+      }
+    },
+    {
+      "attribute": "SERVICE_REQUEST_ATTRIBUTE",
+      "comparisonInfo": {
+        "type": "STRING_REQUEST_ATTRIBUTE",
+        "comparison": "EXISTS",
+        "value": null,
+        "values": null,
+        "negate": false,
+        "requestAttribute": "LoadTest TSN",
+        "caseSensitive": false,
+        "matchOnChildCalls": false,
+        "source": null
+      }
+    }
+  ],
+  "dimensionDefinition": {
+    "name": "Dimension",
+    "dimension": "{RequestAttribute:LoadTest TSN}",
+    "placeholders": [],
+    "topX": 50,
+    "topXDirection": "DESCENDING",
+    "topXAggregation": "SUM"
+  }
+}
