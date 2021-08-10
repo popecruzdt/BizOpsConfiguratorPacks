@@ -17,7 +17,7 @@ This dashboard displays the functional and performance metrics captured for load
 #### Integrate your HTTP load tests using the x-dynatrace-test HTTP header
   * https://www.dynatrace.com/support/help/shortlink/load-testing-process#tag-tests-with-http-headers
 
-## Steps
+## Steps:
 #### Request Attributes
 Upload the Request Attribute configurations to capture the load test metadata.  These should be uploaded first.
 ![Request Attributes](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/LoadTest_RequestAttributes_screenshot.png)
@@ -31,3 +31,5 @@ The Automatic Tag includes a placeholder rule.  This rule should do nothing.  Re
 #### Custom Metrics
 Upload the Custom (Calculated Service) Metrics configurations to capture the load test metrics for the load test metadata.  These should be uploaded third.  These metrics depend on the Request Attributes and Automatic Tag(s).
 ![Custom Metrics](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/LoadTest_CustomMetrics_screenshot.png)
+
+Note: Adding custom metrics may result in additional DDU license consumption: https://www.dynatrace.com/support/help/shortlink/metric-cost-calculation
