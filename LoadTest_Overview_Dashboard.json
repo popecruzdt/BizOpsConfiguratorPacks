@@ -508,15 +508,15 @@
            "columnId": "LoadTest.TSN_Failed_Request_Count",
            "rules": [
              {
-               "value": ${TSN_Failed_Request_Count.green},
+               "value": "${TSN_Failed_Request_Count.green}",
                "color": "#7dc540"
              },
              {
-               "value": ${TSN_Failed_Request_Count.yellow},
+               "value": "${TSN_Failed_Request_Count.yellow}",
                "color": "#f5d30f"
              },
              {
-               "value": ${TSN_Failed_Request_Count.red},
+               "value": "${TSN_Failed_Request_Count.red}",
                "color": "#dc172a"
              }
            ]
