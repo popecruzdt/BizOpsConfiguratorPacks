@@ -11,3 +11,6 @@ Developed and tested on Dynatrace v1.216.  Should be backwards compatible with r
 ## Dashboards:
 ### DDU Consumption
 An overview of DDU consumption.
+
+## Issues & Enhancement:
+For any issues or requests for enhancement, please open an Issue on the GitHub repo: https://github.com/popecruzdt/BizOpsConfiguratorPacks/issues

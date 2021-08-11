@@ -17,3 +17,6 @@ Documentation: https://www.dynatrace.com/support/help/shortlink/jmx-extensions#u
 ## Dashboards:
 ### Work In Progress
 Dashboards are WIP
+
+## Issues & Enhancement:
+For any issues or requests for enhancement, please open an Issue on the GitHub repo: https://github.com/popecruzdt/BizOpsConfiguratorPacks/issues

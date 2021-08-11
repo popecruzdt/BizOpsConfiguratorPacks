@@ -22,3 +22,6 @@ This dashboard utilizes the application, service, database, and host "health" ti
 Example automated tagging rules:
 
 ![Tagging Rules](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/Executive_Overview_Honeycombs_Tagging.png)
+
+## Issues & Enhancement:
+For any issues or requests for enhancement, please open an Issue on the GitHub repo: https://github.com/popecruzdt/BizOpsConfiguratorPacks/issues

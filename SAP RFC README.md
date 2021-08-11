@@ -28,3 +28,6 @@ This dashboard displays the throughput and response time of outgoing RFC calls. 
 #### Metric Metadata
 In Dynatrace version 1.221+, the metric metadata for SAP RFC metrics can be modified to include a Unit.  By default, the metrics do not have Units.  It is recommended to change the Unit of the Execution Time metrics to MilliSecond.
 ![SAP RFC Metric Unit](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/SAP_RFC_Metric_Metadata_Unit_screenshot.png)
+
+## Issues & Enhancement:
+For any issues or requests for enhancement, please open an Issue on the GitHub repo: https://github.com/popecruzdt/BizOpsConfiguratorPacks/issues

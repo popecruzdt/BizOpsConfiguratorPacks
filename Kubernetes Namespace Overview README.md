@@ -21,3 +21,6 @@ This dashboard displays the most relevant information about the health, performa
   * Process groups where Kubernetes namespace equals '*your namespace*' and that run on hosts where Kubernetes cluster name equals '*your kubernetes cluster name*'
   * Cloud application namespace where Cloud application namespace name equals '*your namespace*'
   * Kubernetes cluster on hosts where Kubernetes cluster name equals '*your kubernetes cluster name*'
+
+## Issues & Enhancement:
+For any issues or requests for enhancement, please open an Issue on the GitHub repo: https://github.com/popecruzdt/BizOpsConfiguratorPacks/issues
