@@ -7,7 +7,7 @@
  },
  "id": "c41589cf-ace3-4f92-8dc5-bda3444a96c0",
  "dashboardMetadata": {
-   "name": "LoadTest Overview",
+   "name": "${Load_Test_Overview_Name}",
    "shared": true,
    "owner": "anthony.pope-cruz@dynatrace.com",
    "dashboardFilter": {
