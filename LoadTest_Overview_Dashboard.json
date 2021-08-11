@@ -928,15 +928,15 @@
            "columnId": "LoadTest.TSN_Response_Time (Average)",
            "rules": [
              {
-               "value": 0,
+               "value": "${TSN_Response_Time.green}",
                "color": "#7dc540"
              },
              {
-               "value": 250000,
+               "value": "${TSN_Response_Time.yellow}",
                "color": "#f5d30f"
              },
              {
-               "value": 500000,
+               "value": "${TSN_Response_Time.red}",
                "color": "#dc172a"
              }
            ]
@@ -987,15 +987,15 @@
            "columnId": "LoadTest.TSN_Response_Time (Average)",
            "rules": [
              {
-               "value": 0,
+               "value": "${TSN_Response_Time.green}",
                "color": "#7dc540"
              },
              {
-               "value": 250000,
+               "value": "${TSN_Response_Time.yellow}",
                "color": "#f5d30f"
              },
              {
-               "value": 500000,
+               "value": "${TSN_Response_Time.red}",
                "color": "#dc172a"
              }
            ]
@@ -1046,15 +1046,15 @@
            "columnId": "LoadTest.TSN_Response_Time (Average)",
            "rules": [
              {
-               "value": 0,
+               "value": "${TSN_Response_Time.green}",
                "color": "#7dc540"
              },
              {
-               "value": 250000,
+               "value": "${TSN_Response_Time.yellow}",
                "color": "#f5d30f"
              },
              {
-               "value": 500000,
+               "value": "${TSN_Response_Time.red}",
                "color": "#dc172a"
              }
            ]
@@ -1105,15 +1105,15 @@
            "columnId": "LoadTest.TSN_Response_Time (Average)",
            "rules": [
              {
-               "value": 0,
+               "value": "${TSN_Response_Time.green}",
                "color": "#7dc540"
              },
              {
-               "value": 250000,
+               "value": "${TSN_Response_Time.yellow}",
                "color": "#f5d30f"
              },
              {
-               "value": 500000,
+               "value": "${TSN_Response_Time.red}",
                "color": "#dc172a"
              }
            ]
@@ -1164,15 +1164,15 @@
            "columnId": "LoadTest.TSN_Response_Time (Average)",
            "rules": [
              {
-               "value": 0,
+               "value": "${TSN_Response_Time.green}",
                "color": "#7dc540"
              },
              {
-               "value": 250000,
+               "value": "${TSN_Response_Time.yellow}",
                "color": "#f5d30f"
              },
              {
-               "value": 500000,
+               "value": "${TSN_Response_Time.red}",
                "color": "#dc172a"
              }
            ]
