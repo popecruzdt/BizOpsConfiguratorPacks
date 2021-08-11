@@ -77,7 +77,7 @@
      }
    },
    {
-     "name": "LoadTest Request Count by Test Step Name",
+     "name": "Load Test Request Count by Test Step Name",
      "tileType": "DATA_EXPLORER",
      "configured": true,
      "bounds": {
@@ -953,7 +953,7 @@
      }
    },
    {
-     "name": "Top 10 Slowest Test Steps (AVG)",
+     "name": "Slowest Test Steps (AVG)",
      "tileType": "DATA_EXPLORER",
      "configured": true,
      "bounds": {
