@@ -1,0 +1,1385 @@
+ {
+  "metadata": {
+    "configurationVersions": [
+      3
+    ],
+    "clusterVersion": "1.218.113.20210626-080258"
+  },
+  "id": "6eb103da-fb5f-420a-928d-930a01877ec3",
+  "dashboardMetadata": {
+    "name": "${overviewName}",
+    "shared": true,
+    "owner": "anthony.pope-cruz@dynatrace.com",
+    "dashboardFilter": {
+      "timeframe": "-1h",
+      "managementZone": {
+        "id": "${mz.id}",
+        "name": "${mz.name}"
+      }
+    },
+    "tags": [
+      "OracleDB",
+      "DBInsight"
+    ]
+  },
+  "tiles": [
+    {
+      "name": "Performance",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 418,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Throughput",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.oracleDb.cd.sessions.active",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.custom_device"
+          ],
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "metric": "builtin:tech.oracleDb.cd.sessions.userCalls",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.custom_device"
+          ],
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "AREA"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "AREA"
+            }
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "seriesType": "COLUMN"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "CPU",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 304,
+        "left": 0,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:tech.\"oracleDb\".cd.cpu.background:splitBy(\"dt.entity.custom_device\"):avg:auto:sort(value(avg,descending)):limit(20)",
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:tech.\"oracleDb\".cd.cpu.foreground:splitBy(\"dt.entity.custom_device\"):avg:auto:sort(value(avg,descending)):limit(20)",
+          "enabled": true
+        },
+        {
+          "id": "C",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:tech.oracleDb.cd.cpu.other:splitBy(\"dt.entity.custom_device\"):avg:auto:sort(value(avg,descending)):limit(20)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "seriesType": "COLUMN"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Disk",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 570,
+        "left": 0,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:tech.\"oracleDb\".cd.io.bytesRead:splitBy(\"dt.entity.custom_device\"):avg:auto:sort(value(avg,descending)):limit(20)",
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:tech.\"oracleDb\".cd.io.bytesWritten:splitBy(\"dt.entity.custom_device\"):avg:auto:sort(value(avg,descending)):limit(20)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "ROYALBLUE",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "AREA"
+            }
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "seriesType": "AREA"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sorts in memory",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1102,
+        "left": 0,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.oracleDb.cd.memory.sortsInMemory",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.custom_device"
+          ],
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "TURQUOISE",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "AREA"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Buffer cache hit",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 836,
+        "left": 0,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.oracleDb.cd.memory.bufferCacheHit",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.custom_device"
+          ],
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "BLUE",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "AREA"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Time breakdown",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 418,
+        "width": 418,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Total Time wait",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 418,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.oracleDb.cd.io.wait",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.custom_device"
+          ],
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "BLUE",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "AREA"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Time spent breakdown",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 304,
+        "left": 418,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:tech.\"oracleDb\".cd.queries.\"sqlParse\":splitBy(\"dt.entity.custom_device\"):avg:auto:sort(value(avg,descending)):limit(20)",
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:tech.\"oracleDb\".cd.queries.\"sqlExec\":splitBy(\"dt.entity.custom_device\"):avg:auto:sort(value(avg,descending)):limit(20)",
+          "enabled": true
+        },
+        {
+          "id": "C",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:tech.\"oracleDb\".cd.queries.\"plSqlExec\":splitBy(\"dt.entity.custom_device\"):avg:auto:sort(value(avg,descending)):limit(20)",
+          "enabled": true
+        },
+        {
+          "id": "D",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:tech.\"oracleDb\".cd.queries.\"connMgmt\":splitBy(\"dt.entity.custom_device\"):avg:auto:sort(value(avg,descending)):limit(20)",
+          "enabled": true
+        },
+        {
+          "id": "E",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:tech.\"oracleDb\".cd.queries.\"other\":splitBy(\"dt.entity.custom_device\"):avg:auto:sort(value(avg,descending)):limit(20)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "BLUE",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "columnId": "Time spent on SQL parsing",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "COLUMN"
+            }
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "seriesType": "COLUMN"
+            }
+          },
+          {
+            "matcher": "C:",
+            "properties": {
+              "seriesType": "COLUMN"
+            }
+          },
+          {
+            "matcher": "D:",
+            "properties": {
+              "seriesType": "COLUMN"
+            }
+          },
+          {
+            "matcher": "E:",
+            "properties": {
+              "seriesType": "COLUMN"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "PGA memory",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 570,
+        "left": 418,
+        "width": 418,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "PGA used for work areas",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 608,
+        "left": 418,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.oracleDb.cd.memory.pga.usedForWorkAreas",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.custom_device"
+          ],
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "BLUE",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "AREA"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "PGA size",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 874,
+        "left": 418,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:tech.\"oracleDb\".cd.memory.pga.size.\"allocated\":splitBy(\"dt.entity.custom_device\"):avg:auto:sort(value(avg,descending)):limit(20)",
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:tech.\"oracleDb\".cd.memory.pga.size.\"pgaAggregateTarget\":splitBy(\"dt.entity.custom_device\"):avg:auto:sort(value(avg,descending)):limit(20)",
+          "enabled": true
+        },
+        {
+          "id": "C",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "builtin:tech.\"oracleDb\".cd.memory.pga.size.\"pgaAggregateLimit\":splitBy(\"dt.entity.custom_device\"):avg:auto:sort(value(avg,descending)):limit(20)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "TURQUOISE",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "columnId": "Time spent on SQL parsing",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "AREA"
+            }
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "seriesType": "AREA"
+            }
+          },
+          {
+            "matcher": "C:",
+            "properties": {
+              "seriesType": "AREA"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Shared pool",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 836,
+        "width": 418,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Shared pool free",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 836,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.oracleDb.cd.memory.sga.cacheBuffer.sharedPoolFree",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.custom_device"
+          ],
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "TURQUOISE",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "AREA"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Read log buffer",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 304,
+        "left": 836,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.oracleDb.cd.memory.sga.redoBuffer.redoSizeIncrease",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.custom_device"
+          ],
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "BLUE",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "columnId": "Time spent on SQL parsing",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "AREA"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Read log buffer spent time",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 570,
+        "left": 836,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.oracleDb.cd.memory.sga.redoBuffer.redoLogSpaceWaitTime",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.custom_device"
+          ],
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "metric": "builtin:tech.oracleDb.cd.memory.sga.redoBuffer.redoWriteTime",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.custom_device"
+          ],
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "TURQUOISE",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "columnId": "Time spent on SQL parsing",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "TURQUOISE",
+              "seriesType": "COLUMN"
+            }
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "color": "ROYALBLUE",
+              "seriesType": "COLUMN"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Overall Metrics",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1254,
+        "width": 836,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Statement performance",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 304,
+        "left": 1254,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.oracleDb.cd.slow.time.elapsed",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "metric": "builtin:tech.oracleDb.cd.slow.executions",
+          "spaceAggregation": "COUNT",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        },
+        {
+          "id": "C",
+          "metric": "builtin:tech.oracleDb.cd.slow.time.cpu",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        },
+        {
+          "id": "D",
+          "metric": "builtin:tech.oracleDb.cd.wait.time",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "TURQUOISE",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "columnId": "Time spent on SQL parsing",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "ROYALBLUE",
+              "seriesType": "LINE"
+            }
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "color": "YELLOW",
+              "seriesType": "LINE"
+            }
+          },
+          {
+            "matcher": "C:",
+            "properties": {
+              "color": "TURQUOISE",
+              "seriesType": "COLUMN"
+            }
+          },
+          {
+            "matcher": "D:",
+            "properties": {
+              "color": "PURPLE",
+              "seriesType": "COLUMN"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Waits",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 304,
+        "left": 1672,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.oracleDb.cd.slow.time.application",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "metric": "builtin:tech.oracleDb.cd.slow.time.concurrency",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        },
+        {
+          "id": "C",
+          "metric": "builtin:tech.oracleDb.cd.slow.time.cluster",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        },
+        {
+          "id": "D",
+          "metric": "builtin:tech.oracleDb.cd.slow.time.userIo",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "TURQUOISE",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "columnId": "Time spent on SQL parsing",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "ROYALBLUE",
+              "seriesType": "COLUMN"
+            }
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "color": "YELLOW",
+              "seriesType": "COLUMN"
+            }
+          },
+          {
+            "matcher": "C:",
+            "properties": {
+              "color": "TURQUOISE",
+              "seriesType": "COLUMN"
+            }
+          },
+          {
+            "matcher": "D:",
+            "properties": {
+              "color": "PURPLE",
+              "seriesType": "COLUMN"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Execution details",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 570,
+        "left": 1254,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.oracleDb.cd.slow.executions",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "metric": "builtin:tech.oracleDb.cd.slow.rowsProcessed",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        },
+        {
+          "id": "C",
+          "metric": "builtin:tech.oracleDb.cd.slow.diskReads",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        },
+        {
+          "id": "D",
+          "metric": "builtin:tech.oracleDb.cd.slow.directWrites",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        },
+        {
+          "id": "E",
+          "metric": "builtin:tech.oracleDb.cd.slow.parseCalls",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "TURQUOISE",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "columnId": "Time spent on SQL parsing",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "ROYALBLUE",
+              "seriesType": "LINE"
+            }
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "color": "YELLOW",
+              "seriesType": "LINE"
+            }
+          },
+          {
+            "matcher": "C:",
+            "properties": {
+              "color": "PURPLE",
+              "seriesType": "LINE"
+            }
+          },
+          {
+            "matcher": "D:",
+            "properties": {
+              "color": "ORANGE",
+              "seriesType": "LINE"
+            }
+          },
+          {
+            "matcher": "E:",
+            "properties": {
+              "color": "GREEN",
+              "seriesType": "LINE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Tablespace",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1672,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.oracleDb.cd.tablespaces.totalSpace",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "metric": "builtin:tech.oracleDb.cd.tablespaces.usedSpace",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "TURQUOISE",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "columnId": "Time spent on SQL parsing",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "ORANGE",
+              "seriesType": "LINE"
+            }
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "color": "GREEN",
+              "seriesType": "AREA"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "CPU idle % vs Wait events count",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 570,
+        "left": 1672,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.oracleDb.cd.cpu.idle",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "metric": "builtin:tech.oracleDb.cd.wait.count",
+          "spaceAggregation": "COUNT",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "seriesType": "COLUMN"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Total sessions count",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1254,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.oracleDb.cd.sessions.all",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "TURQUOISE",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE",
+          "hasTrendline": true
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "AREA"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
