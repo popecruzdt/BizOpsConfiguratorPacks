@@ -1,0 +1,544 @@
+ {
+  "metadata": {
+    "configurationVersions": [
+      4
+    ],
+    "clusterVersion": "1.220.112.20210722-125351"
+  },
+  "id": "7cc810fd-9d13-41c7-a2a9-cab481c91438",
+  "dashboardMetadata": {
+    "name": "HornetQ",
+    "shared": true,
+    "owner": "80a61c2f",
+    "dashboardFilter": {
+      "timeframe": "-1h"
+    }
+  },
+  "tiles": [
+    {
+      "name": "Message Count (Queue Depth)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 570,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": "Last 2 hours"
+      },
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.hornetq.Queue.MessageCount",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "name"
+          ],
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": []
+      }
+    },
+    {
+      "name": "Current Message Count (Queue Depth)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 570,
+        "width": 380,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": "-30m"
+      },
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.hornetq.Queue.MessageCount",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "name"
+          ],
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": []
+      }
+    },
+    {
+      "name": "Message Count (Queue Depth) per Instance",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 0,
+        "width": 570,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.hornetq.Queue.MessageCount",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.process_group_instance"
+          ],
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": []
+      }
+    },
+    {
+      "name": "Top Message Counts (Queue Depth)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 570,
+        "width": 380,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.hornetq.Queue.MessageCount",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.process_group_instance",
+            "name"
+          ],
+          "foldTransformation": "TOTAL",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": []
+      }
+    },
+    {
+      "name": "Messages Added (Ingress)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 988,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.hornetq.Queue.MessagesAdded",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "name"
+          ],
+          "foldTransformation": "TOTAL",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": []
+      }
+    },
+    {
+      "name": "Messages Added (Ingress)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1292,
+        "width": 570,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.hornetq.Queue.MessagesAdded",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "name"
+          ],
+          "foldTransformation": "TOTAL",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": []
+      }
+    },
+    {
+      "name": "Messages Added (Ingress) per Instance",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 1292,
+        "width": 570,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.hornetq.Queue.MessagesAdded",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.process_group_instance"
+          ],
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": []
+      }
+    },
+    {
+      "name": "Current Messages Added (Ingress)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 988,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": "-30m"
+      },
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.hornetq.Queue.MessagesAdded",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "name"
+          ],
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": []
+      }
+    },
+    {
+      "name": "Current Consumer Count per Queue",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 684,
+        "left": 0,
+        "width": 570,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": "-30m"
+      },
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.hornetq.Queue.ConsumerCount",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "name"
+          ],
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": []
+      }
+    },
+    {
+      "name": "Current Delivering Count per Queue",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 684,
+        "left": 570,
+        "width": 380,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": "-30m"
+      },
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.hornetq.Queue.DeliveringCount",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "name"
+          ],
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "threshold": {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ]
+          },
+          "seriesType": "LINE"
+        },
+        "rules": []
+      }
+    },
+    {
+      "name": "Queue Depth",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 950,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Message Ingress",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 988,
+        "width": 874,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Auxillary Queue Details",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 0,
+        "width": 950,
+        "height": 38
+      },
+      "tileFilter": {}
+    }
+  ]
+}
