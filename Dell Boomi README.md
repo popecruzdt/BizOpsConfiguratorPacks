@@ -18,5 +18,7 @@ Documentation: https://www.dynatrace.com/support/help/shortlink/jmx-extensions#u
 ### Dell Boomi Platform Overview
 This dashboard displays the most relevant information about the health, performance, and utilization of the Dell Boomi platform.  This includes the custom services for Boomi runtime, JMX metrics for Boomi runtime, and infrastructure health.  Scope is based on configured Management Zone.
 
+![Dell Boomi Platform Overview](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/Dell_Boomi_Platform_Overview_screenshot.png)
+
 ## Issues & Enhancement:
 For any issues or requests for enhancement, please open an Issue on the GitHub repo: https://github.com/popecruzdt/BizOpsConfiguratorPacks/issues
