@@ -23,7 +23,7 @@
       "Application",
       "RUM"
     ],
-    "preset": true
+    "preset": false
   },
   "tiles": [
     {

@@ -23,7 +23,7 @@
       "Overview",
       "RUM"
     ],
-    "preset": true
+    "preset": false
   },
   "tiles": [
     {
