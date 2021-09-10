@@ -1,0 +1,652 @@
+ {
+  "metadata": {
+    "configurationVersions": [
+      5
+    ],
+    "clusterVersion": "1.222.86.20210802-200423"
+  },
+  "id": "7b81a001-d8bd-4265-affc-9a20b0456607",
+  "dashboardMetadata": {
+    "name": "${app.name} RUM - Trending Overview",
+    "shared": true,
+    "owner": "c920366",
+    "dashboardFilter": {
+      "timeframe": "-24h to now",
+      "managementZone": {
+        "id": "${mz.id}",
+        "name": "${mz.name}"
+      }
+    },
+    "tags": [
+      "End User Experience",
+      "Overview",
+      "Application",
+      "RUM"
+    ],
+    "preset": true
+  },
+  "tiles": [
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 304,
+        "left": 0,
+        "width": 798,
+        "height": 304
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Active sessions",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "builtin:apps.web.activeSessions",
+              "aggregation": "NONE",
+              "type": "BAR",
+              "entityType": "APPLICATION",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "nullbuiltin:apps.web.activeSessions|NONE|TOTAL|BAR|APPLICATION": {
+              "lastModified": 1596556136999,
+              "customColor": "#7c38a1"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 608,
+        "left": 0,
+        "width": 798,
+        "height": 304
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Active unique users (estimated)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "builtin:apps.web.activeUsersEst",
+              "aggregation": "NONE",
+              "type": "BAR",
+              "entityType": "APPLICATION",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1216,
+        "left": 798,
+        "width": 798,
+        "height": 304
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Average number of actions per session",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "builtin:apps.web.actionsPerSession",
+              "aggregation": "AVG",
+              "type": "BAR",
+              "entityType": "APPLICATION",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "nullbuiltin:apps.web.actionsPerSession|AVG|TOTAL|BAR|APPLICATION": {
+              "lastModified": 1596556272807,
+              "customColor": "#ef651f"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 912,
+        "left": 0,
+        "width": 798,
+        "height": 304
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Started sessions",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "builtin:apps.web.startedSessions",
+              "aggregation": "NONE",
+              "type": "BAR",
+              "entityType": "APPLICATION",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "nullbuiltin:apps.web.startedSessions|NONE|TOTAL|BAR|APPLICATION": {
+              "lastModified": 1596556353360,
+              "customColor": "#b4e5f9"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 304,
+        "left": 798,
+        "width": 798,
+        "height": 304
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Action (Page Load) count",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "builtin:apps.web.actionCount.category",
+              "aggregation": "NONE",
+              "type": "BAR",
+              "entityType": "APPLICATION",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 608,
+        "left": 798,
+        "width": 798,
+        "height": 304
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Average Page Load Time",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "builtin:apps.web.actionDuration.load.browser",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "APPLICATION",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "nullbuiltin:apps.web.actionDuration.load.browser|AVG|TOTAL|LINE|APPLICATION": {
+              "lastModified": 1596556597393,
+              "customColor": "#2ab6f4"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 912,
+        "left": 798,
+        "width": 798,
+        "height": 304
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Page Loads by Browser",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:apps.web.actionCount.load.browser",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "APPLICATION",
+              "dimensions": [
+                {
+                  "id": "1",
+                  "name": "dt.entity.browser",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1216,
+        "left": 0,
+        "width": 798,
+        "height": 304
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Ended sessions",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "builtin:apps.web.endedSessions",
+              "aggregation": "NONE",
+              "type": "BAR",
+              "entityType": "APPLICATION",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "nullbuiltin:apps.web.endedSessions|NONE|TOTAL|BAR|APPLICATION": {
+              "lastModified": 1596558322624,
+              "customColor": "#f5d30f"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 266,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Active sessions",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "SINGLE_VALUE",
+          "series": [
+            {
+              "metric": "builtin:apps.web.activeSessions",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "APPLICATION",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 266,
+        "width": 266,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Active unique users (estimated)",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "SINGLE_VALUE",
+          "series": [
+            {
+              "metric": "builtin:apps.web.activeUsersEst",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "APPLICATION",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 532,
+        "width": 266,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Page Loads",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "SINGLE_VALUE",
+          "series": [
+            {
+              "metric": "builtin:apps.web.actionCount.category",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "APPLICATION",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 798,
+        "width": 266,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Satisfied Page Loads",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "SINGLE_VALUE",
+          "series": [
+            {
+              "metric": "builtin:apps.web.actionCount.category",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "APPLICATION",
+              "dimensions": [
+                {
+                  "id": "1",
+                  "name": "Apdex category",
+                  "values": [
+                    "SATISFIED"
+                  ],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "null¦Apdex category»SATISFIED»falsebuiltin:apps.web.actionCount.category|NONE|TOTAL|LINE|APPLICATION": {
+              "lastModified": 1596558725242,
+              "customColor": "#35fc03"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1064,
+        "width": 266,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Tolerated Page Loads",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "SINGLE_VALUE",
+          "series": [
+            {
+              "metric": "builtin:apps.web.actionCount.category",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "APPLICATION",
+              "dimensions": [
+                {
+                  "id": "1",
+                  "name": "Apdex category",
+                  "values": [
+                    "TOLERATING"
+                  ],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "null¦Apdex category»SATISFIED»falsebuiltin:apps.web.actionCount.category|NONE|TOTAL|LINE|APPLICATION": {
+              "lastModified": 1596558725242,
+              "customColor": "#35fc03"
+            },
+            "null¦Apdex category»TOLERATING»falsebuiltin:apps.web.actionCount.category|NONE|TOTAL|LINE|APPLICATION": {
+              "lastModified": 1596558803841,
+              "customColor": "#f8fc03"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1330,
+        "width": 266,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Frustrated Page Loads",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "SINGLE_VALUE",
+          "series": [
+            {
+              "metric": "builtin:apps.web.actionCount.category",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "APPLICATION",
+              "dimensions": [
+                {
+                  "id": "1",
+                  "name": "Apdex category",
+                  "values": [
+                    "FRUSTRATED"
+                  ],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "null¦Apdex category»FRUSTRATED»falsebuiltin:apps.web.actionCount.category|NONE|TOTAL|LINE|APPLICATION": {
+              "lastModified": 1596558865798,
+              "customColor": "#fc0303"
+            },
+            "null¦Apdex category»SATISFIED»falsebuiltin:apps.web.actionCount.category|NONE|TOTAL|LINE|APPLICATION": {
+              "lastModified": 1596558725242,
+              "customColor": "#35fc03"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Summary",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Trending",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 0,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 1558,
+        "left": 0,
+        "width": 798,
+        "height": 190
+      },
+      "tileFilter": {},
+      "markdown": "## Data Retention\n[Documentation](https://www.dynatrace.com/support/help/shortlink/data-retention#timeseries-metrics)\n\n0-14 days: 1-minute interval granularity available for dashboarding and API access.\\\n14-28 days: 5-minute interval granularity available for dashboarding and API access.\\\n28-400 days: 1-hour interval granularity available for dashboarding and API access.\\\n400 days - 5 years: 1-day interval granularity available for dashboarding and API access."
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1330,
+        "width": 266,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "###⏎ [Executive Overview](#dashboard;id=4307482a-1bff-40b6-a1ba-b5ee9aa9b443)"
+    }
+  ]
+}

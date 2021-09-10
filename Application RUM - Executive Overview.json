@@ -1,0 +1,394 @@
+ {
+  "metadata": {
+    "configurationVersions": [
+      5
+    ],
+    "clusterVersion": "1.222.86.20210802-200423"
+  },
+  "id": "4307482a-1bff-40b6-a1ba-b5ee9aa9b443",
+  "dashboardMetadata": {
+    "name": "${app.name} RUM - Executive Overview",
+    "shared": true,
+    "owner": "c920366",
+    "dashboardFilter": {
+      "timeframe": "Today",
+      "managementZone": {
+        "id": "${mz.id}",
+        "name": "${mz.name}"
+      }
+    },
+    "tags": [
+      "End User Experience",
+      "Executive",
+      "Overview",
+      "RUM"
+    ],
+    "preset": true
+  },
+  "tiles": [
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 304,
+        "height": 266
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": " ",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:apps.web.actionCount.category",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "APPLICATION",
+              "dimensions": [
+                {
+                  "id": "1",
+                  "name": "Apdex category",
+                  "values": [
+                    "FRUSTRATED",
+                    "SATISFIED",
+                    "TOLERATING"
+                  ],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "null¦Apdex category»FRUSTRATED»falsebuiltin:apps.web.actionCount.category|NONE|TOTAL|LINE|APPLICATION": {
+              "lastModified": 1590762644615,
+              "customColor": "#FF0000"
+            },
+            "null¦Apdex category»SATISFIED»falsebuiltin:apps.web.actionCount.category|NONE|TOTAL|LINE|APPLICATION": {
+              "lastModified": 1594476412752,
+              "customColor": "#39ff14"
+            },
+            "null¦Apdex category»TOLERATING»falsebuiltin:apps.web.actionCount.category|NONE|TOTAL|LINE|APPLICATION": {
+              "lastModified": 1595538884666,
+              "customColor": "#fff000"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 304,
+        "left": 0,
+        "width": 418,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "## User Satisfaction Over Time"
+    },
+    {
+      "name": "User Satisfaction",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Application Health",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1368,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": " ",
+      "tileType": "APPLICATIONS",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1368,
+        "width": 304,
+        "height": 266
+      },
+      "tileFilter": {},
+      "chartVisible": true
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 0,
+        "width": 1672,
+        "height": 456
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": " ",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "builtin:apps.web.actionCount.category",
+              "aggregation": "NONE",
+              "type": "AREA",
+              "entityType": "APPLICATION",
+              "dimensions": [
+                {
+                  "id": "1",
+                  "name": "Apdex category",
+                  "values": [
+                    "FRUSTRATED",
+                    "SATISFIED",
+                    "TOLERATING"
+                  ],
+                  "entityDimension": false
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "null¦Apdex category»TOLERATING»falsebuiltin:apps.web.actionCount.category|NONE|TOTAL|AREA|APPLICATION": {
+              "lastModified": 1590768076794,
+              "customColor": "#FFFF00"
+            },
+            "null¦Apdex category»SATISFIED»falsebuiltin:apps.web.actionCount.category|NONE|TOTAL|AREA|APPLICATION": {
+              "lastModified": 1594476412752,
+              "customColor": "#39ff14"
+            },
+            "null¦Apdex category»FRUSTRATED»falsebuiltin:apps.web.actionCount.category|NONE|TOTAL|AREA|APPLICATION": {
+              "lastModified": 1590762644615,
+              "customColor": "#FF0000"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 342,
+        "width": 304,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": " ",
+      "query": "select count(*) as \" \" from usersession",
+      "type": "SINGLE_VALUE",
+      "timeFrameShift": "dynamic",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 190,
+        "left": 342,
+        "width": 304,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": " ",
+      "query": "select count(*) as \" \" from usersession where newuser is true",
+      "type": "SINGLE_VALUE",
+      "timeFrameShift": "dynamic",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1026,
+        "width": 304,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": " ",
+      "query": "select count(*) as \" \" from useraction",
+      "type": "SINGLE_VALUE",
+      "timeFrameShift": "dynamic",
+      "limit": 50
+    },
+    {
+      "name": " ",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 190,
+        "left": 1026,
+        "width": 304,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": " ",
+      "query": "select count(*) as \" \" from usersession where bounce is true",
+      "type": "SINGLE_VALUE",
+      "timeFrameShift": "dynamic",
+      "limit": 50
+    },
+    {
+      "name": "Total Sessions",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 342,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "New User Sessions",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 152,
+        "left": 342,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "User Actions",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1026,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Bounces",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 152,
+        "left": 1026,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Active Sessions",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 684,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 684,
+        "width": 304,
+        "height": 266
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": " ",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:apps.web.activeSessions",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "APPLICATION",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.application",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 836,
+        "left": 0,
+        "width": 380,
+        "height": 76
+      },
+      "tileFilter": {},
+      "markdown": "###[Application Monitoring Overview](#dashboard;id=e04abe5e-3743-4cee-908a-202a7df535c3)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 836,
+        "left": 380,
+        "width": 380,
+        "height": 76
+      },
+      "tileFilter": {},
+      "markdown": "###[Application Trending Overview](#dashboard;id=7b81a001-d8bd-4265-affc-9a20b0456607)"
+    }
+  ]
+}

@@ -1,0 +1,370 @@
+ {
+  "metadata": {
+    "configurationVersions": [
+      5
+    ],
+    "clusterVersion": "1.222.86.20210802-200423"
+  },
+  "id": "e04abe5e-3743-4cee-908a-202a7df535c3",
+  "dashboardMetadata": {
+    "name": "${app.name} RUM - Monitoring Overview",
+    "shared": true,
+    "owner": "c920366",
+    "dashboardFilter": {
+      "timeframe": "Today",
+      "managementZone": {
+        "id": "${mz.id}",
+        "name": "${mz.name}"
+      }
+    },
+    "tags": [
+      "End User Experience",
+      "Overview",
+      "Application",
+      "RUM"
+    ],
+    "preset": true
+  },
+  "tiles": [
+    {
+      "name": "Application Status",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Application Usage Breakdown",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 608,
+        "width": 646,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 304,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "###[Analyze User Sessions](#usersearchoverview)"
+    },
+    {
+      "name": "Top web applications",
+      "tileType": "APPLICATIONS_MOST_ACTIVE",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Service health",
+      "tileType": "SERVICES",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 0,
+        "width": 304,
+        "height": 152
+      },
+      "tileFilter": {},
+      "chartVisible": true
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 608,
+        "width": 152,
+        "height": 152
+      },
+      "tileFilter": {},
+      "customName": "Unique Users",
+      "query": "SELECT COUNT(DISTINCT userId) AS [Users] FROM usersession",
+      "type": "SINGLE_VALUE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 760,
+        "width": 152,
+        "height": 152
+      },
+      "tileFilter": {},
+      "customName": "Total User Sessions",
+      "query": "SELECT COUNT(userSessionId) AS [User Sessions] FROM usersession",
+      "type": "SINGLE_VALUE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 912,
+        "width": 152,
+        "height": 152
+      },
+      "tileFilter": {},
+      "customName": "Satisfied Sessions",
+      "query": "SELECT COUNT(userSessionId) AS [Sessions] FROM usersession WHERE userExperienceScore = \"SATISFIED\"",
+      "type": "SINGLE_VALUE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1064,
+        "width": 152,
+        "height": 152
+      },
+      "tileFilter": {},
+      "customName": "Tolerated Sessions",
+      "query": "SELECT COUNT(userSessionId) AS [Sessions] FROM usersession WHERE userExperienceScore = \"TOLERATED\"",
+      "type": "SINGLE_VALUE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1216,
+        "width": 152,
+        "height": 152
+      },
+      "tileFilter": {},
+      "customName": "Frustrated Sessions",
+      "query": "SELECT COUNT(userSessionId) AS [Sessions] FROM usersession WHERE userExperienceScore = \"FRUSTRATED\"",
+      "type": "SINGLE_VALUE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 190,
+        "left": 912,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "User Sessions by Browser Family",
+      "query": "SELECT COUNT(userSessionId) AS [User Sessions], browserFamily AS [Browser Family] FROM usersession GROUP BY browserFamily",
+      "type": "TABLE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 190,
+        "left": 608,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "User Sessions by Browser Version",
+      "query": "SELECT COUNT(userSessionId) AS [User Sessions], browserMajorVersion AS [Browser Version] FROM usersession GROUP BY browserMajorVersion",
+      "type": "TABLE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 190,
+        "left": 1216,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "User Sessions by Browser Type",
+      "query": "SELECT COUNT(userSessionId) AS [User Sessions], browserType AS [Browser Type] FROM usersession GROUP BY browserType",
+      "type": "TABLE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 494,
+        "left": 608,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "User Sessions by Client OS",
+      "query": "SELECT COUNT(userSessionId) AS [User Sessions], osVersion AS [OS Version], osFamily AS [OS Family] FROM usersession GROUP BY osVersion, osFamily",
+      "type": "TABLE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 494,
+        "left": 1216,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "User Sessions by Detected ISP",
+      "query": "SELECT COUNT(userSessionId) AS [User Sessions], isp AS [ISP] FROM usersession GROUP BY isp",
+      "type": "TABLE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 798,
+        "left": 0,
+        "width": 760,
+        "height": 494
+      },
+      "tileFilter": {},
+      "customName": "Top Pages",
+      "query": "SELECT DISTINCT name AS [Page], COUNT(DISTINCT requestStart) AS [Count], AVG(duration) AS [Avg Duration] FROM useraction GROUP BY name ORDER BY Count DESC",
+      "type": "TABLE",
+      "limit": 50
+    },
+    {
+      "name": "Host health",
+      "tileType": "HOSTS",
+      "configured": true,
+      "bounds": {
+        "top": 494,
+        "left": 0,
+        "width": 304,
+        "height": 152
+      },
+      "tileFilter": {},
+      "chartVisible": true
+    },
+    {
+      "name": "Smartscape",
+      "tileType": "PURE_MODEL",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 0,
+        "width": 304,
+        "height": 152
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1368,
+        "width": 152,
+        "height": 152
+      },
+      "tileFilter": {},
+      "customName": "Page Loads",
+      "query": "SELECT COUNT(DISTINCT startTime) AS [Pages] FROM useraction ",
+      "type": "SINGLE_VALUE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 304,
+        "width": 304,
+        "height": 760
+      },
+      "tileFilter": {},
+      "customName": "Top Users by Session Count",
+      "query": "SELECT DISTINCT userId AS [User], COUNT(DISTINCT userSessionId) AS [Sessions] FROM usersession GROUP BY userId",
+      "type": "TABLE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 494,
+        "left": 912,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "User Sessions by Location",
+      "query": "SELECT COUNT(userSessionId) AS [User Sessions], city AS [City], country AS [Country] FROM usersession GROUP BY city, country ORDER BY count(userSessionId) DESC",
+      "type": "TABLE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 798,
+        "left": 760,
+        "width": 760,
+        "height": 494
+      },
+      "tileFilter": {},
+      "customName": "Slowest Pages",
+      "query": "SELECT DISTINCT name AS [Page], COUNT(DISTINCT requestStart) AS [Count], AVG(duration) AS [Avg Duration] FROM useraction GROUP BY name ORDER BY avg(duration) DESC",
+      "type": "TABLE",
+      "limit": 50
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1254,
+        "width": 266,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "###⏎ [Executive Overview](#dashboard;id=4307482a-1bff-40b6-a1ba-b5ee9aa9b443)"
+    }
+  ]
+}
