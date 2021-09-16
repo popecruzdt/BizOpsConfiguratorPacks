@@ -1,9 +1,13 @@
 ## Application RUM (by popecruzdt)
-![Application Full Stack Overview](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/Application_Full_Stack_Overview_screenshot.png)
+![Application RUM Monitoring Overview](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/Application_RUM_Monitoring_Overview_screenshot.png)
+![Application RUM Trending Overview](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/Application_RUM_Trending_Overview_screenshot.png)
 
 ## Dashboards:
-### Application Full Stack Overview
-This dashboard displays the most relevant information about the health, performance, and utilization of an application - including its server-side services and infrastructure.
+### Application RUM Monitoring Overview
+This dashboard displays the most relevant information about the user experience and behavior for the application.  Ideal for short term monitoring and analysis.
+
+### Application RUM Trending Overview
+This dashboard displays the most relevant trending information about the user experience and behavior for the application.  Ideal for long term monitoring and analysis.
 
 ## Prerequisites:
 #### Set up monitoring
