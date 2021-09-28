@@ -1,511 +1,532 @@
 {
-    "metadata": {
-        "configurationVersions": [
-            3
-        ],
-        "clusterVersion": "1.226.91.20210918-122217"
-    },
-    "id": "70dcf798-755e-4a80-8c11-1319c96ef229",
-    "dashboardMetadata": {
-    "name": "SAP ECC Application Cockpit",
-    "shared": true,
-    "owner": "anthony.pope-cruz@dynatrace.com",
-    "dashboardFilter": {
-      "managementZone": {
-        "id": "{$mz.id}",
-        "name": "{$mz.name}"
-      }
-    },
-    "tags": [
-      "Configurator",
-      "SAP ECC"
-    ],
-    "preset": false
-  },
-  "tiles": [
-    {
-      "name": "Application health",
-      "tileType": "APPLICATIONS",
-      "configured": true,
-      "bounds": {
-        "top": 190,
-        "left": 304,
-        "width": 152,
-        "height": 152
-      },
-      "tileFilter": {},
-      "chartVisible": true
-    },
-    {
-      "name": "Live user activity",
-      "tileType": "UEM_ACTIVE_SESSIONS",
-      "configured": true,
-      "bounds": {
-        "top": 38,
-        "left": 0,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {}
-    },
-    {
-      "name": "Problems",
-      "tileType": "OPEN_PROBLEMS",
-      "configured": true,
-      "bounds": {
-        "top": 38,
-        "left": 304,
-        "width": 152,
-        "height": 152
-      },
-      "tileFilter": {}
-    },
-    {
-      "name": "",
-      "tileType": "CUSTOM_CHARTING",
-      "configured": true,
-      "bounds": {
-        "top": 342,
-        "left": 0,
-        "width": 456,
-        "height": 304
-      },
-      "tileFilter": {},
-      "filterConfig": {
-        "type": "MIXED",
-        "customName": "Availability",
-        "defaultName": "Custom chart",
-        "chartConfig": {
-          "legendShown": true,
-          "type": "PIE",
-          "series": [
-            {
-              "metric": "ext:tech.SAP.avail",
-              "aggregation": "AVG",
-              "type": "LINE",
-              "entityType": "IOT",
-              "dimensions": [],
-              "sortAscending": false,
-              "sortColumn": true,
-              "aggregationRate": "TOTAL"
-            }
-          ],
-          "resultMetadata": {}
-        },
-        "filtersPerEntityType": {}
-      }
-    },
-    {
-      "name": "Application Health",
-      "tileType": "HEADER",
-      "configured": true,
-      "bounds": {
-        "top": 0,
-        "left": 0,
-        "width": 456,
-        "height": 38
-      },
-      "tileFilter": {}
-    },
-    {
-      "name": "Applications",
-      "tileType": "HEADER",
-      "configured": true,
-      "bounds": {
-        "top": 0,
-        "left": 456,
-        "width": 608,
-        "height": 38
-      },
-      "tileFilter": {}
-    },
-    {
-      "name": "Performance Links ▼",
-      "tileType": "HEADER",
-      "configured": true,
-      "bounds": {
-        "top": 0,
-        "left": 1064,
-        "width": 304,
-        "height": 38
-      },
-      "tileFilter": {}
-    },
-    {
-      "name": "Markdown",
-      "tileType": "MARKDOWN",
-      "configured": true,
-      "bounds": {
-        "top": 38,
-        "left": 1064,
-        "width": 304,
-        "height": 38
-      },
-      "tileFilter": {},
-      "markdown": "[SAP Functional Area Performance](#dashboard;id=bbbbbbbb-a003-a008-0001-000000000024)"
-    },
-    {
-      "name": "Markdown",
-      "tileType": "MARKDOWN",
-      "configured": true,
-      "bounds": {
-        "top": 76,
-        "left": 1064,
-        "width": 304,
-        "height": 38
-      },
-      "tileFilter": {},
-      "markdown": "[SAP Database Performance](#dashboard;id=bbbbbbbb-a003-a008-0033-000000000024)"
-    },
-    {
-      "name": "Markdown",
-      "tileType": "MARKDOWN",
-      "configured": true,
-      "bounds": {
-        "top": 114,
-        "left": 1064,
-        "width": 304,
-        "height": 38
-      },
-      "tileFilter": {},
-      "markdown": "[SAP User Crashes](#dashboard;id=bbbbbbbb-a003-a008-0035-000000000024)"
-    },
-    {
-      "name": "Markdown",
-      "tileType": "MARKDOWN",
-      "configured": true,
-      "bounds": {
-        "top": 152,
-        "left": 1064,
-        "width": 304,
-        "height": 38
-      },
-      "tileFilter": {},
-      "markdown": "[SAP Transaction Code Timing](#dashboard;id=bbbbbbbb-a003-a008-0037-000000000024)"
-    },
-    {
-      "name": "Markdown",
-      "tileType": "MARKDOWN",
-      "configured": true,
-      "bounds": {
-        "top": 190,
-        "left": 1064,
-        "width": 304,
-        "height": 38
-      },
-      "tileFilter": {},
-      "markdown": "[SAP Task Performance](#dashboard;id=bbbbbbbb-a003-a008-0039-000000000024)"
-    },
-    {
-      "name": "Markdown",
-      "tileType": "MARKDOWN",
-      "configured": true,
-      "bounds": {
-        "top": 228,
-        "left": 1064,
-        "width": 304,
-        "height": 38
-      },
-      "tileFilter": {},
-      "markdown": "[SAP Roll Task Timings](#dashboard;id=bbbbbbbb-a003-a008-0041-000000000024)"
-    },
-    {
-      "name": "Markdown",
-      "tileType": "MARKDOWN",
-      "configured": true,
-      "bounds": {
-        "top": 266,
-        "left": 1064,
-        "width": 304,
-        "height": 38
-      },
-      "tileFilter": {},
-      "markdown": "[SAP Audit Trail](#dashboard;id=bbbbbbbb-a003-a008-0043-000000000024)"
-    },
-    {
-      "name": "Apdex",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 38,
-        "left": 456,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Top list",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "builtin:apps.other.apdex.osAndVersion",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [
-            "dt.entity.device_application"
-          ],
-          "sortBy": "DESC",
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "limit": 10,
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "threshold": {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "value": 0.9,
-                "color": "#7dc540"
-              },
-              {
-                "value": 0.75,
-                "color": "#f5d30f"
-              },
-              {
-                "value": 0,
-                "color": "#dc172a"
-              }
-            ]
-          },
-          "seriesType": "LINE"
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A"
-              ],
-              "defaultAxis": true
-            }
-          ]
-        }
-      }
-    },
-    {
-      "name": "Response Time",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 38,
-        "left": 760,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Top list",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "builtin:apps.other.uaDuration.osAndVersion",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [
-            "dt.entity.device_application"
-          ],
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "threshold": {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ]
-          },
-          "seriesType": "LINE"
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A"
-              ],
-              "defaultAxis": true
-            }
-          ]
-        }
-      }
-    },
-    {
-      "name": "Estimated User Count",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 342,
-        "left": 456,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Top list",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "builtin:apps.other.userCount.osAndGeo",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [
-            "dt.entity.device_application"
-          ],
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "TOP_LIST",
-        "global": {
-          "theme": "BLUE",
-          "threshold": {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ]
-          },
-          "seriesType": "LINE"
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A"
-              ],
-              "defaultAxis": true
-            }
-          ]
-        }
-      }
-    },
-    {
-      "name": "Session Count",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 342,
-        "left": 760,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Top list",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "builtin:apps.other.sessionCount.osAndGeo",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [
-            "dt.entity.device_application"
-          ],
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "TOP_LIST",
-        "global": {
-          "theme": "TURQUOISE",
-          "threshold": {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ]
-          },
-          "seriesType": "LINE"
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A"
-              ],
-              "defaultAxis": true
-            }
-          ]
-        }
-      }
-    }
-  ]
+	"metadata": {
+		"configurationVersions": [
+			3
+		],
+		"clusterVersion": "1.226.91.20210918-122217"
+	},
+	"id": "70dcf798-755e-4a80-8c11-1319c96ef229",
+	"dashboardMetadata": {
+		"name": "SAP ECC Application Cockpit",
+		"shared": true,
+		"owner": "anthony.pope-cruz@dynatrace.com",
+		"dashboardFilter": {
+			"managementZone": {
+				"id": "{$mz.id}",
+				"name": "{$mz.name}"
+			}
+		},
+		"tags": [
+			"Configurator",
+			"SAP ECC"
+		],
+		"preset": false
+	},
+	"tiles": [{
+			"name": "Application health",
+			"tileType": "APPLICATIONS",
+			"configured": true,
+			"bounds": {
+				"top": 190,
+				"left": 304,
+				"width": 152,
+				"height": 152
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"filterConfig": null,
+			"chartVisible": true
+		},
+		{
+			"name": "Live user activity",
+			"tileType": "UEM_ACTIVE_SESSIONS",
+			"configured": true,
+			"bounds": {
+				"top": 38,
+				"left": 0,
+				"width": 304,
+				"height": 304
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			}
+		},
+		{
+			"name": "Problems",
+			"tileType": "OPEN_PROBLEMS",
+			"configured": true,
+			"bounds": {
+				"top": 38,
+				"left": 304,
+				"width": 152,
+				"height": 152
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			}
+		},
+		{
+			"name": "",
+			"tileType": "CUSTOM_CHARTING",
+			"configured": true,
+			"bounds": {
+				"top": 342,
+				"left": 0,
+				"width": 456,
+				"height": 304
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"filterConfig": {
+				"type": "MIXED",
+				"customName": "Availability",
+				"defaultName": "Custom chart",
+				"chartConfig": {
+					"legendShown": true,
+					"type": "PIE",
+					"series": [{
+						"metric": "ext:tech.SAP.avail",
+						"aggregation": "AVG",
+						"percentile": null,
+						"type": "LINE",
+						"entityType": "IOT",
+						"dimensions": [],
+						"sortAscending": false,
+						"sortColumn": true,
+						"aggregationRate": "TOTAL"
+					}],
+					"resultMetadata": {}
+				},
+				"filtersPerEntityType": {}
+			}
+		},
+		{
+			"name": "Application Health",
+			"tileType": "HEADER",
+			"configured": true,
+			"bounds": {
+				"top": 0,
+				"left": 0,
+				"width": 456,
+				"height": 38
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			}
+		},
+		{
+			"name": "Applications",
+			"tileType": "HEADER",
+			"configured": true,
+			"bounds": {
+				"top": 0,
+				"left": 456,
+				"width": 608,
+				"height": 38
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			}
+		},
+		{
+			"name": "Performance Links ▼",
+			"tileType": "HEADER",
+			"configured": true,
+			"bounds": {
+				"top": 0,
+				"left": 1064,
+				"width": 304,
+				"height": 38
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			}
+		},
+		{
+			"name": "Markdown",
+			"tileType": "MARKDOWN",
+			"configured": true,
+			"bounds": {
+				"top": 38,
+				"left": 1064,
+				"width": 304,
+				"height": 38
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"markdown": "[SAP Functional Area Performance](#dashboard;id=fc230898-e75c-4dd9-bd0d-370268989245)"
+		},
+		{
+			"name": "Markdown",
+			"tileType": "MARKDOWN",
+			"configured": true,
+			"bounds": {
+				"top": 76,
+				"left": 1064,
+				"width": 304,
+				"height": 38
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"markdown": "[SAP Database Performance](#dashboard;id=97b6c03b-9b0e-487d-a7ab-4130bef8b836)"
+		},
+		{
+			"name": "Markdown",
+			"tileType": "MARKDOWN",
+			"configured": true,
+			"bounds": {
+				"top": 114,
+				"left": 1064,
+				"width": 304,
+				"height": 38
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"markdown": "[SAP User Crashes](#dashboard;id=b2a0f517-562e-48e6-b195-6dc838e13250)"
+		},
+		{
+			"name": "Markdown",
+			"tileType": "MARKDOWN",
+			"configured": true,
+			"bounds": {
+				"top": 152,
+				"left": 1064,
+				"width": 304,
+				"height": 38
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"markdown": "[SAP Transaction Code Timing](#dashboard;id=dd1bfdfb-d975-413e-850a-64a32eea77ec)"
+		},
+		{
+			"name": "Markdown",
+			"tileType": "MARKDOWN",
+			"configured": true,
+			"bounds": {
+				"top": 190,
+				"left": 1064,
+				"width": 304,
+				"height": 38
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"markdown": "[SAP Task Performance](#dashboard;id=898a2c39-ca6a-4cf9-ae6a-59d7896c21f4)"
+		},
+		{
+			"name": "Markdown",
+			"tileType": "MARKDOWN",
+			"configured": true,
+			"bounds": {
+				"top": 228,
+				"left": 1064,
+				"width": 304,
+				"height": 38
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"markdown": "[SAP Roll Task Timings](#dashboard;id=5ff8bb92-ebe8-4858-8d72-87eee3cb59dd)"
+		},
+		{
+			"name": "Markdown",
+			"tileType": "MARKDOWN",
+			"configured": true,
+			"bounds": {
+				"top": 266,
+				"left": 1064,
+				"width": 304,
+				"height": 38
+			},
+			"tileFilter": {
+				"timeframe": null,
+				"managementZone": null
+			},
+			"markdown": "[SAP Audit Trail](#dashboard;id=7e4b029a-4dd4-49bc-bad0-d5f7f0c51324)"
+		},
+		{
+			"name": "Apdex",
+			"tileType": "DATA_EXPLORER",
+			"configured": true,
+			"bounds": {
+				"top": 38,
+				"left": 456,
+				"width": 304,
+				"height": 304
+			},
+			"tileFilter": {},
+			"customName": "Top list",
+			"queries": [{
+				"id": "A",
+				"metric": "builtin:apps.other.apdex.osAndVersion",
+				"spaceAggregation": "AVG",
+				"timeAggregation": "DEFAULT",
+				"splitBy": [
+					"dt.entity.device_application"
+				],
+				"sortBy": "DESC",
+				"filterBy": {
+					"nestedFilters": [],
+					"criteria": []
+				},
+				"limit": 10,
+				"enabled": true
+			}],
+			"visualConfig": {
+				"type": "TOP_LIST",
+				"global": {
+					"theme": "DEFAULT",
+					"threshold": {
+						"axisTarget": "LEFT",
+						"rules": [{
+								"value": 0.9,
+								"color": "#7dc540"
+							},
+							{
+								"value": 0.75,
+								"color": "#f5d30f"
+							},
+							{
+								"value": 0,
+								"color": "#dc172a"
+							}
+						]
+					},
+					"seriesType": "LINE"
+				},
+				"rules": [],
+				"axes": {
+					"xAxis": {
+						"displayName": "",
+						"visible": true
+					},
+					"yAxes": [{
+						"displayName": "",
+						"visible": true,
+						"min": "AUTO",
+						"max": "AUTO",
+						"position": "LEFT",
+						"queryIds": [
+							"A"
+						],
+						"defaultAxis": true
+					}]
+				}
+			}
+		},
+		{
+			"name": "Response Time",
+			"tileType": "DATA_EXPLORER",
+			"configured": true,
+			"bounds": {
+				"top": 38,
+				"left": 760,
+				"width": 304,
+				"height": 304
+			},
+			"tileFilter": {},
+			"customName": "Top list",
+			"queries": [{
+				"id": "A",
+				"metric": "builtin:apps.other.uaDuration.osAndVersion",
+				"spaceAggregation": "AVG",
+				"timeAggregation": "DEFAULT",
+				"splitBy": [
+					"dt.entity.device_application"
+				],
+				"filterBy": {
+					"nestedFilters": [],
+					"criteria": []
+				},
+				"enabled": true
+			}],
+			"visualConfig": {
+				"type": "TOP_LIST",
+				"global": {
+					"theme": "DEFAULT",
+					"threshold": {
+						"axisTarget": "LEFT",
+						"rules": [{
+								"color": "#7dc540"
+							},
+							{
+								"color": "#f5d30f"
+							},
+							{
+								"color": "#dc172a"
+							}
+						]
+					},
+					"seriesType": "LINE"
+				},
+				"rules": [],
+				"axes": {
+					"xAxis": {
+						"displayName": "",
+						"visible": true
+					},
+					"yAxes": [{
+						"displayName": "",
+						"visible": true,
+						"min": "AUTO",
+						"max": "AUTO",
+						"position": "LEFT",
+						"queryIds": [
+							"A"
+						],
+						"defaultAxis": true
+					}]
+				}
+			}
+		},
+		{
+			"name": "Estimated User Count",
+			"tileType": "DATA_EXPLORER",
+			"configured": true,
+			"bounds": {
+				"top": 342,
+				"left": 456,
+				"width": 304,
+				"height": 304
+			},
+			"tileFilter": {},
+			"customName": "Top list",
+			"queries": [{
+				"id": "A",
+				"metric": "builtin:apps.other.userCount.osAndGeo",
+				"spaceAggregation": "AVG",
+				"timeAggregation": "DEFAULT",
+				"splitBy": [
+					"dt.entity.device_application"
+				],
+				"filterBy": {
+					"nestedFilters": [],
+					"criteria": []
+				},
+				"enabled": true
+			}],
+			"visualConfig": {
+				"type": "TOP_LIST",
+				"global": {
+					"theme": "BLUE",
+					"threshold": {
+						"axisTarget": "LEFT",
+						"rules": [{
+								"color": "#7dc540"
+							},
+							{
+								"color": "#f5d30f"
+							},
+							{
+								"color": "#dc172a"
+							}
+						]
+					},
+					"seriesType": "LINE"
+				},
+				"rules": [],
+				"axes": {
+					"xAxis": {
+						"displayName": "",
+						"visible": true
+					},
+					"yAxes": [{
+						"displayName": "",
+						"visible": true,
+						"min": "AUTO",
+						"max": "AUTO",
+						"position": "LEFT",
+						"queryIds": [
+							"A"
+						],
+						"defaultAxis": true
+					}]
+				}
+			}
+		},
+		{
+			"name": "Session Count",
+			"tileType": "DATA_EXPLORER",
+			"configured": true,
+			"bounds": {
+				"top": 342,
+				"left": 760,
+				"width": 304,
+				"height": 304
+			},
+			"tileFilter": {},
+			"customName": "Top list",
+			"queries": [{
+				"id": "A",
+				"metric": "builtin:apps.other.sessionCount.osAndGeo",
+				"spaceAggregation": "AVG",
+				"timeAggregation": "DEFAULT",
+				"splitBy": [
+					"dt.entity.device_application"
+				],
+				"filterBy": {
+					"nestedFilters": [],
+					"criteria": []
+				},
+				"enabled": true
+			}],
+			"visualConfig": {
+				"type": "TOP_LIST",
+				"global": {
+					"theme": "TURQUOISE",
+					"threshold": {
+						"axisTarget": "LEFT",
+						"rules": [{
+								"color": "#7dc540"
+							},
+							{
+								"color": "#f5d30f"
+							},
+							{
+								"color": "#dc172a"
+							}
+						]
+					},
+					"seriesType": "LINE"
+				},
+				"rules": [],
+				"axes": {
+					"xAxis": {
+						"displayName": "",
+						"visible": true
+					},
+					"yAxes": [{
+						"displayName": "",
+						"visible": true,
+						"min": "AUTO",
+						"max": "AUTO",
+						"position": "LEFT",
+						"queryIds": [
+							"A"
+						],
+						"defaultAxis": true
+					}]
+				}
+			}
+		}
+	]
 }
