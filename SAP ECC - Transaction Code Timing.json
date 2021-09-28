@@ -1,0 +1,108 @@
+{
+    "metadata": {
+        "configurationVersions": [
+            3
+        ],
+        "clusterVersion": "1.191.101.20200414-115902"
+    },
+    "id": "dd1bfdfb-d975-413e-850a-64a32eea77ec",
+    "dashboardMetadata": {
+        "name": "SAP Transaction Code Timing",
+        "shared": true,
+        "owner": "joseph.bologna@dynatrace.com",
+        "sharingDetails": {
+            "linkShared": true,
+            "published": true
+        },
+        "dashboardFilter": {
+            "timeframe": "",
+            "managementZone": null
+        }
+    },
+    "tiles": [
+        {
+            "name": "Markdown",
+            "tileType": "MARKDOWN",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 950,
+                "width": 152,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "markdown": "## [⇦](#dashboard;id=b61cdf07-618f-4e0b-80b8-3477c6ce8f06)\n![BackButton]()"
+        },
+        {
+            "name": "User Sessions Query",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 0,
+                "width": 988,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Longest Running Transaction Codes",
+            "query": "select name as[Transaction Code Name], duration as [Execution Time] from useraction ORDER BY duration DESC",
+            "type": "TABLE",
+            "limit": 50
+        },
+        {
+            "name": "User Sessions Query",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 988,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Longest Running Transaction Codes",
+            "query": "select name as[Transaction Code], avg(duration) as[AVG], min(duration) as[MIN], max(duration) as [MAX] from useraction GROUP BY name ORDER BY max(duration) DESC",
+            "type": "TABLE",
+            "limit": 50
+        },
+        {
+            "name": "Timings",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 950,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "Longest Execution Times     <Click table for user actions analysis>",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 0,
+                "width": 988,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        }
+    ]
+}

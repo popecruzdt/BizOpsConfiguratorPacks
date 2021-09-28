@@ -1,0 +1,111 @@
+{
+    "metadata": {
+        "configurationVersions": [
+            3
+        ],
+        "clusterVersion": "1.191.101.20200414-115902"
+    },
+    "id": "b2a0f517-562e-48e6-b195-6dc838e13250",
+    "dashboardMetadata": {
+        "name": "SAP User Crash Reporting",
+        "shared": true,
+        "owner": "joseph.bologna@dynatrace.com",
+        "sharingDetails": {
+            "linkShared": true,
+            "published": true
+        },
+        "dashboardFilter": {
+            "timeframe": "",
+            "managementZone": null
+        }
+    },
+    "tiles": [
+        {
+            "name": "User Sessions Query",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 0,
+                "width": 988,
+                "height": 342
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "User Crashes",
+            "query": "select * from usererror where type =\"Crash\"",
+            "type": "TABLE",
+            "limit": 50
+        },
+        {
+            "name": "User Sessions Query",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 988,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "User Crashes Over Time",
+            "query": "SELECT count(type) as [Crashes], startTime as [Time] FROM usererror where type=\"Crash\" GROUP BY type, startTime",
+            "type": "LINE_CHART",
+            "visualizationConfig": {
+                "hasAxisBucketing": true
+            },
+            "limit": 50
+        },
+        {
+            "name": "Markdown",
+            "tileType": "MARKDOWN",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 950,
+                "width": 152,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "markdown": "## [⇦](#dashboard;id=b61cdf07-618f-4e0b-80b8-3477c6ce8f06)\n![BackButton]()"
+        },
+        {
+            "name": "Crash Trending",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 950,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "Crash Details - Click on graph to drilldown",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 342,
+                "left": 0,
+                "width": 988,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        }
+    ]
+}

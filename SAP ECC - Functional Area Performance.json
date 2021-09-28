@@ -1,0 +1,475 @@
+{
+    "metadata": {
+        "configurationVersions": [
+            3
+        ],
+        "clusterVersion": "1.191.101.20200414-115902"
+    },
+    "id": "fc230898-e75c-4dd9-bd0d-370268989245",
+    "dashboardMetadata": {
+        "name": "SAP Functional Area Performance",
+        "shared": true,
+        "owner": "joseph.bologna@dynatrace.com",
+        "sharingDetails": {
+            "linkShared": true,
+            "published": true
+        },
+        "dashboardFilter": {
+            "timeframe": "",
+            "managementZone": null
+        }
+    },
+    "tiles": [
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 228,
+                "left": 0,
+                "width": 304,
+                "height": 152
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Financial Accounting",
+            "query": "select avg(useraction.duration) as [Average Response Time] FROM useraction where useraction.name STARTSWITH \"Financial Accounting\"",
+            "type": "SINGLE_VALUE",
+            "timeFrameShift": "-2h"
+        },
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 418,
+                "left": 0,
+                "width": 304,
+                "height": 152
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Materials Management",
+            "query": "select  avg(useraction.duration) as [Average Response Time] FROM useraction where useraction.name STARTSWITH \"Materials Management\"",
+            "type": "SINGLE_VALUE",
+            "timeFrameShift": "-2h"
+        },
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 228,
+                "left": 608,
+                "width": 304,
+                "height": 152
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Human Resources",
+            "query": "select avg(useraction.duration) as [Average Response Time] FROM useraction where useraction.name STARTSWITH \"Human Resources\"",
+            "type": "SINGLE_VALUE",
+            "timeFrameShift": "-2h"
+        },
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 418,
+                "left": 912,
+                "width": 304,
+                "height": 152
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Sales & Distribution",
+            "query": "select  avg(useraction.duration) as [Average Response Time] FROM useraction where useraction.name STARTSWITH \"Sales and Distribution\"",
+            "type": "SINGLE_VALUE",
+            "timeFrameShift": "-2h"
+        },
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 304,
+                "width": 304,
+                "height": 152
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Cross Application Basis Components",
+            "query": "select avg(useraction.duration) as [Average Response Time] FROM useraction where useraction.name STARTSWITH \"Cross Application Basis Components\"",
+            "type": "SINGLE_VALUE",
+            "timeFrameShift": "-2h"
+        },
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 418,
+                "left": 608,
+                "width": 304,
+                "height": 152
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Project System",
+            "query": "select avg(useraction.duration) as [Average Response Time] FROM useraction where useraction.name STARTSWITH \"Project System\"",
+            "type": "SINGLE_VALUE",
+            "timeFrameShift": "-2h"
+        },
+        {
+            "name": "Functional Areas",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 1178,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 304,
+                "height": 152
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Controlling",
+            "query": "select  avg(useraction.duration) as [Average Response Time] FROM useraction where useraction.name STARTSWITH \"Controlling\"",
+            "type": "SINGLE_VALUE",
+            "timeFrameShift": "-2h"
+        },
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 608,
+                "width": 304,
+                "height": 152
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Customer Relationship Management",
+            "query": "select  avg(useraction.duration) as [Average Response Time] FROM useraction where useraction.name STARTSWITH \"Customer Relationship Management\"",
+            "type": "SINGLE_VALUE",
+            "timeFrameShift": "-2h"
+        },
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 912,
+                "width": 304,
+                "height": 152
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Enterprise Controlling",
+            "query": "select  avg(useraction.duration) as [Average Response Time] FROM useraction where useraction.name STARTSWITH \"Enterprise Controlling\"",
+            "type": "SINGLE_VALUE",
+            "timeFrameShift": "-2h"
+        },
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 228,
+                "left": 304,
+                "width": 304,
+                "height": 152
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Financials",
+            "query": "select  avg(useraction.duration) as [Average Response Time] FROM useraction where useraction.name STARTSWITH \"Financials\"",
+            "type": "SINGLE_VALUE",
+            "timeFrameShift": "-2h"
+        },
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 228,
+                "left": 912,
+                "width": 304,
+                "height": 152
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Logistics Execution",
+            "query": "select  avg(useraction.duration) as [Average Response Time] FROM useraction where useraction.name STARTSWITH \"Logistics Execution\"",
+            "type": "SINGLE_VALUE",
+            "timeFrameShift": "-2h"
+        },
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 418,
+                "left": 304,
+                "width": 304,
+                "height": 152
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Payroll",
+            "query": "select  avg(useraction.duration) as [Average Response Time] FROM useraction where useraction.name STARTSWITH \"Payroll\"",
+            "type": "SINGLE_VALUE",
+            "timeFrameShift": "-2h"
+        },
+        {
+            "name": "Markdown",
+            "tileType": "MARKDOWN",
+            "configured": true,
+            "bounds": {
+                "top": 190,
+                "left": 38,
+                "width": 228,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "markdown": "Module Overview - \n[**Click Here**](#dashboard;id=b232880e-3c52-4b41-8f9e-5d0761c1c1f9)"
+        },
+        {
+            "name": "Markdown",
+            "tileType": "MARKDOWN",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 38,
+                "width": 228,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "markdown": "Module Overview - \n[**Click Here**](#dashboard;id=c219a17d-f0f6-4de6-bfe0-25fcdee26877)"
+        },
+        {
+            "name": "Markdown",
+            "tileType": "MARKDOWN",
+            "configured": true,
+            "bounds": {
+                "top": 570,
+                "left": 38,
+                "width": 228,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "markdown": "Module Overview - \n[**Click Here**](#dashboard;id=92455549-3320-423b-afb9-c9c90ddd8f3d)"
+        },
+        {
+            "name": "Markdown",
+            "tileType": "MARKDOWN",
+            "configured": true,
+            "bounds": {
+                "top": 190,
+                "left": 342,
+                "width": 228,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "markdown": "Module Overview - \n[**Click Here**](#dashboard;id=973217cf-79e6-4fcc-b763-980a8fd0abca)"
+        },
+        {
+            "name": "Markdown",
+            "tileType": "MARKDOWN",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 342,
+                "width": 228,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "markdown": "Module Overview - \n[**Click Here**](#dashboard;id=f148f73f-47bb-4a74-854d-591dd4e39613)"
+        },
+        {
+            "name": "Markdown",
+            "tileType": "MARKDOWN",
+            "configured": true,
+            "bounds": {
+                "top": 570,
+                "left": 342,
+                "width": 228,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "markdown": "Module Overview - \n[**Click Here**](#dashboard;id=933abfb3-03ca-4159-808c-dad6a6d2b033)"
+        },
+        {
+            "name": "Markdown",
+            "tileType": "MARKDOWN",
+            "configured": true,
+            "bounds": {
+                "top": 190,
+                "left": 646,
+                "width": 228,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "markdown": "Module Overview - \n[**Click Here**](#dashboard;id=e4bb76f9-f609-49cc-b378-fa922f2c30df)"
+        },
+        {
+            "name": "Markdown",
+            "tileType": "MARKDOWN",
+            "configured": true,
+            "bounds": {
+                "top": 190,
+                "left": 950,
+                "width": 228,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "markdown": "Module Overview - \n[**Click Here**](#dashboard;id=d2572aae-af3f-4f5f-8402-349d247911fb)"
+        },
+        {
+            "name": "Markdown",
+            "tileType": "MARKDOWN",
+            "configured": true,
+            "bounds": {
+                "top": 570,
+                "left": 646,
+                "width": 228,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "markdown": "Module Overview - \n[**Click Here**](#dashboard;id=ba6b72fc-4351-4a6a-a32c-009576020262)"
+        },
+        {
+            "name": "Markdown",
+            "tileType": "MARKDOWN",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 646,
+                "width": 228,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "markdown": "Module Overview - \n[**Click Here**](#dashboard;id=f0cbb1b3-22e6-4430-800c-320b0474afc8)"
+        },
+        {
+            "name": "Markdown",
+            "tileType": "MARKDOWN",
+            "configured": true,
+            "bounds": {
+                "top": 380,
+                "left": 950,
+                "width": 228,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "markdown": "Module Overview - \n[**Click Here**](#dashboard;id=1a5212d3-6588-46b1-a211-4acb867c1e64)"
+        },
+        {
+            "name": "Markdown",
+            "tileType": "MARKDOWN",
+            "configured": true,
+            "bounds": {
+                "top": 570,
+                "left": 950,
+                "width": 228,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "markdown": "Module Overview - \n[**Click Here**](#dashboard;id=cd3bd6f7-e089-4fcf-90ce-5849d4f89dd3)"
+        },
+        {
+            "name": "Markdown",
+            "tileType": "MARKDOWN",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 1178,
+                "width": 152,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "markdown": "## [⇦](#dashboard;id=b61cdf07-618f-4e0b-80b8-3477c6ce8f06)\n![BackButton]()\n"
+        }
+    ]
+}

@@ -1,0 +1,230 @@
+{
+    "metadata": {
+        "configurationVersions": [
+            3
+        ],
+        "clusterVersion": "1.191.101.20200414-115902"
+    },
+    "id": "933abfb3-03ca-4159-808c-dad6a6d2b033",
+    "dashboardMetadata": {
+        "name": "SAP Module - Payroll",
+        "shared": true,
+        "owner": "joseph.bologna@dynatrace.com",
+        "sharingDetails": {
+            "linkShared": true,
+            "published": true
+        },
+        "dashboardFilter": {
+            "timeframe": "",
+            "managementZone": null
+        }
+    },
+    "tiles": [
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 418,
+                "height": 190
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Average Response Time",
+            "query": "select  avg(useraction.duration) as [Average Response Time] FROM useraction where useraction.name STARTSWITH \"Payroll\"",
+            "type": "SINGLE_VALUE",
+            "timeFrameShift": "-2h"
+        },
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 418,
+                "width": 494,
+                "height": 380
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Transaction Code Counts",
+            "query": "select useraction.name as [Top T-Codes], usersession.userActionCount as [Action Count] FROM useraction where useraction.name STARTSWITH \"Payroll\" GROUP BY useraction.name, usersession.userActionCount order by usersession.userActionCount DESC",
+            "type": "TABLE",
+            "timeFrameShift": "-2h"
+        },
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 912,
+                "width": 266,
+                "height": 380
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Top Transaction Code Users",
+            "query": "select usersession.userId as [User ID], usersession.userActionCount as [User Action Count] from useraction where useraction.name LIKE \"*Payroll*\" GROUP BY usersession.userId, usersession.userActionCount ORDER BY usersession.userActionCount DESC",
+            "type": "TABLE",
+            "timeFrameShift": "-2h"
+        },
+        {
+            "name": "Performance",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 418,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "Top SAP Transaction Codes",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 418,
+                "width": 494,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "Top Users",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 912,
+                "width": 266,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 228,
+                "left": 0,
+                "width": 418,
+                "height": 494
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Slowest Transaction Codes",
+            "query": "select useraction.name as [Transaction Code], useraction.duration as [Response Time] from useraction where useraction.name LIKE \"*Payroll*\" GROUP BY useraction.name, useraction.duration ORDER BY useraction.duration DESC",
+            "type": "TABLE"
+        },
+        {
+            "name": "Markdown",
+            "tileType": "MARKDOWN",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 1444,
+                "width": 152,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "markdown": "## [⇦](#dashboard;id=fc230898-e75c-4dd9-bd0d-370268989245)\n![BackButton]()"
+        },
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 1178,
+                "width": 304,
+                "height": 380
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Impacted Users > 10 seconds",
+            "query": "select usersession.userId as [User ID], useraction.name as [User Action], useraction.duration as [T-code Duration] from useraction where useraction.name LIKE \"*Payroll*\" and useraction.duration > 10000 GROUP BY usersession.userId, useraction.name, useraction.duration ORDER BY useraction.duration DESC",
+            "type": "TABLE",
+            "timeFrameShift": "-2h"
+        },
+        {
+            "name": "Impacted Users",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 1178,
+                "width": 266,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "DTAQL",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 456,
+                "left": 418,
+                "width": 1064,
+                "height": 266
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Average Response Time",
+            "query": "select  startTime as [Time], useraction.duration as [Average Response Time], usersession.userActionCount FROM useraction where useraction.name STARTSWITH \"Payroll\"",
+            "type": "LINE_CHART",
+            "visualizationConfig": {
+                "hasAxisBucketing": true
+            }
+        },
+        {
+            "name": "Trend - Action Count versus Response Time",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 418,
+                "left": 418,
+                "width": 1064,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        }
+    ]
+}

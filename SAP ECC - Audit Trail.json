@@ -1,0 +1,239 @@
+{
+    "metadata": {
+        "configurationVersions": [
+            3
+        ],
+        "clusterVersion": "1.191.101.20200414-115902"
+    },
+    "id": "7e4b029a-4dd4-49bc-bad0-d5f7f0c51324",
+    "dashboardMetadata": {
+        "name": "SAP Audit Trail",
+        "shared": true,
+        "owner": "joseph.bologna@dynatrace.com",
+        "sharingDetails": {
+            "linkShared": true,
+            "published": true
+        },
+        "dashboardFilter": {
+            "timeframe": "",
+            "managementZone": null
+        }
+    },
+    "tiles": [
+        {
+            "name": "Created Events",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "width": 418,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "Display Events",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 418,
+                "width": 418,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "Change Events",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 836,
+                "width": 380,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "Markdown",
+            "tileType": "MARKDOWN",
+            "configured": true,
+            "bounds": {
+                "top": 0,
+                "left": 1216,
+                "width": 152,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "markdown": "## [⇦](#dashboard;id=b61cdf07-618f-4e0b-80b8-3477c6ce8f06)\n![BackButton]()"
+        },
+        {
+            "name": "User Sessions Query",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 190,
+                "left": 0,
+                "width": 418,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Create Transaction Codes (Top 5)",
+            "query": "select top(name, 5) as [Transaction Code], Count(name) as [Count] from useraction where name like \"*Create*\" GROUP BY name",
+            "type": "TABLE",
+            "limit": 50
+        },
+        {
+            "name": "User Sessions Query",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 190,
+                "left": 418,
+                "width": 418,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Display Transaction Codes (Top 5)",
+            "query": "select top(name, 5) as [Transaction Code], Count(name) as [Count] from useraction where name like \"*Display*\" GROUP BY name",
+            "type": "TABLE",
+            "limit": 50
+        },
+        {
+            "name": "User Sessions Query",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 190,
+                "left": 836,
+                "width": 418,
+                "height": 304
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Change Transaction Codes (Top 5)",
+            "query": "select top(name, 5) as [Transaction Code], Count(name) as [Count] from useraction where name like \"*Change*\" GROUP BY name",
+            "type": "TABLE",
+            "limit": 50
+        },
+        {
+            "name": "User Sessions Query",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 0,
+                "width": 418,
+                "height": 152
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Create Transaction Codes",
+            "query": "select count(name) as [Count] from useraction where name like \"*Create*\" ",
+            "type": "SINGLE_VALUE",
+            "timeFrameShift": "dynamic",
+            "limit": 50
+        },
+        {
+            "name": "User Sessions Query",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 418,
+                "width": 418,
+                "height": 152
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Display Transaction Codes",
+            "query": "select count(name) as [Count] from useraction where name like \"*Display*\"",
+            "type": "SINGLE_VALUE",
+            "timeFrameShift": "dynamic",
+            "limit": 50
+        },
+        {
+            "name": "User Sessions Query",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 38,
+                "left": 836,
+                "width": 418,
+                "height": 152
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "Change Transaction Codes",
+            "query": "select count(name) as [Count] from useraction where name like \"*Change*\"",
+            "type": "SINGLE_VALUE",
+            "timeFrameShift": "dynamic",
+            "limit": 50
+        },
+        {
+            "name": "Event Trending",
+            "tileType": "HEADER",
+            "configured": true,
+            "bounds": {
+                "top": 494,
+                "left": 0,
+                "width": 1254,
+                "height": 38
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            }
+        },
+        {
+            "name": "User Sessions Query",
+            "tileType": "DTAQL",
+            "configured": true,
+            "bounds": {
+                "top": 532,
+                "left": 0,
+                "width": 1254,
+                "height": 342
+            },
+            "tileFilter": {
+                "timeframe": null,
+                "managementZone": null
+            },
+            "customName": "User sessions query results",
+            "query": "SELECT DISTINCT DATETIME(starttime, 'HH:mm', '5m'), count(useraction.name) FROM usersession where useraction.name like \"*Create*\" or useraction.name like \"*Display*\" or useraction.name like \"*Change*\"",
+            "type": "LINE_CHART",
+            "visualizationConfig": {
+                "hasAxisBucketing": true
+            },
+            "limit": 50
+        }
+    ]
+}
