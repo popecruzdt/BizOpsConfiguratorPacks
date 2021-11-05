@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "configurationVersions": [
+      7
+    ],
+    "clusterVersion": "1.229.141.20211102-165436"
+  },
+  "id": "5834050f-46b3-44e4-b54e-1fd2125be727",
+  "name": "Azure",
+  "description": null,
+  "rules": [
+    {
+      "type": "HOST",
+      "enabled": true,
+      "valueFormat": "VM",
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "AZURE_VM_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "HOST",
+      "enabled": true,
+      "valueFormat": "VM",
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "HOST_CLOUD_TYPE",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "CLOUD_TYPE",
+            "operator": "EQUALS",
+            "value": "AZURE",
+            "negate": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "SERVICE",
+      "enabled": true,
+      "valueFormat": "Function",
+      "propagationTypes": [
+        "SERVICE_TO_HOST_LIKE",
+        "SERVICE_TO_PROCESS_GROUP_LIKE"
+      ],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "SERVICE_TECHNOLOGY",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "SIMPLE_TECH",
+            "operator": "EQUALS",
+            "value": {
+              "type": "AZURE_FUNCTIONS"
+            },
+            "negate": false
+          }
+        },
+        {
+          "key": {
+            "attribute": "PROCESS_GROUP_AZURE_SITE_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "SERVICE",
+      "enabled": true,
+      "valueFormat": "App Service",
+      "propagationTypes": [
+        "SERVICE_TO_HOST_LIKE",
+        "SERVICE_TO_PROCESS_GROUP_LIKE"
+      ],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "PROCESS_GROUP_AZURE_SITE_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    }
+  ],
+  "entitySelectorBasedRules": []
+}
