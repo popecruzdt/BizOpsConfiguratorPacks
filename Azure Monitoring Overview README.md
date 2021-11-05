@@ -1,6 +1,5 @@
 ## Azure Monitoring Overview
-![Application RUM Monitoring Overview](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/Application_RUM_Monitoring_Overview_screenshot.png)
-![Application RUM Trending Overview](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/Application_RUM_Trending_Overview_screenshot.png)
+![Azure Monitoring Overview](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/Azure_Monitoring_Overview_screenshot.png)
 
 ## Dashboards:
 ### Azure Monitoring Overview
