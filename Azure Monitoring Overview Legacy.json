@@ -1,0 +1,3484 @@
+ {
+  "metadata": {
+    "configurationVersions": [
+      3
+    ],
+    "clusterVersion": "1.214.112.20210409-064503"
+  },
+  "id": "370ba9db-ecd4-4960-998b-8c236c41affc",
+  "dashboardMetadata": {
+    "name": "Azure Monitoring Overview",
+    "shared": true,
+    "owner": "anthony.pope-cruz@dynatrace.com",
+    "dashboardFilter": {
+      "timeframe": "Today"
+    },
+    "tags": [
+      "Azure Monitoring"
+    ]
+  },
+  "tiles": [
+    {
+      "name": "",
+      "tileType": "SERVICES",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 798,
+        "width": 152,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "SERVICE",
+        "customName": "Azure App Service",
+        "defaultName": "Azure App Service",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {
+          "SERVICE": {
+            "AUTO_TAGS": [
+              "Azure:App Service"
+            ]
+          }
+        }
+      },
+      "chartVisible": true
+    },
+    {
+      "name": "",
+      "tileType": "SERVICES",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1444,
+        "width": 152,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "SERVICE",
+        "customName": "Azure Function",
+        "defaultName": "Azure Function",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {
+          "SERVICE": {
+            "AUTO_TAGS": [
+              "Azure:Function"
+            ]
+          }
+        }
+      },
+      "chartVisible": true
+    },
+    {
+      "name": "",
+      "tileType": "HOSTS",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "HOST",
+        "customName": "Azure Hosts",
+        "defaultName": "Azure Hosts",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {
+          "HOST": {
+            "AUTO_TAGS": [
+              "Azure:VM"
+            ],
+            "HOST_VIRTUALIZATION": [
+              "7"
+            ]
+          }
+        }
+      },
+      "chartVisible": true
+    },
+    {
+      "name": "",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 646,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Response time avg",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.appService.response.avg",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_WEB_APP",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_web_app",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 646,
+        "width": 152,
+        "height": 228
+      },
+      "tileFilter": {},
+      "markdown": "[Web Requests](#topglobalwebrequests;servicefilter=0%1E48%11Azure%14App%20Service)\n\n[Exceptions](#exceptionsoverview;servicefilter=0%1E48%11Azure%14App%20Service)\n\n[Slow Transactions](#servicecalls;gf=all;servicefilter=0%1E0%11500000%144611686018427387%1048%11Azure%14App%20Service)\n\n[HTTP 5XX Errors](#topglobalwebrequests;servicefilter=0%1E48%11Azure%14App%20Service%102%11500-599;)"
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 950,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Requests throughput",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.appService.traffic.requests",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_WEB_APP",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_web_app",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "MINUTE"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 950,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "HTTP 5xx Errors",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.appService.http.status.http5xx",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_WEB_APP",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_web_app",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 304,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "CPU usage %",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:host.cpu.usage",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "HOST",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.host",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {
+          "HOST": {
+            "HOST_VIRTUALIZATION": [
+              "7"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 304,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Memory used %",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:host.mem.usage",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "HOST",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.host",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "HOST-B53C971862E06AB7¦HOST»HOST-B53C971862E06AB7»truebuiltin:host.mem.usage|AVG|TOTAL|LINE|HOST": {
+              "lastModified": 1591120860356,
+              "customColor": "#ef651f"
+            },
+            "HOST-B31CB8F7BDA01B33¦HOST»HOST-B31CB8F7BDA01B33»truebuiltin:host.mem.usage|AVG|TOTAL|LINE|HOST": {
+              "lastModified": 1591120856777,
+              "customColor": "#debbf3"
+            },
+            "HOST-9C374D9A4A680735¦HOST»HOST-9C374D9A4A680735»truebuiltin:host.mem.usage|AVG|TOTAL|LINE|HOST": {
+              "lastModified": 1591120851278,
+              "customColor": "#4fd5e0"
+            }
+          }
+        },
+        "filtersPerEntityType": {
+          "HOST": {
+            "HOST_VIRTUALIZATION": [
+              "7"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 0,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Active VMs per Subscription",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.region.vms.running",
+              "aggregation": "MAX",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_SUBSCRIPTION",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_subscription",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_SUBSCRIPTION-2BED0374A04ADF85¦AZURE_SUBSCRIPTION»AZURE_SUBSCRIPTION-2BED0374A04ADF85»truebuiltin:cloud.azure.region.vms.running|MAX|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SUBSCRIPTION": {
+              "lastModified": 1593439918905,
+              "customColor": "#2ab6f4"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1596,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Requests throughput",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.appService.functions.execution.count",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_FUNCTION_APP",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_function_app",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "MINUTE"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 1292,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Response time",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:service.response.time",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "SERVICE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.service",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {
+          "SERVICE": {
+            "AUTO_TAGS": [
+              "Azure:Function"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 1596,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "HTTP 5xx Errors",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.appService.functions.http.status.http5xx",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_FUNCTION_APP",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_function_app",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1292,
+        "width": 152,
+        "height": 228
+      },
+      "tileFilter": {},
+      "markdown": "[Web Requests](#topglobalwebrequests;servicefilter=0%1E48%11Azure%14Function)\n\n[Exceptions](#exceptionsoverview;servicefilter=0%1E48%11Azure%14Function)\n\n[Slow Transactions](#servicecalls;servicefilter=0%1E0%11500000%144611686018427387%1048%11Azure%14Function;)\n\n[HTTP 5XX Errors](#topglobalwebrequests;servicefilter=0%1E48%11Azure%14Function%102%11500-599;)"
+    },
+    {
+      "name": "Azure Virtual Machine (Scale Sets)",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 608,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Azure App Services",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 646,
+        "width": 608,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Azure Functions",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1292,
+        "width": 608,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 570,
+        "left": 0,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Incoming messages per Hub",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.eventHub.traffic.msgIn",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_EVENT_HUB",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_event_hub",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 570,
+        "left": 304,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Outgoing messages per Hub",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.eventHub.traffic.msgOut",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_EVENT_HUB",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_event_hub",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 798,
+        "left": 304,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Successful requests per Hub",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.eventHub.requests.successful",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_EVENT_HUB",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_event_hub",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 798,
+        "left": 0,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Incoming requests per Hub",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.eventHub.requests.incoming",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_EVENT_HUB",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_event_hub",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "MINUTE"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.requests.incoming|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199841903,
+              "customColor": "#f5d30f"
+            },
+            "AZURE_EVENT_HUB-82BFCE6314762970¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-82BFCE6314762970»truebuiltin:cloud.azure.eventHub.requests.incoming|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199847413,
+              "customColor": "#ffa86c"
+            },
+            "AZURE_EVENT_HUB-E49739E306E5A509¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-E49739E306E5A509»truebuiltin:cloud.azure.eventHub.requests.incoming|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199844805,
+              "customColor": "#7c38a1"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1026,
+        "left": 0,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "User errors per Hub",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.eventHub.errors.user",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_EVENT_HUB",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_event_hub",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1026,
+        "left": 304,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Server errors per Hub",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.eventHub.errors.server",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_EVENT_HUB",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_event_hub",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Azure Event Hub",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 532,
+        "left": 0,
+        "width": 456,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1254,
+        "left": 0,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Throttled requests per Hub",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.eventHub.requests.throttled",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_EVENT_HUB",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_event_hub",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1254,
+        "left": 304,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Quota exceeded errors per Hub",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.eventHub.errors.quotaExceeded",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_EVENT_HUB",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_event_hub",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 570,
+        "left": 646,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Transactions count per Blob Account",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.storage.blob.transactions",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_STORAGE_ACCOUNT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_storage_account",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "MINUTE"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Azure Storage Blob",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 532,
+        "left": 646,
+        "width": 456,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1026,
+        "left": 950,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "E2E success latency per Blob Account",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.storage.blob.transactions.network.latency.success.e2e",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_STORAGE_ACCOUNT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_storage_account",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 798,
+        "left": 646,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Ingress bytes per Blob Account",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.storage.blob.transactions.network.ingress",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_STORAGE_ACCOUNT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_storage_account",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "MINUTE"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 798,
+        "left": 950,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Egress bytes per Blob Account",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.storage.blob.transactions.network.egress",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_STORAGE_ACCOUNT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_storage_account",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "MINUTE"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 570,
+        "left": 950,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Blob capacity per Blob Account",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.storage.blob.capacity",
+              "aggregation": "MAX",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_STORAGE_ACCOUNT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_storage_account",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1254,
+        "left": 950,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Blob count per Blob Account",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.storage.blob.entities",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_STORAGE_ACCOUNT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_storage_account",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1254,
+        "left": 646,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Blob container count per Blob Account",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.storage.blob.containers",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_STORAGE_ACCOUNT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_storage_account",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1026,
+        "left": 646,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Server success latency per Blob Account",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.storage.blob.transactions.network.latency.success.server",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_STORAGE_ACCOUNT",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_storage_account",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1558,
+        "left": 0,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Requests throughput per App Gateway",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.appGateway.backend.settings.traffic.requests.total",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_APPLICATION_GATEWAY",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_application_gateway",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "MINUTE"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_APPLICATION_GATEWAY-27C39DA0FFC126CB¦AZURE_APPLICATION_GATEWAY»AZURE_APPLICATION_GATEWAY-27C39DA0FFC126CB»truebuiltin:cloud.azure.appGateway.backend.settings.traffic.requests.total|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_APPLICATION_GATEWAY": {
+              "lastModified": 1591202109987,
+              "customColor": "#00a1b2"
+            },
+            "AZURE_APPLICATION_GATEWAY-2A00CE2507FB4C68¦AZURE_APPLICATION_GATEWAY»AZURE_APPLICATION_GATEWAY-2A00CE2507FB4C68»truebuiltin:cloud.azure.appGateway.backend.settings.traffic.requests.total|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_APPLICATION_GATEWAY": {
+              "lastModified": 1591202116690,
+              "customColor": "#b4e5f9"
+            },
+            "AZURE_APPLICATION_GATEWAY-5DD58D6303A816F8¦AZURE_APPLICATION_GATEWAY»AZURE_APPLICATION_GATEWAY-5DD58D6303A816F8»truebuiltin:cloud.azure.appGateway.backend.settings.traffic.requests.total|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_APPLICATION_GATEWAY": {
+              "lastModified": 1591202104788,
+              "customColor": "#7c38a1"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Azure App Gateway & Load Balancer",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 1520,
+        "left": 0,
+        "width": 608,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1558,
+        "left": 304,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Requests failed per App Gateway",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.appGateway.backend.settings.traffic.requests.failed",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_APPLICATION_GATEWAY",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_application_gateway",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_APPLICATION_GATEWAY-2A00CE2507FB4C68¦AZURE_APPLICATION_GATEWAY»AZURE_APPLICATION_GATEWAY-2A00CE2507FB4C68»truebuiltin:cloud.azure.appGateway.backend.settings.traffic.requests.failed|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_APPLICATION_GATEWAY": {
+              "lastModified": 1591202240378,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_APPLICATION_GATEWAY-B51A7DE1999E5D1B¦AZURE_APPLICATION_GATEWAY»AZURE_APPLICATION_GATEWAY-B51A7DE1999E5D1B»truebuiltin:cloud.azure.appGateway.backend.settings.traffic.requests.failed|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_APPLICATION_GATEWAY": {
+              "lastModified": 1591202245487,
+              "customColor": "#7c38a1"
+            },
+            "AZURE_APPLICATION_GATEWAY-5DD58D6303A816F8¦AZURE_APPLICATION_GATEWAY»AZURE_APPLICATION_GATEWAY-5DD58D6303A816F8»truebuiltin:cloud.azure.appGateway.backend.settings.traffic.requests.failed|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_APPLICATION_GATEWAY": {
+              "lastModified": 1591202242936,
+              "customColor": "#ef651f"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1786,
+        "left": 0,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Current connections count per App Gateway",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.appGateway.network.connections.count",
+              "aggregation": "MAX",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_APPLICATION_GATEWAY",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_application_gateway",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_APPLICATION_GATEWAY-5DD58D6303A816F8¦AZURE_APPLICATION_GATEWAY»AZURE_APPLICATION_GATEWAY-5DD58D6303A816F8»truebuiltin:cloud.azure.appGateway.network.connections.count|MAX|TOTAL|LINE|MONITORED_ENTITY˟AZURE_APPLICATION_GATEWAY": {
+              "lastModified": 1591202321992,
+              "customColor": "#7c38a1"
+            },
+            "AZURE_APPLICATION_GATEWAY-27C39DA0FFC126CB¦AZURE_APPLICATION_GATEWAY»AZURE_APPLICATION_GATEWAY-27C39DA0FFC126CB»truebuiltin:cloud.azure.appGateway.network.connections.count|MAX|TOTAL|LINE|MONITORED_ENTITY˟AZURE_APPLICATION_GATEWAY": {
+              "lastModified": 1591202326977,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_APPLICATION_GATEWAY-2A00CE2507FB4C68¦AZURE_APPLICATION_GATEWAY»AZURE_APPLICATION_GATEWAY-2A00CE2507FB4C68»truebuiltin:cloud.azure.appGateway.network.connections.count|MAX|TOTAL|LINE|MONITORED_ENTITY˟AZURE_APPLICATION_GATEWAY": {
+              "lastModified": 1591202323642,
+              "customColor": "#ef651f"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1786,
+        "left": 304,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Unhealthy host count per App Gateway",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.appGateway.backend.settings.pool.host.unhealthy",
+              "aggregation": "MAX",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_APPLICATION_GATEWAY",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_application_gateway",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_APPLICATION_GATEWAY-2A00CE2507FB4C68¦AZURE_APPLICATION_GATEWAY»AZURE_APPLICATION_GATEWAY-2A00CE2507FB4C68»truebuiltin:cloud.azure.appGateway.backend.settings.pool.host.unhealthy|MAX|TOTAL|LINE|MONITORED_ENTITY˟AZURE_APPLICATION_GATEWAY": {
+              "lastModified": 1591202396997,
+              "customColor": "#ef651f"
+            },
+            "AZURE_APPLICATION_GATEWAY-B51A7DE1999E5D1B¦AZURE_APPLICATION_GATEWAY»AZURE_APPLICATION_GATEWAY-B51A7DE1999E5D1B»truebuiltin:cloud.azure.appGateway.backend.settings.pool.host.unhealthy|MAX|TOTAL|LINE|MONITORED_ENTITY˟AZURE_APPLICATION_GATEWAY": {
+              "lastModified": 1591202401464,
+              "customColor": "#7c38a1"
+            },
+            "AZURE_APPLICATION_GATEWAY-5DD58D6303A816F8¦AZURE_APPLICATION_GATEWAY»AZURE_APPLICATION_GATEWAY-5DD58D6303A816F8»truebuiltin:cloud.azure.appGateway.backend.settings.pool.host.unhealthy|MAX|TOTAL|LINE|MONITORED_ENTITY˟AZURE_APPLICATION_GATEWAY": {
+              "lastModified": 1591202399131,
+              "customColor": "#aeebf0"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 2014,
+        "left": 0,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Load balancer DIP TCP availability per LB",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.loadbalancer.availability.dipTcp",
+              "aggregation": "MIN",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_LOAD_BALANCER",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_load_balancer",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 2014,
+        "left": 304,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Load Balancer VIP availability per LB",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.loadbalancer.availability.vip",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_LOAD_BALANCER",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_load_balancer",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 2242,
+        "left": 304,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Bytes sent per LB",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.loadbalancer.traffic.byteOut",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_LOAD_BALANCER",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_load_balancer",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 2242,
+        "left": 0,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Bytes received per LB",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.loadbalancer.traffic.byteIn",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_LOAD_BALANCER",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_load_balancer",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Azure Service Bus",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 532,
+        "left": 1292,
+        "width": 456,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 570,
+        "left": 1292,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Incoming messages per Queue",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.serviceBus.queue.messages.incoming",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_service_bus_queue",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 570,
+        "left": 1596,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Outgoing messages per Queue",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.serviceBus.queue.messages.outgoing",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_service_bus_queue",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.outgoing|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439297957,
+              "customColor": "#008cdb"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 798,
+        "left": 1292,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Incoming requests per Queue",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.serviceBus.queue.requests.incoming",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_service_bus_queue",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "MINUTE"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA»truebuiltin:cloud.azure.serviceBus.queue.requests.incoming|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439403423,
+              "customColor": "#008cdb"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 798,
+        "left": 1596,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Successful requests per Queue",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.serviceBus.queue.requests.successful",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_service_bus_queue",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.outgoing|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439297957,
+              "customColor": "#008cdb"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA»truebuiltin:cloud.azure.serviceBus.queue.requests.successful|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439502285,
+              "customColor": "#008cdb"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1026,
+        "left": 1292,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Messages in Queue",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.serviceBus.queue.messages.count",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_service_bus_queue",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA»truebuiltin:cloud.azure.serviceBus.queue.requests.incoming|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439403423,
+              "customColor": "#008cdb"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA»truebuiltin:cloud.azure.serviceBus.queue.messages.count|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439595693,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1026,
+        "left": 1596,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Server errors per Queue",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.serviceBus.queue.errors.server",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_service_bus_queue",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA»truebuiltin:cloud.azure.serviceBus.queue.requests.incoming|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439403423,
+              "customColor": "#008cdb"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA»truebuiltin:cloud.azure.serviceBus.queue.messages.count|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439595693,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA»truebuiltin:cloud.azure.serviceBus.queue.errors.server|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439662257,
+              "customColor": "#008cdb"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Azure SQL DB",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 1520,
+        "left": 646,
+        "width": 456,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1558,
+        "left": 646,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Successful connections per SQL DB",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.sqlDatabase.connections.successful",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_SQL_DATABASE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_sql_database",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "MINUTE"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440672935,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440666127,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1558,
+        "left": 950,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Failed connections per SQL DB",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.sqlDatabase.connections.failed",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_SQL_DATABASE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_sql_database",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "MINUTE"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.connections.failed|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440743637,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440672935,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440666127,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            },
+            "AZURE_SQL_DATABASE-9FF785DAE3977459¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-9FF785DAE3977459»truebuiltin:cloud.azure.sqlDatabase.connections.failed|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440740531,
+              "customColor": "#4fd5e0"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1786,
+        "left": 646,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Total database size per SQL DB",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.sqlDatabase.storage.totalBytes",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_SQL_DATABASE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_sql_database",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.storage.totalBytes|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440878436,
+              "customColor": "#ef651f"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.storage.totalBytes|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440875748,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440672935,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440666127,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1786,
+        "left": 950,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Database DTU percentage per SQL DB",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.sqlDatabase.dtu.consumptionPerc",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_SQL_DATABASE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_sql_database",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.storage.totalBytes|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440878436,
+              "customColor": "#ef651f"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.storage.totalBytes|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440875748,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.dtu.consumptionPerc|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440969972,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440672935,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440666127,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.dtu.consumptionPerc|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440972022,
+              "customColor": "#ef651f"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 2014,
+        "left": 646,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "CPU usage per SQL DB",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.sqlDatabase.cpuPercent",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_SQL_DATABASE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_sql_database",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.storage.totalBytes|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440878436,
+              "customColor": "#ef651f"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.storage.totalBytes|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440875748,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440672935,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.cpuPercent|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593441226028,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440666127,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.cpuPercent|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593441223941,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 2014,
+        "left": 950,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Deadlocks per SQL DB",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.sqlDatabase.deadlocks",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_SQL_DATABASE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_sql_database",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.storage.totalBytes|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440878436,
+              "customColor": "#ef651f"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.storage.totalBytes|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440875748,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.deadlocks|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593441287933,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.deadlocks|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593441291655,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440672935,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.cpuPercent|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593441226028,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440666127,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.cpuPercent|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593441223941,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Azure Redis",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 1520,
+        "left": 1292,
+        "width": 456,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1558,
+        "left": 1292,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Processed commands per Redis Cache",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.redis.commands.total",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_REDIS_CACHE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_redis_cache",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.commands.total|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593441667565,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440672935,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440666127,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1558,
+        "left": 1596,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Cache hits per Redis Cache",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.redis.cache.hits",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_REDIS_CACHE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_redis_cache",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "MINUTE"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.commands.total|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593441667565,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440672935,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440666127,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            },
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.cache.hits|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593441893936,
+              "customColor": "#2ab6f4"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1786,
+        "left": 1292,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Reads per Redis Cache",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.redis.cache.read",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_REDIS_CACHE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_redis_cache",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.commands.total|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593441667565,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440672935,
+              "customColor": "#ef651f"
+            },
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.cache.read|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593442035404,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440666127,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1786,
+        "left": 1596,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Writes per Redis Cache",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.redis.cache.write",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_REDIS_CACHE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_redis_cache",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.commands.total|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593441667565,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440672935,
+              "customColor": "#ef651f"
+            },
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.cache.read|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593442035404,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440666127,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            },
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.cache.write|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593442108920,
+              "customColor": "#2ab6f4"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 2014,
+        "left": 1292,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Used memory per Redis Cache",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.redis.memory.used",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_REDIS_CACHE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_redis_cache",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.memory.used|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593442176323,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.commands.total|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593441667565,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440672935,
+              "customColor": "#ef651f"
+            },
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.cache.read|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593442035404,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440666127,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 2014,
+        "left": 1596,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Used memory RSS per Redis Cache",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.redis.memory.usedRss",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_REDIS_CACHE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_redis_cache",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.memory.used|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593442176323,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.commands.total|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593441667565,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440672935,
+              "customColor": "#ef651f"
+            },
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.memory.usedRss|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593442227661,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.cache.read|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593442035404,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440666127,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1254,
+        "left": 1292,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Dead-lettered Messages in Queue",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.serviceBus.queue.messages.countDeadLettered",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_service_bus_queue",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA»truebuiltin:cloud.azure.serviceBus.queue.requests.incoming|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439403423,
+              "customColor": "#008cdb"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA»truebuiltin:cloud.azure.serviceBus.queue.messages.count|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439595693,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA»truebuiltin:cloud.azure.serviceBus.queue.messages.countDeadLettered|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593443118559,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1254,
+        "left": 1596,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Size per Queue",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.serviceBus.queue.size",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_service_bus_queue",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA»truebuiltin:cloud.azure.serviceBus.queue.requests.incoming|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439403423,
+              "customColor": "#008cdb"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA»truebuiltin:cloud.azure.serviceBus.queue.messages.count|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439595693,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA»truebuiltin:cloud.azure.serviceBus.queue.size|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593443218570,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-E864C548AC870ABA»truebuiltin:cloud.azure.serviceBus.queue.errors.server|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439662257,
+              "customColor": "#008cdb"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 2242,
+        "left": 646,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Sessions per SQL DB",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.sqlDatabase.sessions",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_SQL_DATABASE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_sql_database",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.storage.totalBytes|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440878436,
+              "customColor": "#ef651f"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.storage.totalBytes|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440875748,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440672935,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.cpuPercent|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593441226028,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440666127,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.sessions|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593444025693,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.cpuPercent|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593441223941,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.sessions|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593444000404,
+              "customColor": "#ef651f"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 2242,
+        "left": 950,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Workers per SQL DB",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.sqlDatabase.workers",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_SQL_DATABASE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_sql_database",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.workers|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593444065086,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.storage.totalBytes|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440878436,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.storage.totalBytes|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440875748,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440666127,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.cpuPercent|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593441223941,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.workers|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593444063249,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440672935,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.cpuPercent|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593441226028,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.sessions|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593444025693,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.sessions|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593444000404,
+              "customColor": "#ef651f"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 2242,
+        "left": 1292,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Get commands per Redis Cache",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.redis.commands.get",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_REDIS_CACHE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_redis_cache",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "MINUTE"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.memory.used|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593442176323,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.commands.total|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593441667565,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440672935,
+              "customColor": "#ef651f"
+            },
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.cache.read|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593442035404,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440666127,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.commands.get|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593444145553,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 2242,
+        "left": 1596,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Set commands per Redis Cache",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:cloud.azure.redis.commands.set",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "MONITORED_ENTITY˟AZURE_REDIS_CACHE",
+              "dimensions": [
+                {
+                  "id": "0",
+                  "name": "dt.entity.azure_redis_cache",
+                  "values": [],
+                  "entityDimension": true
+                }
+              ],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "MINUTE"
+            }
+          ],
+          "resultMetadata": {
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.memory.used|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593442176323,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.commands.set|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593444191219,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.commands.total|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593441667565,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_EVENT_HUB-1D69338F5A35AC06¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-1D69338F5A35AC06»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199137002,
+              "customColor": "#ef651f"
+            },
+            "AZURE_SQL_DATABASE-C347E1D173F256D2¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-C347E1D173F256D2»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440672935,
+              "customColor": "#ef651f"
+            },
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.cache.read|AVG|TOTAL|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593442035404,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA¦AZURE_SERVICE_BUS_QUEUE»AZURE_SERVICE_BUS_QUEUE-89ADFF3528AFF5FA»truebuiltin:cloud.azure.serviceBus.queue.messages.incoming|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_SERVICE_BUS_QUEUE": {
+              "lastModified": 1593439245232,
+              "customColor": "#008cdb"
+            },
+            "AZURE_SQL_DATABASE-D1329D2CE597B23C¦AZURE_SQL_DATABASE»AZURE_SQL_DATABASE-D1329D2CE597B23C»truebuiltin:cloud.azure.sqlDatabase.connections.successful|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_SQL_DATABASE": {
+              "lastModified": 1593440666127,
+              "customColor": "#4fd5e0"
+            },
+            "AZURE_REDIS_CACHE-4F98D4214F3CDAE3¦AZURE_REDIS_CACHE»AZURE_REDIS_CACHE-4F98D4214F3CDAE3»truebuiltin:cloud.azure.redis.commands.get|NONE|MINUTE|LINE|MONITORED_ENTITY˟AZURE_REDIS_CACHE": {
+              "lastModified": 1593444145553,
+              "customColor": "#2ab6f4"
+            },
+            "AZURE_EVENT_HUB-F4AC9FA7C395BFD1¦AZURE_EVENT_HUB»AZURE_EVENT_HUB-F4AC9FA7C395BFD1»truebuiltin:cloud.azure.eventHub.traffic.msgIn|NONE|TOTAL|LINE|MONITORED_ENTITY˟AZURE_EVENT_HUB": {
+              "lastModified": 1591199140370,
+              "customColor": "#a972cc"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    }
+  ]
+}
