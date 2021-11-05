@@ -15,7 +15,8 @@
     },
     "tags": [
       "Azure Monitoring"
-    ]
+    ],
+    "preset": true
   },
   "tiles": [
     {
