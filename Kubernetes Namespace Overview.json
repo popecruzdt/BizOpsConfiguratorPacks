@@ -1,858 +1,2365 @@
-{
+ {
   "metadata": {
-      "configurationVersions": [3],
-      "clusterVersion": "1.196.55.20200624-161048"
+    "configurationVersions": [
+      5
+    ],
+    "clusterVersion": "1.229.143.20211103-130154"
   },
-  "id": "d6949908-0498-4c32-9962-8e093d1f46d4",
-    "dashboardMetadata": {
-        "name": "${dashboard_name}",
-        "shared": true,
-        "sharingDetails": {
-            "linkShared": false,
-            "published": true
-        },
-        "dashboardFilter": {
-            "timeframe": "Today",
-            "managementZone": {
-                "id": "${managementZone.id}",
-                "name": "${managementZone.name}"
-            }
-        },
-        "tags": ["Kubernetes Monitoring", "Overview", "Namespace"]
+  "id": "2c307cf3-5a34-45af-b2df-3d6a71659858",
+  "dashboardMetadata": {
+    "name": "${namespace} Namespace Overview",
+    "shared": true,
+    "owner": "anthony.pope-cruz@dynatrace.com",
+    "dashboardFilter": {
+      "timeframe": "Today",
+      "managementZone": {
+        "id": "${managementZone.id}",
+        "name": "${managementZone.name}"
+      }
     },
-    "tiles": [{
-        "name": "Problems",
-        "tileType": "OPEN_PROBLEMS",
-        "configured": true,
-        "bounds": {
-            "top": 38,
-            "left": 0,
-            "width": 152,
-            "height": 152
+    "tags": [
+      "Configurator",
+      "Overview",
+      "Namespace",
+      "Kubernetes"
+    ],
+    "preset": true
+  },
+  "tiles": [
+    {
+      "name": "Problems",
+      "tileType": "OPEN_PROBLEMS",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 152,
+        "height": 152
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "system status",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "microservice health and utilization",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 342,
+        "width": 1520,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 418,
+        "left": 1862,
+        "width": 304,
+        "height": 456
+      },
+      "tileFilter": {},
+      "markdown": "[pods & containers](#newprocessessummary)\n\n[workloads](/ui/kubernetes/workloads)\n\n[docker](#docker)\n\n[cpu usage](/ui/diagnostictools/profiling/cpu)\n\n[process crashes](#processcrashesglobal)\n\n[memory dumps](/ui/diagnostictools/memorydumps)\n\n[events](/ui/log-monitoring?gf=all&advancedQueryMode=false&visibleColumns=timestamp&visibleColumns=status&visibleColumns=content&query=event.type%3D\"k8s\"%20AND%20k8s.namespace.name%3D\"${namespace}\"&sortDirection=desc&&baseQuery=)\n\n[logs](/ui/log-monitoring)"
+    },
+    {
+      "name": "analyze workloads",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 380,
+        "left": 1862,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "analyze microservices",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1862,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1862,
+        "width": 304,
+        "height": 342
+      },
+      "tileFilter": {},
+      "markdown": "[microservices](/ui/services)\n\n[top endpoints](/ui/diagnostictools/mda?mdaId=topweb&metric=REQUEST_COUNT&dimension=%7BRequest:Name%7D&mergeServices=false&aggregation=COUNT&percentile=80&chart=COLUMN&servicefilter=0%1E26%112%1026%111)\n\n[exceptions](/ui/diagnostictools/mda?&mdaId=exceptions&metric=EXCEPTION_COUNT&dimension=%7BException:Class%7D&mergeServices=true&aggregation=SUM&percentile=80&chart=COLUMN&servicefilter=0%1E29%110)\n\n[traces](/ui/diagnostictools/purepaths)"
+    },
+    {
+      "name": "cluster health and utilization",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 874,
+        "left": 342,
+        "width": 1520,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "",
+      "tileType": "SERVICES",
+      "configured": true,
+      "bounds": {
+        "top": 190,
+        "left": 0,
+        "width": 304,
+        "height": 190
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "SERVICE",
+        "customName": "Microservices",
+        "defaultName": "Microservices",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [],
+          "resultMetadata": {}
         },
-        "tileFilter": {}
-    }, {
-        "name": "system status",
-        "tileType": "HEADER",
-        "configured": true,
-        "bounds": {
-            "top": 0,
-            "left": 0,
-            "width": 304,
-            "height": 38
+        "filtersPerEntityType": {}
+      },
+      "chartVisible": true
+    },
+    {
+      "name": "",
+      "tileType": "HOSTS",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 152,
+        "width": 152,
+        "height": 152
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "HOST",
+        "customName": "Node Status",
+        "defaultName": "Node Status",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [],
+          "resultMetadata": {}
         },
-        "tileFilter": {}
-    }, {
-        "name": "Custom chart",
-        "tileType": "CUSTOM_CHARTING",
-        "configured": true,
-        "bounds": {
-            "top": 38,
-            "left": 304,
-            "width": 266,
-            "height": 342
-        },
-        "tileFilter": {},
-        "filterConfig": {
-            "type": "MIXED",
-            "customName": "Top CPU Usage by Pod",
-            "defaultName": "Custom chart",
-            "chartConfig": {
-                "legendShown": true,
-                "type": "TOP_LIST",
-                "series": [{
-                    "metric": "builtin:tech.generic.cpu.usage",
-                    "aggregation": "AVG",
-                    "type": "LINE",
-                    "entityType": "PROCESS_GROUP_INSTANCE",
-                    "dimensions": [{
-                        "id": "0",
-                        "name": "dt.entity.process_group_instance",
-                        "values": [],
-                        "entityDimension": true
-                    }],
-                    "sortAscending": false,
-                    "sortColumn": true,
-                    "aggregationRate": "TOTAL"
-                }],
-                "resultMetadata": {}
-            },
-            "filtersPerEntityType": {}
+        "filtersPerEntityType": {}
+      },
+      "chartVisible": true
+    },
+    {
+      "name": "Cluster CPU",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1140,
+        "left": 1102,
+        "width": 380,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": "Cluster CPU",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:cloud.kubernetes.cluster.cpuAvailable",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
         }
-    }, {
-        "name": "Custom chart",
-        "tileType": "CUSTOM_CHARTING",
-        "configured": true,
-        "bounds": {
-            "top": 38,
-            "left": 570,
-            "width": 266,
-            "height": 342
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
         },
-        "tileFilter": {},
-        "filterConfig": {
-            "type": "MIXED",
-            "customName": "Top Memory Usage by Pod",
-            "defaultName": "Custom chart",
-            "chartConfig": {
-                "legendShown": true,
-                "type": "TOP_LIST",
-                "series": [{
-                    "metric": "builtin:tech.generic.mem.workingSetSize",
-                    "aggregation": "AVG",
-                    "type": "LINE",
-                    "entityType": "PROCESS_GROUP_INSTANCE",
-                    "dimensions": [{
-                        "id": "0",
-                        "name": "dt.entity.process_group_instance",
-                        "values": [],
-                        "entityDimension": true
-                    }],
-                    "sortAscending": false,
-                    "sortColumn": true,
-                    "aggregationRate": "TOTAL"
-                }],
-                "resultMetadata": {}
-            },
-            "filtersPerEntityType": {}
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showSparkLine": false
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cluster Memory",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1140,
+        "left": 1482,
+        "width": 380,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": "Cluster Memory",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:cloud.kubernetes.cluster.memoryAvailable",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
         }
-    }, {
-        "name": "pod resource utilization ",
-        "tileType": "HEADER",
-        "configured": true,
-        "bounds": {
-            "top": 0,
-            "left": 304,
-            "width": 532,
-            "height": 38
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
         },
-        "tileFilter": {}
-    }, {
-        "name": "Custom chart",
-        "tileType": "CUSTOM_CHARTING",
-        "configured": true,
-        "bounds": {
-            "top": 38,
-            "left": 836,
-            "width": 266,
-            "height": 342
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
         },
-        "tileFilter": {},
-        "filterConfig": {
-            "type": "MIXED",
-            "customName": "Top Request Count",
-            "defaultName": "Custom chart",
-            "chartConfig": {
-                "legendShown": true,
-                "type": "TOP_LIST",
-                "series": [{
-                    "metric": "builtin:service.requestCount.total",
-                    "aggregation": "NONE",
-                    "type": "LINE",
-                    "entityType": "SERVICE",
-                    "dimensions": [{
-                        "id": "0",
-                        "name": "dt.entity.service",
-                        "values": [],
-                        "entityDimension": true
-                    }],
-                    "sortAscending": false,
-                    "sortColumn": true,
-                    "aggregationRate": "TOTAL"
-                }],
-                "resultMetadata": {}
-            },
-            "filtersPerEntityType": {}
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showSparkLine": false
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cluster Node Mem (avg)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1026,
+        "left": 342,
+        "width": 380,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": "Cluster Node Memory",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:host.mem.usage",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
         }
-    }, {
-        "name": "microservice performance",
-        "tileType": "HEADER",
-        "configured": true,
-        "bounds": {
-            "top": 0,
-            "left": 836,
-            "width": 798,
-            "height": 38
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
         },
-        "tileFilter": {}
-    }, {
-        "name": "Custom chart",
-        "tileType": "CUSTOM_CHARTING",
-        "configured": true,
-        "bounds": {
-            "top": 38,
-            "left": 1102,
-            "width": 266,
-            "height": 342
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
         },
-        "tileFilter": {},
-        "filterConfig": {
-            "type": "MIXED",
-            "customName": "Top Response Time",
-            "defaultName": "Custom chart",
-            "chartConfig": {
-                "legendShown": true,
-                "type": "TOP_LIST",
-                "series": [{
-                    "metric": "builtin:service.response.time",
-                    "aggregation": "AVG",
-                    "type": "LINE",
-                    "entityType": "SERVICE",
-                    "dimensions": [{
-                        "id": "0",
-                        "name": "dt.entity.service",
-                        "values": [],
-                        "entityDimension": true
-                    }],
-                    "sortAscending": false,
-                    "sortColumn": true,
-                    "aggregationRate": "TOTAL"
-                }],
-                "resultMetadata": {}
-            },
-            "filtersPerEntityType": {}
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showSparkLine": false
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cluster Node CPU (avg)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 912,
+        "left": 342,
+        "width": 380,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": "Cluster Node CPU",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:host.cpu.usage",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
         }
-    }, {
-        "name": "Custom chart",
-        "tileType": "CUSTOM_CHARTING",
-        "configured": true,
-        "bounds": {
-            "top": 38,
-            "left": 1368,
-            "width": 266,
-            "height": 342
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
         },
-        "tileFilter": {},
-        "filterConfig": {
-            "type": "MIXED",
-            "customName": "Top Failure Rate",
-            "defaultName": "Custom chart",
-            "chartConfig": {
-                "legendShown": true,
-                "type": "TOP_LIST",
-                "series": [{
-                    "metric": "builtin:service.errors.total.rate",
-                    "aggregation": "AVG",
-                    "type": "LINE",
-                    "entityType": "SERVICE",
-                    "dimensions": [{
-                        "id": "0",
-                        "name": "dt.entity.service",
-                        "values": [],
-                        "entityDimension": true
-                    }],
-                    "sortAscending": false,
-                    "sortColumn": true,
-                    "aggregationRate": "TOTAL"
-                }],
-                "resultMetadata": {}
-            },
-            "filtersPerEntityType": {}
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showSparkLine": false
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cluster Node CPU (max)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 912,
+        "left": 722,
+        "width": 380,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": "Cluster Node CPU",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:host.cpu.usage",
+          "spaceAggregation": "MAX",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
         }
-    }, {
-        "name": "Markdown",
-        "tileType": "MARKDOWN",
-        "configured": true,
-        "bounds": {
-            "top": 418,
-            "left": 304,
-            "width": 266,
-            "height": 152
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
         },
-        "tileFilter": {},
-        "markdown": "[pods & containers](#newprocessessummary)\n\n[${kubernetes-prefix.value} nodes](#newhosts)\n\n[docker](#docker)"
-    }, {
-        "name": "Markdown",
-        "tileType": "MARKDOWN",
-        "configured": true,
-        "bounds": {
-            "top": 418,
-            "left": 570,
-            "width": 266,
-            "height": 152
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
         },
-        "tileFilter": {},
-        "markdown": "[cpu usage](#codelevel)\n\n[process crashes](#processcrashesglobal)\n\n[logs](#loganalytics)"
-    }, {
-        "name": "analyze infrastructure",
-        "tileType": "HEADER",
-        "configured": true,
-        "bounds": {
-            "top": 380,
-            "left": 304,
-            "width": 532,
-            "height": 38
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showSparkLine": false
         },
-        "tileFilter": {}
-    }, {
-        "name": "analyze microservices & transactions",
-        "tileType": "HEADER",
-        "configured": true,
-        "bounds": {
-            "top": 380,
-            "left": 836,
-            "width": 798,
-            "height": 38
-        },
-        "tileFilter": {}
-    }, {
-        "name": "Markdown",
-        "tileType": "MARKDOWN",
-        "configured": true,
-        "bounds": {
-            "top": 418,
-            "left": 836,
-            "width": 266,
-            "height": 114
-        },
-        "tileFilter": {},
-        "markdown": "[microservices](#newservices)\n\n[top endpoints](#topglobalwebrequests)\n\n[exceptions](#exceptionsoverview)\n\n"
-    }, {
-        "name": "Markdown",
-        "tileType": "MARKDOWN",
-        "configured": true,
-        "bounds": {
-            "top": 418,
-            "left": 1102,
-            "width": 266,
-            "height": 114
-        },
-        "tileFilter": {},
-        "markdown": "[purepaths](#servicecalls)"
-    }, {
-        "name": "Smartscape",
-        "tileType": "PURE_MODEL",
-        "configured": true,
-        "bounds": {
-            "top": 380,
-            "left": 0,
-            "width": 304,
-            "height": 152
-        },
-        "tileFilter": {}
-    }, {
-        "name": "Custom chart",
-        "tileType": "CUSTOM_CHARTING",
-        "configured": true,
-        "bounds": {
-            "top": 570,
-            "left": 304,
-            "width": 266,
-            "height": 152
-        },
-        "tileFilter": {
-            "timeframe": "now/m-5m to now"
-        },
-        "filterConfig": {
-            "type": "MIXED",
-            "customName": "Cluster Node CPU",
-            "defaultName": "Custom chart",
-            "chartConfig": {
-                "legendShown": true,
-                "type": "SINGLE_VALUE",
-                "series": [{
-                    "metric": "builtin:host.cpu.usage",
-                    "aggregation": "AVG",
-                    "type": "LINE",
-                    "entityType": "HOST",
-                    "dimensions": [],
-                    "sortAscending": false,
-                    "sortColumn": true,
-                    "aggregationRate": "TOTAL"
-                }],
-                "resultMetadata": {
-                    "KUBERNETES_CLUSTER-90B1320A2410E63C¦KUBERNETES_CLUSTER»KUBERNETES_CLUSTER-90B1320A2410E63C»truebuiltin:cloud.kubernetes.cluster.cpuAvailable|AVG|TOTAL|BAR|KUBERNETES_CLUSTER": {
-                        "lastModified": 1592511913478,
-                        "customColor": "#debbf3"
-                    },
-                    "HOST-C89BCABA5613780B¦HOST»HOST-C89BCABA5613780B»truebuiltin:host.cpu.usage|AVG|TOTAL|LINE|HOST": {
-                        "lastModified": 1592511919601,
-                        "customColor": "#00a1b2"
-                    },
-                    "nullbuiltin:host.cpu.usage|AVG|TOTAL|LINE|HOST": {
-                        "lastModified": 1592848058480,
-                        "customColor": "#00a1b2"
-                    },
-                    "HOST-DC480C6434B60002¦HOST»HOST-DC480C6434B60002»truebuiltin:host.cpu.usage|AVG|TOTAL|LINE|HOST": {
-                        "lastModified": 1592511923338,
-                        "customColor": "#ef651f"
-                    }
-                }
-            },
-            "filtersPerEntityType": {}
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cluster Node Mem (max)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1026,
+        "left": 722,
+        "width": 380,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": "Cluster Node Memory",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:host.mem.usage",
+          "spaceAggregation": "MAX",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
         }
-    }, {
-        "name": "Custom chart",
-        "tileType": "CUSTOM_CHARTING",
-        "configured": true,
-        "bounds": {
-            "top": 570,
-            "left": 0,
-            "width": 304,
-            "height": 152
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
         },
-        "tileFilter": {
-            "timeframe": "now/m-5m to now"
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
         },
-        "filterConfig": {
-            "type": "MIXED",
-            "customName": "Cluster CPU",
-            "defaultName": "Custom chart",
-            "chartConfig": {
-                "legendShown": true,
-                "type": "SINGLE_VALUE",
-                "series": [{
-                    "metric": "builtin:cloud.kubernetes.cluster.cpuAvailable",
-                    "aggregation": "AVG",
-                    "type": "LINE",
-                    "entityType": "KUBERNETES_CLUSTER",
-                    "dimensions": [],
-                    "sortAscending": false,
-                    "sortColumn": true,
-                    "aggregationRate": "TOTAL"
-                }],
-                "resultMetadata": {
-                    "KUBERNETES_CLUSTER-90B1320A2410E63C¦KUBERNETES_CLUSTER»KUBERNETES_CLUSTER-90B1320A2410E63C»truebuiltin:cloud.kubernetes.cluster.cpuAvailable|AVG|TOTAL|LINE|KUBERNETES_CLUSTER": {
-                        "lastModified": 1592512264226,
-                        "customColor": "#008cdb"
-                    },
-                    "nullbuiltin:cloud.kubernetes.cluster.cpuAvailable|AVG|TOTAL|LINE|KUBERNETES_CLUSTER": {
-                        "lastModified": 1592512576362,
-                        "customColor": "#008cdb"
-                    }
-                }
-            },
-            "filtersPerEntityType": {}
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showSparkLine": false
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Workloads",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 912,
+        "left": 0,
+        "width": 304,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": "Workloads",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:cloud.kubernetes.namespace.workloads",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
         }
-    }, {
-        "name": "Custom chart",
-        "tileType": "CUSTOM_CHARTING",
-        "configured": true,
-        "bounds": {
-            "top": 722,
-            "left": 0,
-            "width": 304,
-            "height": 152
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
         },
-        "tileFilter": {
-            "timeframe": "now/m-5m to now"
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
         },
-        "filterConfig": {
-            "type": "MIXED",
-            "customName": "Cluster Memory",
-            "defaultName": "Custom chart",
-            "chartConfig": {
-                "legendShown": true,
-                "type": "SINGLE_VALUE",
-                "series": [{
-                    "metric": "builtin:cloud.kubernetes.cluster.memoryAvailable",
-                    "aggregation": "AVG",
-                    "type": "LINE",
-                    "entityType": "KUBERNETES_CLUSTER",
-                    "dimensions": [],
-                    "sortAscending": false,
-                    "sortColumn": true,
-                    "aggregationRate": "TOTAL"
-                }],
-                "resultMetadata": {
-                    "KUBERNETES_CLUSTER-90B1320A2410E63C¦KUBERNETES_CLUSTER»KUBERNETES_CLUSTER-90B1320A2410E63C»truebuiltin:cloud.kubernetes.cluster.cpuAvailable|AVG|TOTAL|LINE|KUBERNETES_CLUSTER": {
-                        "lastModified": 1592512264226,
-                        "customColor": "#008cdb"
-                    },
-                    "KUBERNETES_CLUSTER-90B1320A2410E63C¦KUBERNETES_CLUSTER»KUBERNETES_CLUSTER-90B1320A2410E63C»truebuiltin:cloud.kubernetes.cluster.memoryAvailable|AVG|TOTAL|LINE|KUBERNETES_CLUSTER": {
-                        "lastModified": 1592512535331,
-                        "customColor": "#7c38a1"
-                    },
-                    "nullbuiltin:cloud.kubernetes.cluster.memoryAvailable|AVG|TOTAL|LINE|KUBERNETES_CLUSTER": {
-                        "lastModified": 1592512552890,
-                        "customColor": "#7c38a1"
-                    }
-                }
-            },
-            "filtersPerEntityType": {}
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Pod CPU Usage",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 418,
+        "left": 342,
+        "width": 380,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Top CPU Usage by Pod",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.generic.cpu.usage",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.process_group_instance"
+          ],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "enabled": true
         }
-    }, {
-        "name": "${kubernetes-prefix.value} cluster health",
-        "tileType": "HEADER",
-        "configured": true,
-        "bounds": {
-            "top": 532,
-            "left": 0,
-            "width": 304,
-            "height": 38
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
         },
-        "tileFilter": {}
-    }, {
-        "name": "Custom chart",
-        "tileType": "CUSTOM_CHARTING",
-        "configured": true,
-        "bounds": {
-            "top": 722,
-            "left": 304,
-            "width": 266,
-            "height": 152
+        "rules": [
+          {
+            "matcher": "A",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
         },
-        "tileFilter": {
-            "timeframe": "now/m-5m to now"
-        },
-        "filterConfig": {
-            "type": "MIXED",
-            "customName": "Cluster Node Memory",
-            "defaultName": "Custom chart",
-            "chartConfig": {
-                "legendShown": true,
-                "type": "SINGLE_VALUE",
-                "series": [{
-                    "metric": "builtin:host.mem.usage",
-                    "aggregation": "AVG",
-                    "type": "LINE",
-                    "entityType": "HOST",
-                    "dimensions": [],
-                    "sortAscending": false,
-                    "sortColumn": true,
-                    "aggregationRate": "TOTAL"
-                }],
-                "resultMetadata": {
-                    "KUBERNETES_CLUSTER-90B1320A2410E63C¦KUBERNETES_CLUSTER»KUBERNETES_CLUSTER-90B1320A2410E63C»truebuiltin:cloud.kubernetes.cluster.cpuAvailable|AVG|TOTAL|BAR|KUBERNETES_CLUSTER": {
-                        "lastModified": 1592511913478,
-                        "customColor": "#debbf3"
-                    },
-                    "HOST-C89BCABA5613780B¦HOST»HOST-C89BCABA5613780B»truebuiltin:host.cpu.usage|AVG|TOTAL|LINE|HOST": {
-                        "lastModified": 1592511919601,
-                        "customColor": "#00a1b2"
-                    },
-                    "HOST-DC480C6434B60002¦HOST»HOST-DC480C6434B60002»truebuiltin:host.mem.usage|AVG|TOTAL|LINE|HOST": {
-                        "lastModified": 1592513218298,
-                        "customColor": "#4fd5e0"
-                    },
-                    "HOST-DC480C6434B60002¦HOST»HOST-DC480C6434B60002»truebuiltin:host.cpu.usage|AVG|TOTAL|LINE|HOST": {
-                        "lastModified": 1592511923338,
-                        "customColor": "#ef651f"
-                    },
-                    "HOST-C89BCABA5613780B¦HOST»HOST-C89BCABA5613780B»truebuiltin:host.mem.usage|AVG|TOTAL|LINE|HOST": {
-                        "lastModified": 1592513055605,
-                        "customColor": "#008cdb"
-                    },
-                    "nullbuiltin:cloud.kubernetes.cluster.memoryAvailable|AVG|TOTAL|BAR|KUBERNETES_CLUSTER": {
-                        "lastModified": 1592513202606,
-                        "customColor": "#debbf3"
-                    }
-                }
-            },
-            "filtersPerEntityType": {}
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Pod Mem Usage",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 418,
+        "left": 1102,
+        "width": 380,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Top Memory Usage by Pod",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:tech.generic.mem.workingSetSize",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.process_group_instance"
+          ],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "enabled": true
         }
-    }, {
-        "name": "Custom chart",
-        "tileType": "CUSTOM_CHARTING",
-        "configured": true,
-        "bounds": {
-            "top": 570,
-            "left": 1102,
-            "width": 266,
-            "height": 304
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
         },
-        "tileFilter": {},
-        "filterConfig": {
-            "type": "MIXED",
-            "customName": "Workloads",
-            "defaultName": "Custom chart",
-            "chartConfig": {
-                "legendShown": true,
-                "type": "SINGLE_VALUE",
-                "series": [{
-                    "metric": "builtin:cloud.kubernetes.namespace.workloads",
-                    "aggregation": "AVG",
-                    "type": "LINE",
-                    "entityType": "CLOUD_APPLICATION_NAMESPACE",
-                    "dimensions": [{
-                        "id": "0",
-                        "name": "dt.entity.cloud_application_namespace",
-                        "values": [],
-                        "entityDimension": true
-                    }],
-                    "sortAscending": false,
-                    "sortColumn": true,
-                    "aggregationRate": "TOTAL"
-                }],
-                "resultMetadata": {}
-            },
-            "filtersPerEntityType": {}
+        "rules": [
+          {
+            "matcher": "A",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Top Request Count",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 342,
+        "width": 380,
+        "height": 342
+      },
+      "tileFilter": {},
+      "customName": "Top Request Count",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.service"
+          ],
+          "metricSelector": "builtin:service.requestCount.total:splitBy(\"dt.entity.service\"):value:auto:sort(value(sum,descending)):limit(10)",
+          "enabled": true
         }
-    }, {
-        "name": "Custom chart",
-        "tileType": "CUSTOM_CHARTING",
-        "configured": true,
-        "bounds": {
-            "top": 570,
-            "left": 836,
-            "width": 266,
-            "height": 152
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
         },
-        "tileFilter": {
-            "timeframe": "now/m-5m to now"
+        "rules": [
+          {
+            "matcher": "A",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
         },
-        "filterConfig": {
-            "type": "MIXED",
-            "customName": "Running Pods",
-            "defaultName": "Custom chart",
-            "chartConfig": {
-                "legendShown": true,
-                "type": "SINGLE_VALUE",
-                "series": [{
-                    "metric": "builtin:cloud.kubernetes.namespace.runningPods",
-                    "aggregation": "MAX",
-                    "type": "LINE",
-                    "entityType": "CLOUD_APPLICATION_NAMESPACE",
-                    "dimensions": [],
-                    "sortAscending": false,
-                    "sortColumn": true,
-                    "aggregationRate": "TOTAL"
-                }],
-                "resultMetadata": {}
-            },
-            "filtersPerEntityType": {}
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Top Response Time",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 722,
+        "width": 380,
+        "height": 342
+      },
+      "tileFilter": {},
+      "customName": "Top Response Time",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:service.response.time",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.service"
+          ],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "enabled": true
         }
-    }, {
-        "name": "Custom chart",
-        "tileType": "CUSTOM_CHARTING",
-        "configured": true,
-        "bounds": {
-            "top": 722,
-            "left": 836,
-            "width": 266,
-            "height": 152
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
         },
-        "tileFilter": {
-            "timeframe": "now/m-5m to now"
+        "rules": [
+          {
+            "matcher": "A",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
         },
-        "filterConfig": {
-            "type": "MIXED",
-            "customName": "Desired Pods",
-            "defaultName": "Custom chart",
-            "chartConfig": {
-                "legendShown": true,
-                "type": "SINGLE_VALUE",
-                "series": [{
-                    "metric": "builtin:cloud.kubernetes.namespace.desiredPods",
-                    "aggregation": "MAX",
-                    "type": "LINE",
-                    "entityType": "CLOUD_APPLICATION_NAMESPACE",
-                    "dimensions": [],
-                    "sortAscending": false,
-                    "sortColumn": true,
-                    "aggregationRate": "TOTAL"
-                }],
-                "resultMetadata": {}
-            },
-            "filtersPerEntityType": {}
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Top Failure Rate",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1102,
+        "width": 380,
+        "height": 342
+      },
+      "tileFilter": {},
+      "customName": "Top Failure Rate",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:service.errors.total.rate",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.service"
+          ],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "enabled": true
         }
-    }, {
-        "name": "${kubernetes-prefix.value} pods and workloads",
-        "tileType": "HEADER",
-        "configured": true,
-        "bounds": {
-            "top": 532,
-            "left": 836,
-            "width": 532,
-            "height": 38
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE"
         },
-        "tileFilter": {}
-    }, {
-        "name": "Custom chart",
-        "tileType": "CUSTOM_CHARTING",
-        "configured": true,
-        "bounds": {
-            "top": 570,
-            "left": 570,
-            "width": 266,
-            "height": 152
+        "rules": [
+          {
+            "matcher": "A",
+            "properties": {
+              "seriesType": "LINE"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
         },
-        "tileFilter": {
-            "timeframe": "now/m-5m to now"
-        },
-        "filterConfig": {
-            "type": "MIXED",
-            "customName": "Cluster Node CPU",
-            "defaultName": "Custom chart",
-            "chartConfig": {
-                "legendShown": true,
-                "type": "SINGLE_VALUE",
-                "series": [{
-                    "metric": "builtin:host.cpu.usage",
-                    "aggregation": "MAX",
-                    "type": "LINE",
-                    "entityType": "HOST",
-                    "dimensions": [],
-                    "sortAscending": false,
-                    "sortColumn": true,
-                    "aggregationRate": "TOTAL"
-                }],
-                "resultMetadata": {
-                    "KUBERNETES_CLUSTER-90B1320A2410E63C¦KUBERNETES_CLUSTER»KUBERNETES_CLUSTER-90B1320A2410E63C»truebuiltin:cloud.kubernetes.cluster.cpuAvailable|AVG|TOTAL|BAR|KUBERNETES_CLUSTER": {
-                        "lastModified": 1592511913478,
-                        "customColor": "#debbf3"
-                    },
-                    "HOST-DC480C6434B60002¦HOST»HOST-DC480C6434B60002»truebuiltin:host.cpu.usage|MAX|TOTAL|LINE|HOST": {
-                        "lastModified": 1592511923338,
-                        "customColor": "#ef651f"
-                    },
-                    "nullbuiltin:host.cpu.usage|MAX|TOTAL|LINE|HOST": {
-                        "lastModified": 1592848058480,
-                        "customColor": "#00a1b2"
-                    },
-                    "HOST-C89BCABA5613780B¦HOST»HOST-C89BCABA5613780B»truebuiltin:host.cpu.usage|MAX|TOTAL|LINE|HOST": {
-                        "lastModified": 1592511919601,
-                        "customColor": "#00a1b2"
-                    }
-                }
-            },
-            "filtersPerEntityType": {}
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Container CPU Usage",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 418,
+        "left": 722,
+        "width": 380,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Top list",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:containers.cpu.usageMilliCores",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.container_group_instance"
+          ],
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "enabled": true
         }
-    }, {
-        "name": "Custom chart",
-        "tileType": "CUSTOM_CHARTING",
-        "configured": true,
-        "bounds": {
-            "top": 722,
-            "left": 570,
-            "width": 266,
-            "height": 152
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
         },
-        "tileFilter": {
-            "timeframe": "now/m-5m to now"
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
         },
-        "filterConfig": {
-            "type": "MIXED",
-            "customName": "Cluster Node Memory",
-            "defaultName": "Custom chart",
-            "chartConfig": {
-                "legendShown": true,
-                "type": "SINGLE_VALUE",
-                "series": [{
-                    "metric": "builtin:host.mem.usage",
-                    "aggregation": "MAX",
-                    "type": "LINE",
-                    "entityType": "HOST",
-                    "dimensions": [],
-                    "sortAscending": false,
-                    "sortColumn": true,
-                    "aggregationRate": "TOTAL"
-                }],
-                "resultMetadata": {
-                    "KUBERNETES_CLUSTER-90B1320A2410E63C¦KUBERNETES_CLUSTER»KUBERNETES_CLUSTER-90B1320A2410E63C»truebuiltin:cloud.kubernetes.cluster.cpuAvailable|AVG|TOTAL|BAR|KUBERNETES_CLUSTER": {
-                        "lastModified": 1592511913478,
-                        "customColor": "#debbf3"
-                    },
-                    "HOST-C89BCABA5613780B¦HOST»HOST-C89BCABA5613780B»truebuiltin:host.cpu.usage|AVG|TOTAL|LINE|HOST": {
-                        "lastModified": 1592511919601,
-                        "customColor": "#00a1b2"
-                    },
-                    "HOST-DC480C6434B60002¦HOST»HOST-DC480C6434B60002»truebuiltin:host.mem.usage|MAX|TOTAL|LINE|HOST": {
-                        "lastModified": 1592513218298,
-                        "customColor": "#4fd5e0"
-                    },
-                    "HOST-DC480C6434B60002¦HOST»HOST-DC480C6434B60002»truebuiltin:host.cpu.usage|AVG|TOTAL|LINE|HOST": {
-                        "lastModified": 1592511923338,
-                        "customColor": "#ef651f"
-                    },
-                    "nullbuiltin:cloud.kubernetes.cluster.memoryAvailable|AVG|TOTAL|BAR|KUBERNETES_CLUSTER": {
-                        "lastModified": 1592513202606,
-                        "customColor": "#debbf3"
-                    },
-                    "HOST-C89BCABA5613780B¦HOST»HOST-C89BCABA5613780B»truebuiltin:host.mem.usage|MAX|TOTAL|LINE|HOST": {
-                        "lastModified": 1592513055605,
-                        "customColor": "#008cdb"
-                    }
-                }
-            },
-            "filtersPerEntityType": {}
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Container CPU Limit Usage",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 722,
+        "width": 380,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Top list",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:containers.cpu.usagePercent",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.container_group_instance"
+          ],
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "enabled": true
         }
-    }, {
-        "name": "Custom chart",
-        "tileType": "CUSTOM_CHARTING",
-        "configured": true,
-        "bounds": {
-            "top": 570,
-            "left": 1368,
-            "width": 266,
-            "height": 304
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
         },
-        "tileFilter": {
-            "timeframe": "now/m-5m to now"
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
         },
-        "filterConfig": {
-            "type": "MIXED",
-            "customName": "Workloads by Type",
-            "defaultName": "Custom chart",
-            "chartConfig": {
-                "legendShown": true,
-                "type": "TOP_LIST",
-                "series": [{
-                    "metric": "builtin:cloud.kubernetes.namespace.workloads",
-                    "aggregation": "MAX",
-                    "type": "LINE",
-                    "entityType": "CLOUD_APPLICATION_NAMESPACE",
-                    "dimensions": [{
-                        "id": "1",
-                        "name": "Deployment type",
-                        "values": [],
-                        "entityDimension": false
-                    }],
-                    "sortAscending": false,
-                    "sortColumn": true,
-                    "aggregationRate": "TOTAL"
-                }],
-                "resultMetadata": {}
-            },
-            "filtersPerEntityType": {}
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Container Mem Usage",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 418,
+        "left": 1482,
+        "width": 380,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Top list",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:containers.memory.residentSetBytes",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.container_group_instance"
+          ],
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "enabled": true
         }
-    }, {
-        "name": "",
-        "tileType": "SERVICES",
-        "configured": true,
-        "bounds": {
-            "top": 190,
-            "left": 0,
-            "width": 304,
-            "height": 190
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
         },
-        "tileFilter": {},
-        "filterConfig": {
-            "type": "SERVICE",
-            "customName": "Microservices",
-            "defaultName": "Microservices",
-            "chartConfig": {
-                "legendShown": true,
-                "type": "TIMESERIES",
-                "series": [],
-                "resultMetadata": {}
-            },
-            "filtersPerEntityType": {}
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
         },
-        "chartVisible": true
-    }, {
-        "name": "",
-        "tileType": "HOSTS",
-        "configured": true,
-        "bounds": {
-            "top": 38,
-            "left": 152,
-            "width": 152,
-            "height": 152
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Container Mem Limit",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 1482,
+        "width": 380,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Top list",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:containers.memory.usagePercent",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.container_group_instance"
+          ],
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
         },
-        "tileFilter": {},
-        "filterConfig": {
-            "type": "HOST",
-            "customName": "Node Status",
-            "defaultName": "Node Status",
-            "chartConfig": {
-                "legendShown": true,
-                "type": "TIMESERIES",
-                "series": [],
-                "resultMetadata": {}
-            },
-            "filtersPerEntityType": {}
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
         },
-        "chartVisible": true
-    }]
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Running Pods",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 418,
+        "left": 0,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Top list",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:cloud.kubernetes.workload.runningPods",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.cloud_application"
+          ],
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Desired Pods",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 0,
+        "width": 304,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Top list",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:cloud.kubernetes.workload.desiredPods",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.cloud_application"
+          ],
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "workload health and utilization",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 380,
+        "left": 342,
+        "width": 1520,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Container CPU Limits",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 342,
+        "width": 380,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Top list",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:containers.cpu.limit",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.container_group_instance"
+          ],
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Container Mem Limits",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 1102,
+        "width": 380,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Top list",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:containers.memory.limitBytes",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.container_group_instance"
+          ],
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Desired Pods",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1140,
+        "left": 0,
+        "width": 304,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": "Top list",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:cloud.kubernetes.namespace.desiredPods",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.cloud_application_namespace"
+          ],
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Running Pods",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1026,
+        "left": 0,
+        "width": 304,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": "Top list",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:cloud.kubernetes.namespace.runningPods",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.cloud_application_namespace"
+          ],
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "workload status",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 380,
+        "left": 0,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "cluster status",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 874,
+        "left": 0,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Cluster Ready Status (1=ready)",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1140,
+        "left": 342,
+        "width": 380,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:cloud.kubernetes.cluster.readyz",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.kubernetes_cluster"
+          ],
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cluster Nodes",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1140,
+        "left": 722,
+        "width": 380,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": "Top list",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:cloud.kubernetes.cluster.nodes",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.kubernetes_cluster"
+          ],
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cluster CPU Limits",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 912,
+        "left": 1482,
+        "width": 380,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": "Top list",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:cloud.kubernetes.cluster.cpuLimit",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showSparkLine": false
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cluster CPU Limit Usage",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 912,
+        "left": 1102,
+        "width": 380,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:cloud.kubernetes.cluster.cpuLimitStatistics",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showSparkLine": false
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cluster Mem Limits",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1026,
+        "left": 1482,
+        "width": 380,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:cloud.kubernetes.cluster.memoryLimit",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showSparkLine": false
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cluster Mem Limit Usage",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1026,
+        "left": 1102,
+        "width": 380,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:cloud.kubernetes.cluster.memoryLimitStatistics",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showSparkLine": false
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 912,
+        "left": 1862,
+        "width": 304,
+        "height": 342
+      },
+      "tileFilter": {},
+      "markdown": "[cluster](/ui/kubernetes)\n\n[nodes](#newhosts)\n\n[events](/ui/log-monitoring?gf=all&advancedQueryMode=false&visibleColumns=timestamp&visibleColumns=status&visibleColumns=content&query=event.type%3D\"k8s\"%20AND%20dt.kubernetes.event.involved_object.kind%3D\"node\"&sortDirection=desc&&baseQuery=)\n\n[logs](/ui/log-monitoring?advancedQueryMode=true&visibleColumns=timestamp&visibleColumns=status&visibleColumns=content&query=dt.source_entity%3D\"host-*\"&sortDirection=desc&&baseQuery=)"
+    },
+    {
+      "name": "analyze cluster",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 874,
+        "left": 1862,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Info Events",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1444,
+        "left": 0,
+        "width": 304,
+        "height": 152
+      },
+      "tileFilter": {
+        "managementZone": {
+          "id": "all",
+          "name": "All"
+        }
+      },
+      "customName": "Top list",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "log.k8s.generic.events.info",
+          "spaceAggregation": "SUM",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "k8s.namespace.name"
+          ],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "k8s.namespace.name",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${namespace}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "TURQUOISE",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "event details",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 1254,
+        "left": 342,
+        "width": 1520,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "event summary",
+      "tileType": "HEADER",
+      "configured": true,
+      "bounds": {
+        "top": 1254,
+        "left": 0,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Log viewer results",
+      "tileType": "LOG_QUERY",
+      "configured": true,
+      "bounds": {
+        "top": 1292,
+        "left": 342,
+        "width": 1520,
+        "height": 304
+      },
+      "tileFilter": {
+        "managementZone": {
+          "id": "all",
+          "name": "All"
+        }
+      },
+      "query": "event.type=\"k8s\" AND k8s.namespace.name=\"${namespace}\"",
+      "sort": "desc",
+      "columnHeaders": [
+        "timestamp",
+        "status",
+        "content",
+        "dt.kubernetes.event.involved_object.kind",
+        "dt.kubernetes.event.involved_object.name"
+      ]
+    },
+    {
+      "name": "Top CPU Time",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 1482,
+        "width": 380,
+        "height": 342
+      },
+      "tileFilter": {},
+      "customName": "Top list",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:service.cpu.perRequest",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.service"
+          ],
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "foldTransformation": "TOTAL",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Warn Events",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1292,
+        "left": 0,
+        "width": 304,
+        "height": 152
+      },
+      "tileFilter": {
+        "managementZone": {
+          "id": "all",
+          "name": "All"
+        }
+      },
+      "customName": "Top list",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "log.k8s.generic.events.warn",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "k8s.namespace.name"
+          ],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "k8s.namespace.name",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${namespace}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "ORANGE",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ]
+      }
+    }
+  ]
 }
