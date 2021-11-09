@@ -5,16 +5,16 @@
     ],
     "clusterVersion": "1.229.143.20211103-130154"
   },
-  "id": "bbbbbbbb-a003-a017-0000-000000000008",
+  "id": "2c307cf3-5a34-45af-b2df-3d6a71659858",
   "dashboardMetadata": {
-    "name": "eks easytravel prod overview",
+    "name": "${namespace} Namespace Overview",
     "shared": true,
     "owner": "anthony.pope-cruz@dynatrace.com",
     "dashboardFilter": {
       "timeframe": "Today",
       "managementZone": {
-        "id": "-277428622087976532",
-        "name": "k8s-easytravel-prod"
+        "id": "${managementZone.id}",
+        "name": "${managementZone.name}"
       }
     },
     "tags": [
@@ -73,7 +73,7 @@
         "height": 456
       },
       "tileFilter": {},
-      "markdown": "[pods & containers](#newprocessessummary)\n\n[workloads](/ui/kubernetes/workloads)\n\n[docker](#docker)\n\n[cpu usage](/ui/diagnostictools/profiling/cpu)\n\n[process crashes](#processcrashesglobal)\n\n[memory dumps](/ui/diagnostictools/memorydumps)\n\n[events](/ui/log-monitoring?gf=all&advancedQueryMode=false&visibleColumns=timestamp&visibleColumns=status&visibleColumns=content&query=event.type%3D\"k8s\"%20AND%20k8s.namespace.name%3D\"easytravel-prod\"&sortDirection=desc&&baseQuery=)\n\n[logs](/ui/log-monitoring)"
+      "markdown": "[pods & containers](#newprocessessummary)\n\n[workloads](/ui/kubernetes/workloads)\n\n[docker](#docker)\n\n[cpu usage](/ui/diagnostictools/profiling/cpu)\n\n[process crashes](#processcrashesglobal)\n\n[memory dumps](/ui/diagnostictools/memorydumps)\n\n[events](/ui/log-monitoring?gf=all&advancedQueryMode=false&visibleColumns=timestamp&visibleColumns=status&visibleColumns=content&query=event.type%3D\"k8s\"%20AND%20k8s.namespace.name%3D\"${namespace}\"&sortDirection=desc&&baseQuery=)\n\n[logs](/ui/log-monitoring)"
     },
     {
       "name": "analyze workloads",
@@ -2116,7 +2116,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "easytravel-prod",
+                    "value": "${namespace}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -2203,7 +2203,7 @@
           "name": "All"
         }
       },
-      "query": "event.type=\"k8s\" AND k8s.namespace.name=\"easytravel-prod\"",
+      "query": "event.type=\"k8s\" AND k8s.namespace.name=\"${namespace}\"",
       "sort": "desc",
       "columnHeaders": [
         "timestamp",
@@ -2314,7 +2314,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "easytravel-prod",
+                    "value": "${namespace}",
                     "evaluator": "EQ"
                   }
                 ]
