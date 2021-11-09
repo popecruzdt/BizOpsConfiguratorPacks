@@ -16,5 +16,13 @@ This dashboard displays the most relevant information about the health, performa
   * Cloud application namespace where Cloud application namespace name equals '*your namespace*'
   * Kubernetes cluster on hosts where Kubernetes cluster name equals '*your kubernetes cluster name*'
 
+![Management Zone](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/Kubernetes_Namespace_Overview_management_zone_screenshot.png)
+#### (Optional) Configure (2) log metrics to track Kubernetes Events for your namespaces.
+  * INFO Events by namespace and reason
+  * WARN Events by namespace and reason
+![INFO Events](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/Kubernetes_Namespace_Overview_events_metric_info_screenshot.png)
+![WARN Events](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/Kubernetes_Namespace_Overview_events_metric_warn_screenshot.png)
+Note, this requires Log Monitoring v2.
+
 ## Issues & Enhancement:
 For any issues or requests for enhancement, please open an Issue on the GitHub repo: https://github.com/popecruzdt/BizOpsConfiguratorPacks/issues
