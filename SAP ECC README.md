@@ -8,7 +8,7 @@ The SAP Application Cockpit is the main dashboard for the SAP Extension. It disp
 
 <h2>SAP Functional Area Performance</h2>
 The SAP Functional Area Performance will display response time performance for each functional area (SAP module). Current performance can be compared to previous time frames to see which way the performance is trending.
-![SAP Module Performance](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/SAP_ECC_sapmodperf.png)
+![SAP Module Performance](https://github.com/popecruzdt/BizOpsConfiguratorPacks/raw/main/screenshots/SAP_ECC_sapmodperf.PNG)
 
 <h2>SAP Module</h2>
 The SAP Module will display peformance for a specific functional area (module). Response times, slowest t-codes, top t-codes, impacted users and most frequently used t-codes are reported.
