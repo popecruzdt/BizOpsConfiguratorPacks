@@ -2021,8 +2021,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -2139,8 +2138,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -2257,8 +2255,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -2375,8 +2372,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -2493,8 +2489,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -2611,8 +2606,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -2729,8 +2723,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -2847,8 +2840,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -2965,8 +2957,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -3083,8 +3074,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -3201,8 +3191,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -3319,8 +3308,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -3437,8 +3425,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -3555,8 +3542,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -3673,8 +3659,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -3791,8 +3776,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -3909,8 +3893,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -4027,8 +4010,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
