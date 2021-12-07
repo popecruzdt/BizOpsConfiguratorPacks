@@ -4827,6 +4827,19 @@
                     "evaluator": "IN"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -4850,6 +4863,19 @@
                 "criteria": [
                   {
                     "value": "postgres:local",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
                     "evaluator": "IN"
                   }
                 ]
