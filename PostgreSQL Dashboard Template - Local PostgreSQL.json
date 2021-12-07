@@ -80,7 +80,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${hostname}",
+                    "value": "${entity.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -217,7 +217,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${hostname}",
+                    "value": "${entity.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -329,7 +329,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${hostname}",
+                    "value": "${entity.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -425,6 +425,18 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
+                "filter": "dt.entity.process_group_instance",
+                "filterType": "ID",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.process.id}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
                 "filter": "database",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
@@ -433,6 +445,18 @@
                   {
                     "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.process_group_instance",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:local",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -510,6 +534,18 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
+                "filter": "dt.entity.process_group_instance",
+                "filterType": "ID",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.process.id}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
                 "filter": "database",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
@@ -518,6 +554,18 @@
                   {
                     "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.process_group_instance",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:local",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -595,6 +643,18 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
+                "filter": "dt.entity.process_group_instance",
+                "filterType": "ID",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.process.id}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
                 "filter": "database",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
@@ -603,6 +663,18 @@
                   {
                     "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.process_group_instance",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:local",
+                    "evaluator": "IN"
                   }
                 ]
               }
