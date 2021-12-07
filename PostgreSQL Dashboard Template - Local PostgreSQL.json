@@ -13,8 +13,8 @@
     "dashboardFilter": {
       "timeframe": "-2h",
       "managementZone": {
-        "id": "-5991890171913427001",
-        "name": "Voting App"
+        "id": "${mz.id}",
+        "name": "${mz.name}"
       }
     },
     "tags": [
@@ -53,7 +53,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "aws-postgres - Postgres (Container)",
+                    "value": "${processname}",
                     "evaluator": "IN"
                   }
                 ]
@@ -80,7 +80,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "aws-postgres-local",
+                    "value": "${hostname}",
                     "evaluator": "IN"
                   }
                 ]
@@ -190,7 +190,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "aws-postgres - Postgres (Container)",
+                    "value": "${processname}",
                     "evaluator": "IN"
                   }
                 ]
@@ -217,7 +217,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "aws-postgres-local",
+                    "value": "${hostname}",
                     "evaluator": "IN"
                   }
                 ]
@@ -329,7 +329,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "aws-postgres-local",
+                    "value": "${hostname}",
                     "evaluator": "IN"
                   }
                 ]
@@ -431,7 +431,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -516,7 +516,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -601,7 +601,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -686,7 +686,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -771,7 +771,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -856,7 +856,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -941,7 +941,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -1026,7 +1026,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -1111,7 +1111,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -1196,7 +1196,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -1281,7 +1281,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -1354,7 +1354,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.deadlocks",
+          "metric": "${telegraf.prefix}postgresql.deadlocks",
           "spaceAggregation": "MAX",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -1368,7 +1368,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -1455,7 +1455,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.conflicts",
+          "metric": "${telegraf.prefix}postgresql.conflicts",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -1469,7 +1469,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -1556,7 +1556,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.numbackends",
+          "metric": "${telegraf.prefix}postgresql.numbackends",
           "spaceAggregation": "MAX",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -1570,7 +1570,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -1657,7 +1657,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.temp_files",
+          "metric": "${telegraf.prefix}postgresql.temp_files",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -1671,7 +1671,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -1762,7 +1762,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.temp_bytes",
+          "metric": "${telegraf.prefix}postgresql.temp_bytes",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -1776,7 +1776,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -1867,7 +1867,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.maxwritten_clean",
+          "metric": "${telegraf.prefix}postgresql.maxwritten_clean",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -1893,7 +1893,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -1972,7 +1972,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.checkpoints_timed",
+          "metric": "${telegraf.prefix}postgresql.checkpoints_timed",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -1998,7 +1998,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -2077,7 +2077,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.checkpoints_req",
+          "metric": "${telegraf.prefix}postgresql.checkpoints_req",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -2103,7 +2103,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -2182,7 +2182,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.checkpoint_write_time",
+          "metric": "${telegraf.prefix}postgresql.checkpoint_write_time",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -2196,7 +2196,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -2287,7 +2287,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.checkpoint_sync_time",
+          "metric": "${telegraf.prefix}postgresql.checkpoint_sync_time",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -2313,7 +2313,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -2392,7 +2392,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.buffers_clean",
+          "metric": "${telegraf.prefix}postgresql.buffers_clean",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -2418,7 +2418,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -2497,7 +2497,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.buffers_alloc",
+          "metric": "${telegraf.prefix}postgresql.buffers_alloc",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -2523,7 +2523,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -2602,7 +2602,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.buffers_checkpoint",
+          "metric": "${telegraf.prefix}postgresql.buffers_checkpoint",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -2628,7 +2628,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -2707,7 +2707,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.buffers_backend_fsync",
+          "metric": "${telegraf.prefix}postgresql.buffers_backend_fsync",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -2733,7 +2733,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -2812,7 +2812,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.blks_read",
+          "metric": "${telegraf.prefix}postgresql.blks_read",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -2826,7 +2826,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -2917,7 +2917,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.blks_hit",
+          "metric": "${telegraf.prefix}postgresql.blks_hit",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -2931,7 +2931,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -3022,7 +3022,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.blk_read_time",
+          "metric": "${telegraf.prefix}postgresql.blk_read_time",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -3048,7 +3048,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -3127,7 +3127,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.blk_write_time",
+          "metric": "${telegraf.prefix}postgresql.blk_write_time",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -3141,7 +3141,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -3232,7 +3232,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.xact_commit",
+          "metric": "${telegraf.prefix}postgresql.xact_commit",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -3246,7 +3246,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -3337,7 +3337,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.xact_rollback",
+          "metric": "${telegraf.prefix}postgresql.xact_rollback",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -3363,7 +3363,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -3442,7 +3442,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.checksum_failures",
+          "metric": "${telegraf.prefix}postgresql.checksum_failures",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -3456,7 +3456,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -3564,7 +3564,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -3638,7 +3638,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.tup_inserted",
+          "metric": "${telegraf.prefix}postgresql.tup_inserted",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -3652,7 +3652,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -3735,7 +3735,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.tup_updated",
+          "metric": "${telegraf.prefix}postgresql.tup_updated",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -3761,7 +3761,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
@@ -3832,7 +3832,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.tup_deleted",
+          "metric": "${telegraf.prefix}postgresql.tup_deleted",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -3858,7 +3858,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
