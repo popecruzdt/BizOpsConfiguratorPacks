@@ -1,5 +1,5 @@
 ## PostgreSQL (by popecruzdt)
-![Screenshot](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/missing_screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/popecruzdt/BizOpsConfiguratorPacks/main/screenshots/PostgreSQL_Dashboard_screenshot.png)
 
 ## Summary:
 This is a dashboard that presents the PostgreSQL (postgres) metrics collected by Dynatrace across the various hosting platforms.  Metrics are obtained via OneAgent, Telegraf, and the appropriate cloud provider integration.
