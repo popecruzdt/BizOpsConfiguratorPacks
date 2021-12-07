@@ -1648,6 +1648,19 @@
                     "evaluator": "IN"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -4300,6 +4313,19 @@
                   {
                     "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
