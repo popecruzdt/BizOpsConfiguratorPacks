@@ -1,9 +1,9 @@
- {
+{
   "metadata": {
     "configurationVersions": [
       5
     ],
-    "clusterVersion": "1.230.108.20211123-162857"
+    "clusterVersion": "1.231.205.20211203-145601"
   },
   "id": "4ed85153-0b7a-4163-8e5c-0a4067e12996",
   "dashboardMetadata": {
@@ -23,107 +23,6 @@
     ]
   },
   "tiles": [
-    {
-      "name": "Deadlocks",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 0,
-        "left": 1216,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.deadlocks",
-          "spaceAggregation": "MAX",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "foldTransformation": "LAST_VALUE",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "value": 0,
-                "color": "#7dc540"
-              },
-              {
-                "value": 1,
-                "color": "#f5d30f"
-              },
-              {
-                "value": 5,
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
     {
       "name": "Conflicts",
       "tileType": "DATA_EXPLORER",
@@ -147,18 +46,6 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
@@ -167,6 +54,18 @@
                   {
                     "value": "postgres",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:local",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -248,18 +147,6 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
@@ -268,6 +155,18 @@
                   {
                     "value": "postgres",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:local",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -454,18 +353,6 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
                 "filter": "dt.entity.host",
                 "filterType": "TAG",
                 "filterOperator": "OR",
@@ -474,6 +361,18 @@
                   {
                     "value": "postgres:local",
                     "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres",
+                    "evaluator": "EQ"
                   }
                 ]
               }
@@ -874,18 +773,6 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
                 "filter": "dt.entity.host",
                 "filterType": "TAG",
                 "filterOperator": "OR",
@@ -894,6 +781,18 @@
                   {
                     "value": "postgres:local",
                     "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres",
+                    "evaluator": "EQ"
                   }
                 ]
               }
@@ -1399,18 +1298,6 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
@@ -1419,6 +1306,18 @@
                   {
                     "value": "postgres",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:local",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -1504,18 +1403,6 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
@@ -1524,6 +1411,18 @@
                   {
                     "value": "postgres",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:local",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -1609,18 +1508,6 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
                 "filter": "dt.entity.host",
                 "filterType": "TAG",
                 "filterOperator": "OR",
@@ -1629,6 +1516,18 @@
                   {
                     "value": "postgres:local",
                     "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres",
+                    "evaluator": "EQ"
                   }
                 ]
               }
@@ -1714,18 +1613,6 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
@@ -1734,6 +1621,18 @@
                   {
                     "value": "postgres",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:local",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -1819,18 +1718,6 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
                 "filter": "dt.entity.host",
                 "filterType": "TAG",
                 "filterOperator": "OR",
@@ -1839,6 +1726,18 @@
                   {
                     "value": "postgres:local",
                     "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres",
+                    "evaluator": "EQ"
                   }
                 ]
               }
@@ -1924,18 +1823,6 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
@@ -1944,6 +1831,18 @@
                   {
                     "value": "postgres",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:local",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -2134,18 +2033,6 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
                 "filter": "dt.entity.host",
                 "filterType": "TAG",
                 "filterOperator": "OR",
@@ -2154,6 +2041,18 @@
                   {
                     "value": "postgres:local",
                     "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres",
+                    "evaluator": "EQ"
                   }
                 ]
               }
@@ -2339,18 +2238,6 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
@@ -2359,6 +2246,18 @@
                   {
                     "value": "postgres",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:local",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -2436,18 +2335,6 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
@@ -2456,6 +2343,18 @@
                   {
                     "value": "postgres",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:local",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -2534,12 +2433,25 @@
             "nestedFilters": [
               {
                 "filter": "dt.entity.service",
+                "filterType": "ENTITY_ATTRIBUTE",
+                "filterOperator": "OR",
+                "entityAttribute": "databaseName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.service",
                 "filterType": "TAG",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres:local",
+                    "value": "postgres:aws",
                     "evaluator": "IN"
                   }
                 ]
@@ -2565,7 +2477,20 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres:local",
+                    "value": "postgres:aws",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.service",
+                "filterType": "ENTITY_ATTRIBUTE",
+                "filterOperator": "OR",
+                "entityAttribute": "databaseName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres",
                     "evaluator": "IN"
                   }
                 ]
@@ -2648,7 +2573,9 @@
             "visible": true
           }
         ],
-        "tableSettings": {},
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
         "graphChartSettings": {
           "connectNulls": true
         }
@@ -2678,12 +2605,25 @@
             "nestedFilters": [
               {
                 "filter": "dt.entity.service",
+                "filterType": "ENTITY_ATTRIBUTE",
+                "filterOperator": "OR",
+                "entityAttribute": "databaseName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.service",
                 "filterType": "TAG",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres:local",
+                    "value": "postgres:aws",
                     "evaluator": "IN"
                   }
                 ]
@@ -2704,12 +2644,25 @@
             "nestedFilters": [
               {
                 "filter": "dt.entity.service",
+                "filterType": "ENTITY_ATTRIBUTE",
+                "filterOperator": "OR",
+                "entityAttribute": "databaseName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.service",
                 "filterType": "TAG",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres:local",
+                    "value": "postgres:aws",
                     "evaluator": "IN"
                   }
                 ]
@@ -2782,31 +2735,13 @@
             "visible": true
           }
         ],
-        "tableSettings": {},
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
         "graphChartSettings": {
           "connectNulls": true
         }
       }
-    },
-    {
-      "name": "Log viewer results",
-      "tileType": "LOG_QUERY",
-      "configured": true,
-      "bounds": {
-        "top": 1178,
-        "left": 0,
-        "width": 684,
-        "height": 266
-      },
-      "tileFilter": {},
-      "query": "host.name=\"aws-postgres-local\" AND dt.process.name=\"aws-postgres - postgres (container)\"",
-      "sort": "desc",
-      "columnHeaders": [
-        "timestamp",
-        "status",
-        "content",
-        "host.name"
-      ]
     },
     {
       "name": "CPU",
@@ -2830,6 +2765,19 @@
           "filterBy": {
             "filterOperator": "AND",
             "nestedFilters": [
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "voting-app-database-112421",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
               {
                 "filter": "dt.entity.relational_database_service",
                 "filterType": "TAG",
@@ -2902,7 +2850,9 @@
             "visible": true
           }
         ],
-        "tableSettings": {},
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
         "graphChartSettings": {
           "connectNulls": true
         }
@@ -2930,6 +2880,19 @@
           "filterBy": {
             "filterOperator": "AND",
             "nestedFilters": [
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "voting-app-database-112421",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
               {
                 "filter": "dt.entity.relational_database_service",
                 "filterType": "TAG",
@@ -2964,6 +2927,19 @@
                 "criteria": [
                   {
                     "value": "postgres:aws",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "voting-app-database-112421",
                     "evaluator": "IN"
                   }
                 ]
@@ -3036,7 +3012,9 @@
             "visible": true
           }
         ],
-        "tableSettings": {},
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
         "graphChartSettings": {
           "connectNulls": true
         }
@@ -3072,6 +3050,19 @@
                 "criteria": [
                   {
                     "value": "postgres:aws",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "voting-app-database-112421",
                     "evaluator": "IN"
                   }
                 ]
@@ -3156,6 +3147,19 @@
             "nestedFilters": [
               {
                 "filter": "dt.entity.relational_database_service",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "voting-app-database-112421",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
                 "filterType": "TAG",
                 "filterOperator": "OR",
                 "nestedFilters": [],
@@ -3188,6 +3192,19 @@
                 "criteria": [
                   {
                     "value": "postgres:aws",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "voting-app-database-112421",
                     "evaluator": "IN"
                   }
                 ]
@@ -3261,7 +3278,9 @@
             "visible": true
           }
         ],
-        "tableSettings": {},
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
         "graphChartSettings": {
           "connectNulls": true
         }
@@ -3297,6 +3316,19 @@
                 "criteria": [
                   {
                     "value": "postgres:aws",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "voting-app-database-112421",
                     "evaluator": "IN"
                   }
                 ]
@@ -3348,7 +3380,9 @@
             "visible": true
           }
         ],
-        "tableSettings": {},
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
         "graphChartSettings": {
           "connectNulls": false
         }
@@ -3376,6 +3410,19 @@
           "filterBy": {
             "filterOperator": "AND",
             "nestedFilters": [
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "voting-app-database-112421",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
               {
                 "filter": "dt.entity.relational_database_service",
                 "filterType": "TAG",
@@ -3436,7 +3483,9 @@
             "visible": true
           }
         ],
-        "tableSettings": {},
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
         "graphChartSettings": {
           "connectNulls": false
         }
@@ -3475,6 +3524,19 @@
                     "evaluator": "IN"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "voting-app-database-112421",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -3521,7 +3583,9 @@
             "visible": true
           }
         ],
-        "tableSettings": {},
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
         "graphChartSettings": {
           "connectNulls": false
         }
@@ -3551,89 +3615,17 @@
             "nestedFilters": [
               {
                 "filter": "dt.entity.relational_database_service",
-                "filterType": "TAG",
+                "filterType": "NAME",
                 "filterOperator": "OR",
+                "entityAttribute": "entityName",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres:aws",
+                    "value": "voting-app-database-112421",
                     "evaluator": "IN"
                   }
                 ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
               },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Read Latency",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 456,
-        "left": 722,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "builtin:cloud.aws.rds.latency.read",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
               {
                 "filter": "dt.entity.relational_database_service",
                 "filterType": "TAG",
@@ -3691,7 +3683,109 @@
             "visible": true
           }
         ],
-        "tableSettings": {},
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Read Latency",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 456,
+        "left": 722,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:cloud.aws.rds.latency.read",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "voting-app-database-112421",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:aws",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
         "graphChartSettings": {
           "connectNulls": false
         }
@@ -3730,6 +3824,19 @@
                     "evaluator": "IN"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "voting-app-database-112421",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -3776,7 +3883,9 @@
             "visible": true
           }
         ],
-        "tableSettings": {},
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
         "graphChartSettings": {
           "connectNulls": false
         }
@@ -3815,6 +3924,19 @@
                     "evaluator": "IN"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "voting-app-database-112421",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -3861,7 +3983,9 @@
             "visible": true
           }
         ],
-        "tableSettings": {},
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
         "graphChartSettings": {
           "connectNulls": false
         }
@@ -3889,6 +4013,19 @@
           "filterBy": {
             "filterOperator": "AND",
             "nestedFilters": [
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "voting-app-database-112421",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
               {
                 "filter": "dt.entity.relational_database_service",
                 "filterType": "TAG",
@@ -3939,6 +4076,122 @@
                 "color": "#f5d30f"
               },
               {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Deadlocks",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1216,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "telegraf.aws-postgres.postgresql.deadlocks",
+          "spaceAggregation": "MAX",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "aws-postgres-rds",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:local",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "value": 0,
+                "color": "#7dc540"
+              },
+              {
+                "value": 1,
+                "color": "#f5d30f"
+              },
+              {
+                "value": 5,
                 "color": "#dc172a"
               }
             ],
