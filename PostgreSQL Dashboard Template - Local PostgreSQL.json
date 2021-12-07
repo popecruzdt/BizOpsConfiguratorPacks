@@ -1749,6 +1749,19 @@
                     "evaluator": "IN"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -1850,6 +1863,19 @@
                     "evaluator": "IN"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -1948,6 +1974,19 @@
                 "criteria": [
                   {
                     "value": "postgres:local",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2056,6 +2095,19 @@
                     "evaluator": "IN"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -2159,6 +2211,19 @@
                   {
                     "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -2266,6 +2331,19 @@
                     "evaluator": "EQ"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -2371,6 +2449,19 @@
                     "evaluator": "EQ"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -2473,6 +2564,19 @@
                 "criteria": [
                   {
                     "value": "postgres:local",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2581,6 +2685,19 @@
                     "evaluator": "EQ"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -2684,6 +2801,19 @@
                   {
                     "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -2791,6 +2921,19 @@
                     "evaluator": "EQ"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -2894,6 +3037,19 @@
                   {
                     "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -3001,6 +3157,19 @@
                     "evaluator": "EQ"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -3103,6 +3272,19 @@
                 "criteria": [
                   {
                     "value": "postgres:local",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3211,6 +3393,19 @@
                     "evaluator": "IN"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -3316,6 +3511,19 @@
                     "evaluator": "EQ"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -3418,6 +3626,19 @@
                 "criteria": [
                   {
                     "value": "postgres:local",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3526,6 +3747,19 @@
                     "evaluator": "IN"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -3631,6 +3865,19 @@
                     "evaluator": "EQ"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -3733,6 +3980,19 @@
                 "criteria": [
                   {
                     "value": "postgres:local",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3932,6 +4192,19 @@
                     "evaluator": "IN"
                   }
                 ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
               }
             ],
             "criteria": []
@@ -4124,6 +4397,19 @@
                   {
                     "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
