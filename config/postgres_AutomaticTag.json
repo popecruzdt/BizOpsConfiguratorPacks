@@ -120,6 +120,30 @@
           }
         }
       ]
+    },
+    {
+      "type": "PROCESS_GROUP",
+      "enabled": true,
+      "valueFormat": "telegraf",
+      "propagationTypes": [
+        "PROCESS_GROUP_TO_HOST"
+      ],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+            "dynamicKey": "EXE_NAME",
+            "type": "PROCESS_PREDEFINED_METADATA_KEY"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "CONTAINS",
+            "value": "telegraf",
+            "negate": false,
+            "caseSensitive": false
+          }
+        }
+      ]
     }
   ],
   "entitySelectorBasedRules": []
