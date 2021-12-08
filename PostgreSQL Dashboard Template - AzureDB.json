@@ -1,131 +1,31 @@
- {
+{
   "metadata": {
     "configurationVersions": [
       5
     ],
-    "clusterVersion": "1.230.108.20211123-162857"
+    "clusterVersion": "1.231.205.20211203-145601"
   },
   "id": "c033b68a-ae9b-43c1-9a84-77af5896f875",
   "dashboardMetadata": {
-    "name": "PostgreSQL Dashboard Template - AzureDB",
+    "name": "PostgreSQL Dashboard ${mz.name} ${databasename}",
     "shared": false,
     "owner": "anthony.pope-cruz@dynatrace.com",
     "dashboardFilter": {
       "timeframe": "-2h",
       "managementZone": {
-        "id": "-5991890171913427001",
-        "name": "Voting App"
+        "id": "${mz.id}",
+        "name": "${mz.name}"
       }
     },
     "tags": [
-      "PostgreSQL",
-      "Database",
       "Azure",
-      "AzureDB"
-    ]
+      "PostgreSQL",
+      "AzureDB",
+      "Database"
+    ],
+    "preset": false
   },
   "tiles": [
-    {
-      "name": "Deadlocks",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 0,
-        "left": 1216,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.deadlocks",
-          "spaceAggregation": "MAX",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "foldTransformation": "LAST_VALUE",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "value": 0,
-                "color": "#7dc540"
-              },
-              {
-                "value": 1,
-                "color": "#f5d30f"
-              },
-              {
-                "value": 5,
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
     {
       "name": "Conflicts",
       "tileType": "DATA_EXPLORER",
@@ -141,7 +41,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.conflicts",
+          "metric": "${telegraf.prefix}postgresql.conflicts",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -155,19 +55,20 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
               },
               {
                 "filter": "dt.entity.host",
-                "filterType": "TAG",
+                "filterType": "NAME",
                 "filterOperator": "OR",
+                "entityAttribute": "entityName",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres:local",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -242,7 +143,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.numbackends",
+          "metric": "${telegraf.prefix}postgresql.numbackends",
           "spaceAggregation": "MAX",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -250,26 +151,27 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -343,7 +245,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.temp_files",
+          "metric": "${telegraf.prefix}postgresql.temp_files",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -357,19 +259,20 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
               },
               {
                 "filter": "dt.entity.host",
-                "filterType": "TAG",
+                "filterType": "NAME",
                 "filterOperator": "OR",
+                "entityAttribute": "entityName",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres:local",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -391,8 +294,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -448,7 +350,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.temp_bytes",
+          "metric": "${telegraf.prefix}postgresql.temp_bytes",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -456,26 +358,27 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -496,8 +399,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -553,7 +455,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.maxwritten_clean",
+          "metric": "${telegraf.prefix}postgresql.maxwritten_clean",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -561,26 +463,27 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -601,8 +504,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -658,7 +560,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.checkpoints_timed",
+          "metric": "${telegraf.prefix}postgresql.checkpoints_timed",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -666,26 +568,27 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -706,8 +609,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -763,7 +665,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.checkpoints_req",
+          "metric": "${telegraf.prefix}postgresql.checkpoints_req",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -771,26 +673,27 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -811,8 +714,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -868,7 +770,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.checkpoint_write_time",
+          "metric": "${telegraf.prefix}postgresql.checkpoint_write_time",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -876,26 +778,27 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -916,8 +819,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -973,7 +875,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.checkpoint_sync_time",
+          "metric": "${telegraf.prefix}postgresql.checkpoint_sync_time",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -981,26 +883,27 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -1021,8 +924,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -1078,7 +980,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.buffers_clean",
+          "metric": "${telegraf.prefix}postgresql.buffers_clean",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -1086,26 +988,27 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -1126,8 +1029,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -1183,7 +1085,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.buffers_alloc",
+          "metric": "${telegraf.prefix}postgresql.buffers_alloc",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -1191,26 +1093,27 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -1231,8 +1134,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -1288,7 +1190,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.buffers_checkpoint",
+          "metric": "${telegraf.prefix}postgresql.buffers_checkpoint",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -1296,26 +1198,27 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -1336,8 +1239,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -1393,7 +1295,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.buffers_backend_fsync",
+          "metric": "${telegraf.prefix}postgresql.buffers_backend_fsync",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -1407,19 +1309,20 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
               },
               {
                 "filter": "dt.entity.host",
-                "filterType": "TAG",
+                "filterType": "NAME",
                 "filterOperator": "OR",
+                "entityAttribute": "entityName",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres:local",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -1441,8 +1344,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -1498,7 +1400,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.blks_read",
+          "metric": "${telegraf.prefix}postgresql.blks_read",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -1512,19 +1414,20 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
               },
               {
                 "filter": "dt.entity.host",
-                "filterType": "TAG",
+                "filterType": "NAME",
                 "filterOperator": "OR",
+                "entityAttribute": "entityName",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres:local",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -1546,8 +1449,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -1603,7 +1505,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.blks_hit",
+          "metric": "${telegraf.prefix}postgresql.blks_hit",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -1611,26 +1513,27 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -1651,8 +1554,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -1708,7 +1610,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.blk_read_time",
+          "metric": "${telegraf.prefix}postgresql.blk_read_time",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -1716,26 +1618,27 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -1756,8 +1659,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -1813,7 +1715,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.blk_write_time",
+          "metric": "${telegraf.prefix}postgresql.blk_write_time",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -1827,19 +1729,20 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
               },
               {
                 "filter": "dt.entity.host",
-                "filterType": "TAG",
+                "filterType": "NAME",
                 "filterOperator": "OR",
+                "entityAttribute": "entityName",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres:local",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -1861,8 +1764,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -1918,7 +1820,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.xact_commit",
+          "metric": "${telegraf.prefix}postgresql.xact_commit",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -1932,19 +1834,20 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
               },
               {
                 "filter": "dt.entity.host",
-                "filterType": "TAG",
+                "filterType": "NAME",
                 "filterOperator": "OR",
+                "entityAttribute": "entityName",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres:local",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -1966,8 +1869,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -2023,7 +1925,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.xact_rollback",
+          "metric": "${telegraf.prefix}postgresql.xact_rollback",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -2031,26 +1933,27 @@
             "filterOperator": "AND",
             "nestedFilters": [
               {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
                 "filter": "db",
                 "filterType": "DIMENSION",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
                   }
                 ]
               }
@@ -2071,8 +1974,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -2128,7 +2030,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.checksum_failures",
+          "metric": "${telegraf.prefix}postgresql.checksum_failures",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -2142,19 +2044,20 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
               },
               {
                 "filter": "dt.entity.host",
-                "filterType": "TAG",
+                "filterType": "NAME",
                 "filterOperator": "OR",
+                "entityAttribute": "entityName",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres:local",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2176,8 +2079,7 @@
           {
             "matcher": "A:",
             "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
+              "seriesType": "LINE"
             }
           }
         ],
@@ -2236,7 +2138,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.tup_inserted",
+          "metric": "${telegraf.prefix}postgresql.tup_inserted",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -2250,19 +2152,20 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
               },
               {
                 "filter": "dt.entity.host",
-                "filterType": "TAG",
+                "filterType": "NAME",
                 "filterOperator": "OR",
+                "entityAttribute": "entityName",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres:local",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2333,7 +2236,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.tup_updated",
+          "metric": "${telegraf.prefix}postgresql.tup_updated",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
@@ -2347,19 +2250,20 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
               },
               {
                 "filter": "dt.entity.host",
-                "filterType": "TAG",
+                "filterType": "NAME",
                 "filterOperator": "OR",
+                "entityAttribute": "entityName",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres:local",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2430,25 +2334,13 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.tup_deleted",
+          "metric": "${telegraf.prefix}postgresql.tup_deleted",
           "spaceAggregation": "AVG",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
           "filterBy": {
             "filterOperator": "AND",
             "nestedFilters": [
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
               {
                 "filter": "db",
                 "filterType": "DIMENSION",
@@ -2456,882 +2348,20 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "EQ"
                   }
                 ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
               },
               {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Response Time",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 0,
-        "left": 0,
-        "width": 684,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Data explorer results",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "builtin:service.response.time",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.service",
-                "filterType": "TAG",
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
                 "filterOperator": "OR",
+                "entityAttribute": "entityName",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        },
-        {
-          "id": "B",
-          "metric": "builtin:service.requestCount.total",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.service",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "GRAPH_CHART",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "color": "TURQUOISE",
-              "seriesType": "LINE"
-            }
-          },
-          {
-            "matcher": "B:",
-            "properties": {
-              "color": "ROYALBLUE",
-              "seriesType": "COLUMN"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A"
-              ],
-              "defaultAxis": true
-            },
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "RIGHT",
-              "queryIds": [
-                "B"
-              ],
-              "defaultAxis": true
-            }
-          ]
-        },
-        "heatmapSettings": {},
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": true
-        }
-      }
-    },
-    {
-      "name": "Failure Rate",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 228,
-        "left": 0,
-        "width": 684,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Data explorer results",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "builtin:service.errors.total.rate",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.service",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        },
-        {
-          "id": "B",
-          "metric": "builtin:service.dbconnections.failureRate",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.service",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "GRAPH_CHART",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "color": "YELLOW",
-              "seriesType": "LINE"
-            }
-          },
-          {
-            "matcher": "B:",
-            "properties": {
-              "color": "ORANGE",
-              "seriesType": "COLUMN"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A",
-                "B"
-              ],
-              "defaultAxis": true
-            }
-          ]
-        },
-        "heatmapSettings": {},
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": true
-        }
-      }
-    },
-    {
-      "name": "CPU",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 456,
-        "left": 0,
-        "width": 342,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "ext:cloud.azure.microsoft_dbforpostgresql.servers.cpu_percent",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.custom_device",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:azure",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "GRAPH_CHART",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "color": "ORANGE",
-              "seriesType": "LINE"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A"
-              ],
-              "defaultAxis": true
-            }
-          ]
-        },
-        "heatmapSettings": {},
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": true
-        }
-      }
-    },
-    {
-      "name": "Memory",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 456,
-        "left": 342,
-        "width": 342,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "ext:cloud.azure.microsoft_dbforpostgresql.servers.memory_percent",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.custom_device",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:azure",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "GRAPH_CHART",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "color": "BLUE",
-              "seriesType": "LINE"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A"
-              ],
-              "defaultAxis": true
-            }
-          ]
-        },
-        "heatmapSettings": {},
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": true
-        }
-      }
-    },
-    {
-      "name": "Disk Storage",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 760,
-        "left": 0,
-        "width": 684,
-        "height": 114
-      },
-      "tileFilter": {},
-      "customName": "Data explorer results",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "ext:cloud.azure.microsoft_dbforpostgresql.servers.storage_percent",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.custom_device",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:azure",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "AREA"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "value": 0,
-                "color": "#7dc540"
-              },
-              {
-                "value": 80,
-                "color": "#f5d30f"
-              },
-              {
-                "value": 95,
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": true
-        }
-      }
-    },
-    {
-      "name": "Network Traffic",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 874,
-        "left": 0,
-        "width": 684,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "ext:cloud.azure.microsoft_dbforpostgresql.servers.network_bytes_ingress",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.custom_device",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:azure",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        },
-        {
-          "id": "B",
-          "metric": "ext:cloud.azure.microsoft_dbforpostgresql.servers.network_bytes_egress",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.custom_device",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:azure",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "GRAPH_CHART",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "color": "BLUE",
-              "seriesType": "LINE"
-            }
-          },
-          {
-            "matcher": "B:",
-            "properties": {
-              "color": "YELLOW",
-              "seriesType": "AREA",
-              "alias": ""
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A",
-                "B"
-              ],
-              "defaultAxis": true
-            }
-          ]
-        },
-        "heatmapSettings": {},
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": true
-        }
-      }
-    },
-    {
-      "name": "Active Connections",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 0,
-        "left": 722,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "ext:cloud.azure.microsoft_dbforpostgresql.servers.active_connections",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.custom_device",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:azure",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "foldTransformation": "LAST_VALUE",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "value": 1,
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Failed Connections",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 0,
-        "left": 950,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "ext:cloud.azure.microsoft_dbforpostgresql.servers.connections_failed",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.custom_device",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:azure",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3368,15 +2398,12 @@
             "axisTarget": "LEFT",
             "rules": [
               {
-                "value": 0,
                 "color": "#7dc540"
               },
               {
-                "value": 1,
                 "color": "#f5d30f"
               },
               {
-                "value": 5,
                 "color": "#dc172a"
               }
             ],
@@ -4142,6 +3169,1143 @@
                 "color": "#f5d30f"
               },
               {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Response Time",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 684,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:service.response.time",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.service",
+                "filterType": "ENTITY_ATTRIBUTE",
+                "filterOperator": "OR",
+                "entityAttribute": "databaseName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.service",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:azure",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "metric": "builtin:service.requestCount.total",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.service",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:azure",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.service",
+                "filterType": "ENTITY_ATTRIBUTE",
+                "filterOperator": "OR",
+                "entityAttribute": "databaseName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "TURQUOISE",
+              "seriesType": "LINE"
+            }
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "color": "ROYALBLUE",
+              "seriesType": "COLUMN"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A"
+              ],
+              "defaultAxis": true
+            },
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "RIGHT",
+              "queryIds": [
+                "B"
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": true
+        }
+      }
+    },
+    {
+      "name": "Failure Rate",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 228,
+        "left": 0,
+        "width": 684,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:service.errors.total.rate",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.service",
+                "filterType": "ENTITY_ATTRIBUTE",
+                "filterOperator": "OR",
+                "entityAttribute": "databaseName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.service",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:azure",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "metric": "builtin:service.dbconnections.failureRate",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.service",
+                "filterType": "ENTITY_ATTRIBUTE",
+                "filterOperator": "OR",
+                "entityAttribute": "databaseName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.service",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:azure",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "YELLOW",
+              "seriesType": "LINE"
+            }
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "color": "ORANGE",
+              "seriesType": "COLUMN"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A",
+                "B"
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": true
+        }
+      }
+    },
+    {
+      "name": "CPU",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 456,
+        "left": 0,
+        "width": 342,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "ext:cloud.azure.microsoft_dbforpostgresql.servers.cpu_percent",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.custom_device",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:azure",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.custom_device",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.azuredb.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "ORANGE",
+              "seriesType": "LINE"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A"
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": true
+        }
+      }
+    },
+    {
+      "name": "Memory",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 456,
+        "left": 342,
+        "width": 342,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "ext:cloud.azure.microsoft_dbforpostgresql.servers.memory_percent",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.custom_device",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.azuredb.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.custom_device",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:azure",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "BLUE",
+              "seriesType": "LINE"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A"
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": true
+        }
+      }
+    },
+    {
+      "name": "Disk Storage",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 760,
+        "left": 0,
+        "width": 684,
+        "height": 114
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "ext:cloud.azure.microsoft_dbforpostgresql.servers.storage_percent",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.custom_device",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.azuredb.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.custom_device",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:azure",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "AREA"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "value": 0,
+                "color": "#7dc540"
+              },
+              {
+                "value": 80,
+                "color": "#f5d30f"
+              },
+              {
+                "value": 95,
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": true
+        }
+      }
+    },
+    {
+      "name": "Network Traffic",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 874,
+        "left": 0,
+        "width": 684,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "ext:cloud.azure.microsoft_dbforpostgresql.servers.network_bytes_ingress",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.custom_device",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:azure",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.custom_device",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.azuredb.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "metric": "ext:cloud.azure.microsoft_dbforpostgresql.servers.network_bytes_egress",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.custom_device",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:azure",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.custom_device",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.azuredb.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "BLUE",
+              "seriesType": "LINE"
+            }
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "color": "YELLOW",
+              "seriesType": "AREA",
+              "alias": ""
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A",
+                "B"
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": true
+        }
+      }
+    },
+    {
+      "name": "Active Connections",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 722,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "ext:cloud.azure.microsoft_dbforpostgresql.servers.active_connections",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.custom_device",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:azure",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.custom_device",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.azuredb.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "value": 1,
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Failed Connections",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 950,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "ext:cloud.azure.microsoft_dbforpostgresql.servers.connections_failed",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.custom_device",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.azuredb.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.custom_device",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:azure",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "value": 0,
+                "color": "#7dc540"
+              },
+              {
+                "value": 1,
+                "color": "#f5d30f"
+              },
+              {
+                "value": 5,
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Deadlocks",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1216,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.deadlocks",
+          "spaceAggregation": "MAX",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "value": 0,
+                "color": "#7dc540"
+              },
+              {
+                "value": 1,
+                "color": "#f5d30f"
+              },
+              {
+                "value": 5,
                 "color": "#dc172a"
               }
             ],
