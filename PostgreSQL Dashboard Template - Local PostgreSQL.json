@@ -1657,7 +1657,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -1771,7 +1771,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -1885,7 +1885,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -1999,7 +1999,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2116,7 +2116,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2233,7 +2233,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2350,7 +2350,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2467,7 +2467,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2584,7 +2584,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2701,7 +2701,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2818,7 +2818,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2935,7 +2935,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3052,7 +3052,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3169,7 +3169,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3286,7 +3286,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3403,7 +3403,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3520,7 +3520,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3637,7 +3637,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3754,7 +3754,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3871,7 +3871,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3988,7 +3988,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -4196,7 +4196,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -4306,7 +4306,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -4416,7 +4416,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "${entity.host.name}",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
