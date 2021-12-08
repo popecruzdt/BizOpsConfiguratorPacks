@@ -7,7 +7,7 @@
   },
   "id": "945e300e-7008-49b8-9636-ca499d1316c1",
   "dashboardMetadata": {
-    "name": "PostgreSQL Dashboard ${mz.name} ${databasename}",
+    "name": "PostgreSQL Local ${mz.name} ${databasename}",
     "shared": false,
     "owner": "anthony.pope-cruz@dynatrace.com",
     "dashboardFilter": {

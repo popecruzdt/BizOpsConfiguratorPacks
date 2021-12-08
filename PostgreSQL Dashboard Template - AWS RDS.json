@@ -7,7 +7,7 @@
   },
   "id": "4ed85153-0b7a-4163-8e5c-0a4067e12996",
   "dashboardMetadata": {
-    "name": "PostgreSQL Dashboard ${mz.name} ${databasename}",
+    "name": "PostgreSQL AWS RDS ${mz.name} ${databasename}",
     "shared": false,
     "owner": "anthony.pope-cruz@dynatrace.com",
     "dashboardFilter": {
