@@ -20,7 +20,8 @@
     "tags": [
       "PostgreSQL",
       "Database"
-    ]
+    ],
+    "preset": false
   },
   "tiles": [
     {

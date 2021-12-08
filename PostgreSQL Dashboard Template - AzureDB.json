@@ -19,7 +19,9 @@
     },
     "tags": [
       "PostgreSQL",
-      "Database"
+      "Database",
+      "Azure",
+      "AzureDB"
     ]
   },
   "tiles": [

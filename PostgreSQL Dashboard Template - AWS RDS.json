@@ -19,8 +19,11 @@
     },
     "tags": [
       "PostgreSQL",
-      "Database"
-    ]
+      "Database",
+      "AWS",
+      "AWS RDS"
+    ],
+    "preset": false
   },
   "tiles": [
     {
