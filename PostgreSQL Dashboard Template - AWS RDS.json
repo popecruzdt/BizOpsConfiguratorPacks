@@ -7,14 +7,14 @@
   },
   "id": "4ed85153-0b7a-4163-8e5c-0a4067e12996",
   "dashboardMetadata": {
-    "name": "PostgreSQL Dashboard Template - AWS RDS",
+    "name": "PostgreSQL Dashboard ${mz.name} ${databasename}",
     "shared": false,
     "owner": "anthony.pope-cruz@dynatrace.com",
     "dashboardFilter": {
       "timeframe": "-2h",
       "managementZone": {
-        "id": "-5991890171913427001",
-        "name": "Voting App"
+        "id": "${mz.id}",
+        "name": "${mz.name}"
       }
     },
     "tags": [
@@ -23,2392 +23,6 @@
     ]
   },
   "tiles": [
-    {
-      "name": "Conflicts",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 0,
-        "left": 1444,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.conflicts",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "foldTransformation": "LAST_VALUE",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "value": 0,
-                "color": "#7dc540"
-              },
-              {
-                "value": 1,
-                "color": "#f5d30f"
-              },
-              {
-                "value": 5,
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Connected Backends",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 0,
-        "left": 1672,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.numbackends",
-          "spaceAggregation": "MAX",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "foldTransformation": "LAST_VALUE",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "value": 0,
-                "color": "#7dc540"
-              },
-              {
-                "value": 100,
-                "color": "#f5d30f"
-              },
-              {
-                "value": 1000,
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Temp Files",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 456,
-        "left": 1216,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.temp_files",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Temp Bytes",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 456,
-        "left": 1444,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.temp_bytes",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Max Written Clean",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 456,
-        "left": 1672,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.maxwritten_clean",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Checkpoints Timed",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 228,
-        "left": 1216,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.checkpoints_timed",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Checkpoints Req",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 228,
-        "left": 1444,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.checkpoints_req",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Checkpoint Write Time",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 228,
-        "left": 1672,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.checkpoint_write_time",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Checkpoint Sync Time",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 228,
-        "left": 1900,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.checkpoint_sync_time",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Buffers Clean",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 1140,
-        "left": 1672,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.buffers_clean",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Buffers Alloc",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 1140,
-        "left": 1900,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.buffers_alloc",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Buffers Checkpoint",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 1140,
-        "left": 1216,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.buffers_checkpoint",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Buffers Backend Fsync",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 1140,
-        "left": 1444,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.buffers_backend_fsync",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Blocks Read",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 912,
-        "left": 1216,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.blks_read",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Blocks Hit",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 912,
-        "left": 1444,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.blks_hit",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Block Read Time",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 912,
-        "left": 1900,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.blk_read_time",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Block Write Time",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 912,
-        "left": 1672,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.blk_write_time",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Commits",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 684,
-        "left": 1900,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.xact_commit",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Rollbacks",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 456,
-        "left": 1900,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.xact_rollback",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Checksum Failures",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 0,
-        "left": 1900,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.checksum_failures",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE",
-              "alias": "postgresql.temp_files"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "value": 0,
-                "color": "#7dc540"
-              },
-              {
-                "value": 1,
-                "color": "#f5d30f"
-              },
-              {
-                "value": 5,
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Row Inserts",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 684,
-        "left": 1216,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.tup_inserted",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Row Updates",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 684,
-        "left": 1444,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.tup_updated",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
-      "name": "Row Deletes",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 684,
-        "left": 1672,
-        "width": 228,
-        "height": 228
-      },
-      "tileFilter": {},
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.tup_deleted",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.host",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:local",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {},
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
     {
       "name": "Response Time",
       "tileType": "DATA_EXPLORER",
@@ -2433,25 +47,25 @@
             "nestedFilters": [
               {
                 "filter": "dt.entity.service",
-                "filterType": "ENTITY_ATTRIBUTE",
-                "filterOperator": "OR",
-                "entityAttribute": "databaseName",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.service",
                 "filterType": "TAG",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
                     "value": "postgres:aws",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.service",
+                "filterType": "ENTITY_ATTRIBUTE",
+                "filterOperator": "OR",
+                "entityAttribute": "databaseName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2472,25 +86,25 @@
             "nestedFilters": [
               {
                 "filter": "dt.entity.service",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:aws",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.service",
                 "filterType": "ENTITY_ATTRIBUTE",
                 "filterOperator": "OR",
                 "entityAttribute": "databaseName",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.service",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:aws",
                     "evaluator": "IN"
                   }
                 ]
@@ -2611,7 +225,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2650,7 +264,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "postgres",
+                    "value": "${databasename}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2773,7 +387,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "voting-app-database-112421",
+                    "value": "${entity.rds.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2882,25 +496,25 @@
             "nestedFilters": [
               {
                 "filter": "dt.entity.relational_database_service",
-                "filterType": "NAME",
-                "filterOperator": "OR",
-                "entityAttribute": "entityName",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "voting-app-database-112421",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.relational_database_service",
                 "filterType": "TAG",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
                     "value": "postgres:aws",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.rds.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -2921,25 +535,25 @@
             "nestedFilters": [
               {
                 "filter": "dt.entity.relational_database_service",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:aws",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.relational_database_service",
                 "filterType": "NAME",
                 "filterOperator": "OR",
                 "entityAttribute": "entityName",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "voting-app-database-112421",
+                    "value": "${entity.rds.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:aws",
                     "evaluator": "IN"
                   }
                 ]
@@ -3044,25 +658,25 @@
             "nestedFilters": [
               {
                 "filter": "dt.entity.relational_database_service",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:aws",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.relational_database_service",
                 "filterType": "NAME",
                 "filterOperator": "OR",
                 "entityAttribute": "entityName",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "voting-app-database-112421",
+                    "value": "${entity.rds.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:aws",
                     "evaluator": "IN"
                   }
                 ]
@@ -3153,7 +767,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "voting-app-database-112421",
+                    "value": "${entity.rds.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3186,25 +800,25 @@
             "nestedFilters": [
               {
                 "filter": "dt.entity.relational_database_service",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:aws",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.relational_database_service",
                 "filterType": "NAME",
                 "filterOperator": "OR",
                 "entityAttribute": "entityName",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "voting-app-database-112421",
+                    "value": "${entity.rds.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:aws",
                     "evaluator": "IN"
                   }
                 ]
@@ -3310,25 +924,25 @@
             "nestedFilters": [
               {
                 "filter": "dt.entity.relational_database_service",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:aws",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.relational_database_service",
                 "filterType": "NAME",
                 "filterOperator": "OR",
                 "entityAttribute": "entityName",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "voting-app-database-112421",
+                    "value": "${entity.rds.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:aws",
                     "evaluator": "IN"
                   }
                 ]
@@ -3412,25 +1026,25 @@
             "nestedFilters": [
               {
                 "filter": "dt.entity.relational_database_service",
-                "filterType": "NAME",
-                "filterOperator": "OR",
-                "entityAttribute": "entityName",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "voting-app-database-112421",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.relational_database_service",
                 "filterType": "TAG",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
                     "value": "postgres:aws",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.rds.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3515,25 +1129,25 @@
             "nestedFilters": [
               {
                 "filter": "dt.entity.relational_database_service",
-                "filterType": "TAG",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres:aws",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.relational_database_service",
                 "filterType": "NAME",
                 "filterOperator": "OR",
                 "entityAttribute": "entityName",
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "voting-app-database-112421",
+                    "value": "${entity.rds.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "TAG",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "postgres:aws",
                     "evaluator": "IN"
                   }
                 ]
@@ -3615,25 +1229,25 @@
             "nestedFilters": [
               {
                 "filter": "dt.entity.relational_database_service",
-                "filterType": "NAME",
-                "filterOperator": "OR",
-                "entityAttribute": "entityName",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "voting-app-database-112421",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.relational_database_service",
                 "filterType": "TAG",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
                     "value": "postgres:aws",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.rds.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3721,7 +1335,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "voting-app-database-112421",
+                    "value": "${entity.rds.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3833,7 +1447,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "voting-app-database-112421",
+                    "value": "${entity.rds.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -3933,7 +1547,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "voting-app-database-112421",
+                    "value": "${entity.rds.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -4015,25 +1629,25 @@
             "nestedFilters": [
               {
                 "filter": "dt.entity.relational_database_service",
-                "filterType": "NAME",
-                "filterOperator": "OR",
-                "entityAttribute": "entityName",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "voting-app-database-112421",
-                    "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "dt.entity.relational_database_service",
                 "filterType": "TAG",
                 "filterOperator": "OR",
                 "nestedFilters": [],
                 "criteria": [
                   {
                     "value": "postgres:aws",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.relational_database_service",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${entity.rds.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -4106,13 +1720,25 @@
       "queries": [
         {
           "id": "A",
-          "metric": "telegraf.aws-postgres.postgresql.deadlocks",
+          "metric": "${telegraf.prefix}postgresql.deadlocks",
           "spaceAggregation": "MAX",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
           "filterBy": {
             "filterOperator": "AND",
             "nestedFilters": [
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              },
               {
                 "filter": "dt.entity.host",
                 "filterType": "NAME",
@@ -4121,7 +1747,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "aws-postgres-rds",
+                    "value": "${telegraf.host.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -4135,18 +1761,6 @@
                   {
                     "value": "postgres:local",
                     "evaluator": "IN"
-                  }
-                ]
-              },
-              {
-                "filter": "db",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "postgres",
-                    "evaluator": "EQ"
                   }
                 ]
               }
@@ -4192,6 +1806,2415 @@
               },
               {
                 "value": 5,
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Conflicts",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1444,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.conflicts",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "value": 0,
+                "color": "#7dc540"
+              },
+              {
+                "value": 1,
+                "color": "#f5d30f"
+              },
+              {
+                "value": 5,
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Connected Backends",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1672,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.numbackends",
+          "spaceAggregation": "MAX",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "foldTransformation": "LAST_VALUE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "value": 0,
+                "color": "#7dc540"
+              },
+              {
+                "value": 100,
+                "color": "#f5d30f"
+              },
+              {
+                "value": 1000,
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Checksum Failures",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1900,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.checksum_failures",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "value": 0,
+                "color": "#7dc540"
+              },
+              {
+                "value": 1,
+                "color": "#f5d30f"
+              },
+              {
+                "value": 5,
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Checkpoints Timed",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 228,
+        "left": 1216,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.checkpoints_timed",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Checkpoints Req",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 228,
+        "left": 1444,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.checkpoints_req",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Checkpoint Write Time",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 228,
+        "left": 1672,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.checkpoint_write_time",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Checkpoint Sync Time",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 228,
+        "left": 1900,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.checkpoint_sync_time",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Temp Files",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 456,
+        "left": 1216,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.temp_files",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Temp Bytes",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 456,
+        "left": 1444,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.temp_bytes",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Max Written Clean",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 456,
+        "left": 1672,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.maxwritten_clean",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Rollbacks",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 456,
+        "left": 1900,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.xact_rollback",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Row Inserts",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 684,
+        "left": 1216,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.tup_inserted",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Row Updates",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 684,
+        "left": 1444,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.tup_updated",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Row Deletes",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 684,
+        "left": 1672,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.tup_deleted",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Commits",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 684,
+        "left": 1900,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.xact_commit",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Blocks Read",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 912,
+        "left": 1216,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.blks_read",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Blocks Hit",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 912,
+        "left": 1444,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.blks_hit",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Block Write Time",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 912,
+        "left": 1672,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.blk_write_time",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Block Read Time",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 912,
+        "left": 1900,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.blk_read_time",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              },
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Buffers Checkpoint",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1140,
+        "left": 1216,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.buffers_checkpoint",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Buffers Backend Fsync",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1140,
+        "left": 1444,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.buffers_backend_fsync",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Buffers Clean",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1140,
+        "left": 1672,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.buffers_clean",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        }
+      }
+    },
+    {
+      "name": "Buffers Alloc",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1140,
+        "left": 1900,
+        "width": 228,
+        "height": 228
+      },
+      "tileFilter": {},
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "${telegraf.prefix}postgresql.buffers_alloc",
+          "spaceAggregation": "AVG",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "dt.entity.host",
+                "filterType": "NAME",
+                "filterOperator": "OR",
+                "entityAttribute": "entityName",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${telegraf.host.name}",
+                    "evaluator": "IN"
+                  }
+                ]
+              },
+              {
+                "filter": "db",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "${databasename}",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "theme": "DEFAULT",
+          "seriesType": "LINE",
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "seriesType": "LINE",
+              "alias": "postgresql.temp_files"
+            }
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
                 "color": "#dc172a"
               }
             ],
