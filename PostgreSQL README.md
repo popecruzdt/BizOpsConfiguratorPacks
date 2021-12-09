@@ -45,5 +45,9 @@ In this scenario, the postgres database is hosted in Azure, via the Azure Databa
   * https://github.com/influxdata/telegraf/tree/master/plugins/inputs/postgresql
   * https://github.com/influxdata/telegraf/tree/master/plugins/outputs/dynatrace
 
+## Tips:
+#### Telegraf prefix
+The Dynatrace output plugin for Telegraf has a configuration setting "prefix" that is added to the beginning of the metric identifier.  The prefix itself should not contain a trailing `.`.  This workflow requires a trailing `.` when deploying the dashboard.  If you set the prefix to `"telegraf.postgres"` in your Telegraf configuration, you would enter `"telegraf.postgres."` into this workflow when deploying the dashboard.
+
 ## Issues & Enhancement:
 For any issues or requests for enhancement, please open an Issue on the GitHub repo: https://github.com/popecruzdt/BizOpsConfiguratorPacks/issues
