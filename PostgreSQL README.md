@@ -49,5 +49,11 @@ In this scenario, the postgres database is hosted in Azure, via the Azure Databa
 #### Telegraf prefix
 The Dynatrace output plugin for Telegraf has a configuration setting "prefix" that is added to the beginning of the metric identifier.  The prefix itself should not contain a trailing `.`.  This workflow requires a trailing `.` when deploying the dashboard.  If you set the prefix to `"telegraf.postgres"` in your Telegraf configuration, you would enter `"telegraf.postgres."` into this workflow when deploying the dashboard.
 
+#### Telegraf postgresql input plugin address
+Here are some example configurations for the Telegraf postgresql input plugin address field.  The Telegraf agent can monitor local or remote postgres databases (with the necessary firewall rules in place).
+  * Local: `address = "postgres://<database-user>:<password>@<db-hostname>:<port>/<database-name>"`
+  * AWS RDS: `address = "postgres://<database-user>:<password>@<aws-rds-hostname>:<port>/<database-name>"`
+  * Azure DB: `address = "postgres://<database-user>@<azure-db-hostname>:<password>@<azure-db-hostname>:<port>/<database-name>"`
+
 ## Issues & Enhancement:
 For any issues or requests for enhancement, please open an Issue on the GitHub repo: https://github.com/popecruzdt/BizOpsConfiguratorPacks/issues
