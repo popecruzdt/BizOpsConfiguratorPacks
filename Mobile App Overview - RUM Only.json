@@ -15,6 +15,7 @@
       "managementZone": {
         "id": "${mz.id}",
         "name": "${mz.name}"
+      }
     },
     "tags": [
       "End User Experience",
@@ -155,7 +156,7 @@
       },
       "tileFilter": {},
       "customName": "Journey",
-      "query": "SELECT FUNNEL(useraction.name=\"${entity.key_user_action.1.name}\", useraction.name = \"${entity.key_user_action.2.name}\", useraction.name = \"${entity.key_user_action.3.name}\", useraction.name = \"${entity.key_user_action.4.name}\") FROM usersession WHERE useraction.application = \"${entity.mobile_application.name}\"",
+      "query": "SELECT FUNNEL()",
       "type": "FUNNEL",
       "limit": 50
     },
