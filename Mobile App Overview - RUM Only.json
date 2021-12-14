@@ -155,7 +155,7 @@
       },
       "tileFilter": {},
       "customName": "Journey",
-      "query": "SELECT FUNNEL((useraction.name=\"Loading easyTravel\") OR (useraction.name=\"AppStart (easyTravel)\") AS \"Open easytravel\", useraction.name = \"DoLogin\" AS \"Log in\", useraction.name = \"searchJourney\" AS \"Search journey\", useraction.name = \"bookJourney\" AS \"Book journey\") FROM usersession WHERE useraction.application = \"${entity.mobile_application.name}\"",
+      "query": "SELECT FUNNEL(useraction.name=\"${entity.key_user_action.1.name}\", useraction.name = \"${entity.key_user_action.2.name}\", useraction.name = \"${entity.key_user_action.3.name}\", useraction.name = \"${entity.key_user_action.4.name}\") FROM usersession WHERE useraction.application = \"${entity.mobile_application.name}\"",
       "type": "FUNNEL",
       "limit": 50
     },
@@ -170,8 +170,8 @@
         "height": 152
       },
       "tileFilter": {},
-      "customName": "Open easyTravel",
-      "query": "SELECT AVG(duration) AS \"Avg Response Time\" FROM useraction WHERE name = \"AppStart (easyTravel)\" AND application = \"${entity.mobile_application.name}\"",
+      "customName": "${entity.key_user_action.1.name}",
+      "query": "SELECT AVG(duration) AS \"Avg Response Time\" FROM useraction WHERE name = \"${entity.key_user_action.1.name}\" AND application = \"${entity.mobile_application.name}\"",
       "type": "SINGLE_VALUE",
       "limit": 50
     },
@@ -186,8 +186,8 @@
         "height": 152
       },
       "tileFilter": {},
-      "customName": "Search journey",
-      "query": "SELECT AVG(duration) AS \"Avg Response Time\" FROM useraction WHERE name = \"searchJourney\" AND application = \"${entity.mobile_application.name}\"",
+      "customName": "${entity.key_user_action.3.name}",
+      "query": "SELECT AVG(duration) AS \"Avg Response Time\" FROM useraction WHERE name = \"${entity.key_user_action.2.name}\" AND application = \"${entity.mobile_application.name}\"",
       "type": "SINGLE_VALUE",
       "limit": 50
     },
@@ -202,8 +202,8 @@
         "height": 152
       },
       "tileFilter": {},
-      "customName": "Book journey",
-      "query": "SELECT AVG(duration) AS \"Avg Response Time\" FROM useraction WHERE name = \"bookJourney\" AND application = \"${entity.mobile_application.name}\"",
+      "customName": "${entity.key_user_action.4.name}",
+      "query": "SELECT AVG(duration) AS \"Avg Response Time\" FROM useraction WHERE name = \"${entity.key_user_action.3.name}\" AND application = \"${entity.mobile_application.name}\"",
       "type": "SINGLE_VALUE",
       "limit": 50
     },
@@ -218,8 +218,8 @@
         "height": 152
       },
       "tileFilter": {},
-      "customName": "Log in",
-      "query": "SELECT AVG(duration) AS \"Avg Response Time\" FROM useraction WHERE name = \"DoLogin\" AND application = \"${entity.mobile_application.name}\"",
+      "customName": "${entity.key_user_action.2.name}",
+      "query": "SELECT AVG(duration) AS \"Avg Response Time\" FROM useraction WHERE name = \"${entity.key_user_action.4.name}\" AND application = \"${entity.mobile_application.name}\"",
       "type": "SINGLE_VALUE",
       "limit": 50
     },
@@ -317,7 +317,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "AppStart (easyTravel)",
+                    "value": "${entity.key_user_action.1.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -408,7 +408,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "DoLogin",
+                    "value": "${entity.key_user_action.2.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -499,7 +499,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "searchJourney",
+                    "value": "${entity.key_user_action.3.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -590,7 +590,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "bookJourney",
+                    "value": "${entity.key_user_action.4.name}",
                     "evaluator": "IN"
                   }
                 ]
