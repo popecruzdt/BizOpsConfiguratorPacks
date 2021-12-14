@@ -237,7 +237,7 @@
       "tileFilter": {},
       "assignedEntities": [
         "${entity.mobile_application.id}",
-        "DEVICE_APPLICATION_METHOD-CCC93DE3B83221F5"
+        "${entity.key_user_action.1.id}"
       ]
     },
     {
@@ -253,7 +253,7 @@
       "tileFilter": {},
       "assignedEntities": [
         "${entity.mobile_application.id}",
-        "DEVICE_APPLICATION_METHOD-FB106E365AB789F8"
+        "${entity.key_user_action.2.id}"
       ]
     },
     {
@@ -269,7 +269,7 @@
       "tileFilter": {},
       "assignedEntities": [
         "${entity.mobile_application.id}",
-        "DEVICE_APPLICATION_METHOD-C0F150C03778484B"
+        "${entity.key_user_action.3.id}"
       ]
     },
     {
@@ -285,7 +285,7 @@
       "tileFilter": {},
       "assignedEntities": [
         "${entity.mobile_application.id}",
-        "DEVICE_APPLICATION_METHOD-B60A00B9A3831556"
+        "${entity.key_user_action.4.id}"
       ]
     },
     {
