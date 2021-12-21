@@ -7,14 +7,14 @@
   },
   "id": "f49f6c4d-e3b5-4010-aef3-fa677df1d4da",
   "dashboardMetadata": {
-    "name": "Synthetic Overview - HTTP Monitors",
+    "name": "${mz.name} Synthetic Overview - HTTP Monitors",
     "shared": true,
     "owner": "anthony.pope-cruz@dynatrace.com",
     "dashboardFilter": {
       "timeframe": "-6h",
       "managementZone": {
-        "id": "2690710005422793357",
-        "name": "eks easyTravel Prod"
+        "id": "${mz.id}",
+        "name": "${mz.name}"
       }
     },
     "tags": [
@@ -60,7 +60,7 @@
       },
       "tileFilter": {},
       "assignedEntities": [
-        "30e8da69-a70c-307b-bb3f-db3bbfdd466b"
+        "${slo.1.id}"
       ]
     },
     {
@@ -75,7 +75,7 @@
       },
       "tileFilter": {},
       "assignedEntities": [
-        "d254d445-cb72-388b-bfc1-a597ae049c98"
+        "${slo.2.id}"
       ]
     },
     {
@@ -211,7 +211,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "eks easytravel-prod home page",
+                    "value": "${entity.synthetic.uptime.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -248,11 +248,11 @@
             "axisTarget": "LEFT",
             "rules": [
               {
-                "value": 99.9999,
+                "value": "${threshold.uptime.green}",
                 "color": "#7dc540"
               },
               {
-                "value": 98,
+                "value": "${threshold.uptime.yellow}",
                 "color": "#f5d30f"
               },
               {
@@ -304,7 +304,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "eks easytravel-prod home page",
+                    "value": "${entity.synthetic.uptime.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -341,11 +341,11 @@
             "axisTarget": "LEFT",
             "rules": [
               {
-                "value": 99.9999,
+                "value": "${threshold.uptime.green}",
                 "color": "#7dc540"
               },
               {
-                "value": 98,
+                "value": "${threshold.uptime.yellow}",
                 "color": "#f5d30f"
               },
               {
@@ -397,7 +397,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "eks easytravel-prod home page",
+                    "value": "${entity.synthetic.uptime.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -434,11 +434,11 @@
             "axisTarget": "LEFT",
             "rules": [
               {
-                "value": 99.9999,
+                "value": "${threshold.uptime.green}",
                 "color": "#7dc540"
               },
               {
-                "value": 98,
+                "value": "${threshold.uptime.yellow}",
                 "color": "#f5d30f"
               },
               {
@@ -490,7 +490,7 @@
                 "nestedFilters": [],
                 "criteria": [
                   {
-                    "value": "eks easytravel-prod home page",
+                    "value": "${entity.synthetic.uptime.name}",
                     "evaluator": "IN"
                   }
                 ]
@@ -527,11 +527,11 @@
             "axisTarget": "LEFT",
             "rules": [
               {
-                "value": 99.9999,
+                "value": "${threshold.uptime.green}",
                 "color": "#7dc540"
               },
               {
-                "value": 98,
+                "value": "${threshold.uptime.yellow}",
                 "color": "#f5d30f"
               },
               {
@@ -602,11 +602,11 @@
             "axisTarget": "LEFT",
             "rules": [
               {
-                "value": 99.9999,
+                "value": "${threshold.availability.green}",
                 "color": "#7dc540"
               },
               {
-                "value": 98,
+                "value": "${threshold.availability.yellow}",
                 "color": "#f5d30f"
               },
               {
@@ -675,11 +675,11 @@
             "axisTarget": "LEFT",
             "rules": [
               {
-                "value": 99.9999,
+                "value": "${threshold.availability.green}",
                 "color": "#7dc540"
               },
               {
-                "value": 98,
+                "value": "${threshold.availability.yellow}",
                 "color": "#f5d30f"
               },
               {
@@ -901,11 +901,11 @@
             "axisTarget": "LEFT",
             "rules": [
               {
-                "value": 99,
+                "value": "${threshold.availability.green}",
                 "color": "#7dc540"
               },
               {
-                "value": 98,
+                "value": "${threshold.availability.yellow}",
                 "color": "#f5d30f"
               },
               {
