@@ -13,6 +13,7 @@ Developed and tested on Dynatrace v1.231.
 ### Set up your synthetic monitors:
 Create synthetic monitors:
   * https://www.dynatrace.com/support/help/shortlink/synthetic-hub
+
 Add them to your management zone:
   * https://www.dynatrace.com/support/help/shortlink/management-zones-hub
 
