@@ -1,0 +1,15 @@
+# Openkit Mobile App Configuration
+# The amount of traffic generated with openkit can be adjusted via the config "baseLoadMobileNativeRatio"
+config.mobileBeaconUrl=<your mobile beacon url>
+config.etMobileAppId=<your mobile app id>
+config.openKitMobileLoadGenerator=true
+
+# How to connect to Dynatrace
+#################################################################################
+config.apmServerDefault=APM
+config.apmServerProtocol=https
+config.apmServerWebPort=443
+config.apmServerPort=443
+config.apmTenant=<your tenant id>
+config.apmServerHost=<your tenant domain>
+config.apmServerWebURL=${config.apmServerProtocol}://${config.apmServerHost}:${config.apmServerWebPort}/
