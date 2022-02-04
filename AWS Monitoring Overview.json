@@ -15,6 +15,7 @@
       "managementZone": {
         "id": "${mz.id}",
         "name": "${mz.name}"
+      }
     },
     "tags": [
       "Aws Monitoring",
