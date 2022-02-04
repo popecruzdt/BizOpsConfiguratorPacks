@@ -1,0 +1,293 @@
+{
+  "metadata": {
+    "configurationVersions": [
+      7
+    ],
+    "clusterVersion": "1.233.112.20220126-151435"
+  },
+  "id": "624b6741-cc4a-44b7-a82c-a91696081452",
+  "name": "AWS",
+  "description": null,
+  "rules": [
+    {
+      "type": "HOST",
+      "enabled": true,
+      "valueFormat": "EC2",
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "EC2_INSTANCE_AWS_INSTANCE_TYPE",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        },
+        {
+          "key": {
+            "attribute": "HOST_AWS_NAME_TAG",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "HOST",
+      "enabled": true,
+      "valueFormat": "EC2",
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "HOST_CLOUD_TYPE",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "CLOUD_TYPE",
+            "operator": "EQUALS",
+            "value": "EC2",
+            "negate": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "SERVICE",
+      "enabled": true,
+      "valueFormat": "Lambda",
+      "propagationTypes": [
+        "SERVICE_TO_PROCESS_GROUP_LIKE"
+      ],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "SERVICE_TECHNOLOGY",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "SIMPLE_TECH",
+            "operator": "EQUALS",
+            "value": {
+              "type": "AWS_LAMBDA"
+            },
+            "negate": false
+          }
+        },
+        {
+          "key": {
+            "attribute": "SERVICE_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "PROCESS_GROUP",
+      "enabled": true,
+      "valueFormat": "ECS",
+      "propagationTypes": [
+        "PROCESS_GROUP_TO_SERVICE",
+        "PROCESS_GROUP_TO_HOST"
+      ],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+            "dynamicKey": "AWS_ECS_CONTAINERNAME",
+            "type": "PROCESS_PREDEFINED_METADATA_KEY"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "PROCESS_GROUP",
+      "enabled": true,
+      "valueFormat": "EKS",
+      "propagationTypes": [
+        "PROCESS_GROUP_TO_SERVICE",
+        "PROCESS_GROUP_TO_HOST"
+      ],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+            "dynamicKey": "KUBERNETES_NAMESPACE",
+            "type": "PROCESS_PREDEFINED_METADATA_KEY"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        },
+        {
+          "key": {
+            "attribute": "HOST_CLOUD_TYPE",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "CLOUD_TYPE",
+            "operator": "EQUALS",
+            "value": "EC2",
+            "negate": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "AWS_CLASSIC_LOAD_BALANCER",
+      "enabled": true,
+      "valueFormat": "CLB",
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "AWS_ACCOUNT_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "AWS_RELATIONAL_DATABASE_SERVICE",
+      "enabled": true,
+      "valueFormat": "RDS",
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "AWS_ACCOUNT_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "AWS_APPLICATION_LOAD_BALANCER",
+      "enabled": true,
+      "valueFormat": "ALB",
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "AWS_APPLICATION_LOAD_BALANCER_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "AWS_NETWORK_LOAD_BALANCER",
+      "enabled": true,
+      "valueFormat": "NLB",
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "AWS_NETWORK_LOAD_BALANCER_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "CUSTOM_DEVICE",
+      "enabled": true,
+      "valueFormat": "Cloud Native Service",
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "CUSTOM_DEVICE_GROUP_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "CONTAINS",
+            "value": "Amazon",
+            "negate": false,
+            "caseSensitive": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "CUSTOM_DEVICE",
+      "enabled": true,
+      "valueFormat": "Cloud Native Service",
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "CUSTOM_DEVICE_GROUP_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "CONTAINS",
+            "value": "AWS",
+            "negate": false,
+            "caseSensitive": false
+          }
+        }
+      ]
+    }
+  ],
+  "entitySelectorBasedRules": []
+}

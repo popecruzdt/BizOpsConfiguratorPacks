@@ -1,0 +1,255 @@
+{
+  "metadata": {
+    "configurationVersions": [
+      0
+    ],
+    "clusterVersion": "1.233.112.20220126-151435"
+  },
+  "id": "-7472367116119244321",
+  "name": "AWS",
+  "description": "",
+  "rules": [
+    {
+      "type": "AWS_ACCOUNT",
+      "enabled": true,
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "AWS_ACCOUNT_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "SERVICE",
+      "enabled": true,
+      "propagationTypes": [
+        "SERVICE_TO_HOST_LIKE",
+        "SERVICE_TO_PROCESS_GROUP_LIKE"
+      ],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "SERVICE_TAGS",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "TAG",
+            "operator": "TAG_KEY_EQUALS",
+            "value": {
+              "context": "CONTEXTLESS",
+              "key": "AWS"
+            },
+            "negate": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "PROCESS_GROUP",
+      "enabled": true,
+      "propagationTypes": [
+        "PROCESS_GROUP_TO_SERVICE",
+        "PROCESS_GROUP_TO_HOST"
+      ],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "PROCESS_GROUP_TAGS",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "TAG",
+            "operator": "TAG_KEY_EQUALS",
+            "value": {
+              "context": "CONTEXTLESS",
+              "key": "AWS"
+            },
+            "negate": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "HOST",
+      "enabled": true,
+      "propagationTypes": [
+        "HOST_TO_PROCESS_GROUP_INSTANCE"
+      ],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "HOST_TAGS",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "TAG",
+            "operator": "TAG_KEY_EQUALS",
+            "value": {
+              "context": "CONTEXTLESS",
+              "key": "AWS"
+            },
+            "negate": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "AWS_CLASSIC_LOAD_BALANCER",
+      "enabled": true,
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "AWS_CLASSIC_LOAD_BALANCER_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "AWS_RELATIONAL_DATABASE_SERVICE",
+      "enabled": true,
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "AWS_RELATIONAL_DATABASE_SERVICE_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "AWS_AUTO_SCALING_GROUP",
+      "enabled": true,
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "AWS_AUTO_SCALING_GROUP_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "AWS_APPLICATION_LOAD_BALANCER",
+      "enabled": true,
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "AWS_APPLICATION_LOAD_BALANCER_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "AWS_NETWORK_LOAD_BALANCER",
+      "enabled": true,
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "AWS_NETWORK_LOAD_BALANCER_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "CUSTOM_DEVICE",
+      "enabled": true,
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "CUSTOM_DEVICE_TAGS",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "TAG",
+            "operator": "TAG_KEY_EQUALS",
+            "value": {
+              "context": "CONTEXTLESS",
+              "key": "AWS"
+            },
+            "negate": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "CUSTOM_DEVICE_GROUP",
+      "enabled": true,
+      "propagationTypes": [
+        "CUSTOM_DEVICE_GROUP_TO_CUSTOM_DEVICE"
+      ],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "CUSTOM_DEVICE_GROUP_TAGS",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "TAG",
+            "operator": "TAG_KEY_EQUALS",
+            "value": {
+              "context": "CONTEXTLESS",
+              "key": "AWS"
+            },
+            "negate": false
+          }
+        }
+      ]
+    }
+  ],
+  "dimensionalRules": [],
+  "entitySelectorBasedRules": []
+}
