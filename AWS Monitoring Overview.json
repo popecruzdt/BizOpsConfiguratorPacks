@@ -11,7 +11,10 @@
     "shared": false,
     "owner": "anthony.pope-cruz@dynatrace.com",
     "dashboardFilter": {
-      "timeframe": "Today"
+      "timeframe": "Today",
+      "managementZone": {
+        "id": "${mz.id}",
+        "name": "${mz.name}"
     },
     "tags": [
       "Aws Monitoring",
