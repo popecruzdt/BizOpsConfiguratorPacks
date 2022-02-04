@@ -7,7 +7,7 @@
   },
   "id": "cac180e0-20a0-44ac-aa0e-b9c4b71330d8",
   "dashboardMetadata": {
-    "name": "AWS Monitoring Overview",
+    "name": "${dashboard_name}",
     "shared": false,
     "owner": "anthony.pope-cruz@dynatrace.com",
     "dashboardFilter": {
