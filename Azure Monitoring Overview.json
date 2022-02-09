@@ -104,11 +104,11 @@
         },
         "filtersPerEntityType": {
           "HOST": {
-            "AUTO_TAGS": [
-              "Azure:VM"
-            ],
             "HOST_VIRTUALIZATION": [
               "7"
+            ],
+            "AUTO_TAGS": [
+              "Azure:VM"
             ]
           }
         }
@@ -184,7 +184,7 @@
       "bounds": {
         "top": 532,
         "left": 0,
-        "width": 456,
+        "width": 304,
         "height": 38
       },
       "tileFilter": {}
@@ -196,7 +196,7 @@
       "bounds": {
         "top": 532,
         "left": 646,
-        "width": 456,
+        "width": 304,
         "height": 38
       },
       "tileFilter": {}
@@ -208,7 +208,7 @@
       "bounds": {
         "top": 1520,
         "left": 0,
-        "width": 608,
+        "width": 418,
         "height": 38
       },
       "tileFilter": {}
@@ -220,7 +220,7 @@
       "bounds": {
         "top": 532,
         "left": 1292,
-        "width": 456,
+        "width": 304,
         "height": 38
       },
       "tileFilter": {}
@@ -232,7 +232,7 @@
       "bounds": {
         "top": 1520,
         "left": 646,
-        "width": 456,
+        "width": 304,
         "height": 38
       },
       "tileFilter": {}
@@ -244,7 +244,7 @@
       "bounds": {
         "top": 1520,
         "left": 1292,
-        "width": 456,
+        "width": 304,
         "height": 38
       },
       "tileFilter": {}
@@ -294,16 +294,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -363,16 +369,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -446,16 +458,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -507,16 +525,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -576,16 +600,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -639,16 +669,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -700,16 +736,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -782,16 +824,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -845,16 +893,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -908,16 +962,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -971,16 +1031,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1032,16 +1098,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1095,16 +1167,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1158,16 +1236,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1221,16 +1305,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1284,16 +1374,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1347,16 +1443,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1408,16 +1510,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1477,16 +1585,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1538,16 +1652,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1599,16 +1719,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1668,16 +1794,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1737,16 +1869,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1806,16 +1944,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1875,16 +2019,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1938,16 +2088,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -2001,16 +2157,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -2062,16 +2224,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -2125,16 +2293,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -2194,16 +2368,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -2257,16 +2437,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -2326,16 +2512,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -2395,16 +2587,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -2456,16 +2654,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -2519,16 +2723,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -2588,16 +2798,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -2657,16 +2873,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -2726,16 +2948,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -2795,16 +3023,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -2858,16 +3092,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -2921,16 +3161,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -2982,16 +3228,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -3043,16 +3295,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -3112,16 +3370,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -3181,16 +3445,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -3250,16 +3520,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -3313,16 +3589,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -3382,16 +3664,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -3451,16 +3739,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -3514,16 +3808,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -3575,16 +3875,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -3644,16 +3950,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -3713,16 +4025,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -3782,16 +4100,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -3851,16 +4175,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -3912,16 +4242,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -3973,16 +4309,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -4010,6 +4352,84 @@
           }
         ]
       }
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 532,
+        "left": 304,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "### [More](/ui/dashboards?gtf=today&gf=all&filters=tag%3DAzure)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 532,
+        "left": 950,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "### [More](/ui/dashboards?gtf=today&gf=all&filters=tag%3DAzure)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 532,
+        "left": 1596,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "### [More](/ui/dashboards?gtf=today&gf=all&filters=tag%3DAzure)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 1520,
+        "left": 418,
+        "width": 190,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "### [More](/ui/dashboards?gtf=today&gf=all&filters=tag%3DAzure)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 1520,
+        "left": 950,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "### [More](/ui/dashboards?gtf=today&gf=all&filters=tag%3DAzure)"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 1520,
+        "left": 1596,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "### [More](/ui/dashboards?gtf=today&gf=all&filters=tag%3DAzure)"
     }
   ]
 }

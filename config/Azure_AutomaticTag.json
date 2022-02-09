@@ -1,9 +1,10 @@
 {
   "metadata": {
-    "configurationVersions": [
-      7
+    "currentConfigurationVersions": [
+      "7"
     ],
-    "clusterVersion": "1.229.141.20211102-165436"
+    "configurationVersions": [],
+    "clusterVersion": "1.234.107.20220204-114031"
   },
   "id": "5834050f-46b3-44e4-b54e-1fd2125be727",
   "name": "Azure",
@@ -55,8 +56,8 @@
       "enabled": true,
       "valueFormat": "Function",
       "propagationTypes": [
-        "SERVICE_TO_HOST_LIKE",
-        "SERVICE_TO_PROCESS_GROUP_LIKE"
+        "SERVICE_TO_PROCESS_GROUP_LIKE",
+        "SERVICE_TO_HOST_LIKE"
       ],
       "conditions": [
         {
@@ -93,8 +94,8 @@
       "enabled": true,
       "valueFormat": "App Service",
       "propagationTypes": [
-        "SERVICE_TO_HOST_LIKE",
-        "SERVICE_TO_PROCESS_GROUP_LIKE"
+        "SERVICE_TO_PROCESS_GROUP_LIKE",
+        "SERVICE_TO_HOST_LIKE"
       ],
       "conditions": [
         {
@@ -108,6 +109,50 @@
             "value": null,
             "negate": false,
             "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "CUSTOM_DEVICE",
+      "enabled": true,
+      "valueFormat": "Cloud Native Service",
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "CUSTOM_DEVICE_GROUP_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "CONTAINS",
+            "value": "Azure",
+            "negate": false,
+            "caseSensitive": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "PROCESS_GROUP",
+      "enabled": true,
+      "valueFormat": null,
+      "propagationTypes": [
+        "PROCESS_GROUP_TO_HOST",
+        "PROCESS_GROUP_TO_SERVICE"
+      ],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "HOST_CLOUD_TYPE",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "CLOUD_TYPE",
+            "operator": "EQUALS",
+            "value": "AZURE",
+            "negate": false
           }
         }
       ]
