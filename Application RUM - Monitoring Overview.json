@@ -9,7 +9,7 @@
   "dashboardMetadata": {
     "name": "${app.name} RUM - Monitoring Overview",
     "shared": true,
-    "owner": "c920366",
+    "owner": "anthony.pope-cruz@dynatrace.com",
     "dashboardFilter": {
       "timeframe": "Today",
       "managementZone": {
@@ -61,7 +61,7 @@
         "height": 38
       },
       "tileFilter": {},
-      "markdown": "###[Analyze User Sessions](#usersearchoverview)"
+      "markdown": "### [Analyze User Sessions](#usersearchoverview)"
     },
     {
       "name": "Top web applications",
@@ -364,7 +364,7 @@
         "height": 38
       },
       "tileFilter": {},
-      "markdown": "###⏎ [Executive Overview](#dashboard;id=4307482a-1bff-40b6-a1ba-b5ee9aa9b443)"
+      "markdown": "### ⏎ [Executive Overview](#dashboard;id=4307482a-1bff-40b6-a1ba-b5ee9aa9b443)"
     }
   ]
 }

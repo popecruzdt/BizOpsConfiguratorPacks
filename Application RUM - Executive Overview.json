@@ -1,15 +1,15 @@
- {
+{
   "metadata": {
     "configurationVersions": [
-      5
+      6
     ],
-    "clusterVersion": "1.222.86.20210802-200423"
+    "clusterVersion": "1.247.165.20220808-104358"
   },
   "id": "4307482a-1bff-40b6-a1ba-b5ee9aa9b443",
   "dashboardMetadata": {
-    "name": "${app.name} RUM - Executive Overview",
+    "name": "${mz.name} RUM - Executive Overview",
     "shared": true,
-    "owner": "c920366",
+    "owner": "anthony.pope-cruz@dynatrace.com",
     "dashboardFilter": {
       "timeframe": "Today",
       "managementZone": {
@@ -20,71 +20,14 @@
     "tags": [
       "End User Experience",
       "Executive",
+      "Configurator",
       "Overview",
       "RUM"
     ],
+    "hasConsistentColors": false,
     "preset": false
   },
   "tiles": [
-    {
-      "name": "Custom chart",
-      "tileType": "CUSTOM_CHARTING",
-      "configured": true,
-      "bounds": {
-        "top": 38,
-        "left": 0,
-        "width": 304,
-        "height": 266
-      },
-      "tileFilter": {},
-      "filterConfig": {
-        "type": "MIXED",
-        "customName": " ",
-        "defaultName": "Custom chart",
-        "chartConfig": {
-          "legendShown": true,
-          "type": "TOP_LIST",
-          "series": [
-            {
-              "metric": "builtin:apps.web.actionCount.category",
-              "aggregation": "NONE",
-              "type": "LINE",
-              "entityType": "APPLICATION",
-              "dimensions": [
-                {
-                  "id": "1",
-                  "name": "Apdex category",
-                  "values": [
-                    "FRUSTRATED",
-                    "SATISFIED",
-                    "TOLERATING"
-                  ],
-                  "entityDimension": false
-                }
-              ],
-              "sortAscending": false,
-              "sortColumn": true,
-              "aggregationRate": "TOTAL"
-            }
-          ],
-          "resultMetadata": {
-            "null¦Apdex category»FRUSTRATED»falsebuiltin:apps.web.actionCount.category|NONE|TOTAL|LINE|APPLICATION": {
-              "lastModified": 1590762644615,
-              "customColor": "#FF0000"
-            },
-            "null¦Apdex category»SATISFIED»falsebuiltin:apps.web.actionCount.category|NONE|TOTAL|LINE|APPLICATION": {
-              "lastModified": 1594476412752,
-              "customColor": "#39ff14"
-            },
-            "null¦Apdex category»TOLERATING»falsebuiltin:apps.web.actionCount.category|NONE|TOTAL|LINE|APPLICATION": {
-              "lastModified": 1595538884666,
-              "customColor": "#fff000"
-            }
-          }
-        },
-        "filtersPerEntityType": {}
-      }
-    },
     {
       "name": "Markdown",
       "tileType": "MARKDOWN",
@@ -92,7 +35,7 @@
       "bounds": {
         "top": 304,
         "left": 0,
-        "width": 418,
+        "width": 304,
         "height": 38
       },
       "tileFilter": {},
@@ -134,65 +77,6 @@
       },
       "tileFilter": {},
       "chartVisible": true
-    },
-    {
-      "name": "Custom chart",
-      "tileType": "CUSTOM_CHARTING",
-      "configured": true,
-      "bounds": {
-        "top": 342,
-        "left": 0,
-        "width": 1672,
-        "height": 456
-      },
-      "tileFilter": {},
-      "filterConfig": {
-        "type": "MIXED",
-        "customName": " ",
-        "defaultName": "Custom chart",
-        "chartConfig": {
-          "legendShown": true,
-          "type": "TIMESERIES",
-          "series": [
-            {
-              "metric": "builtin:apps.web.actionCount.category",
-              "aggregation": "NONE",
-              "type": "AREA",
-              "entityType": "APPLICATION",
-              "dimensions": [
-                {
-                  "id": "1",
-                  "name": "Apdex category",
-                  "values": [
-                    "FRUSTRATED",
-                    "SATISFIED",
-                    "TOLERATING"
-                  ],
-                  "entityDimension": false
-                }
-              ],
-              "sortAscending": false,
-              "sortColumn": true,
-              "aggregationRate": "TOTAL"
-            }
-          ],
-          "resultMetadata": {
-            "null¦Apdex category»TOLERATING»falsebuiltin:apps.web.actionCount.category|NONE|TOTAL|AREA|APPLICATION": {
-              "lastModified": 1590768076794,
-              "customColor": "#FFFF00"
-            },
-            "null¦Apdex category»SATISFIED»falsebuiltin:apps.web.actionCount.category|NONE|TOTAL|AREA|APPLICATION": {
-              "lastModified": 1594476412752,
-              "customColor": "#39ff14"
-            },
-            "null¦Apdex category»FRUSTRATED»falsebuiltin:apps.web.actionCount.category|NONE|TOTAL|AREA|APPLICATION": {
-              "lastModified": 1590762644615,
-              "customColor": "#FF0000"
-            }
-          }
-        },
-        "filtersPerEntityType": {}
-      }
     },
     {
       "name": "User Sessions Query",
@@ -323,48 +207,6 @@
       "tileFilter": {}
     },
     {
-      "name": "Custom chart",
-      "tileType": "CUSTOM_CHARTING",
-      "configured": true,
-      "bounds": {
-        "top": 38,
-        "left": 684,
-        "width": 304,
-        "height": 266
-      },
-      "tileFilter": {},
-      "filterConfig": {
-        "type": "MIXED",
-        "customName": " ",
-        "defaultName": "Custom chart",
-        "chartConfig": {
-          "legendShown": true,
-          "type": "TOP_LIST",
-          "series": [
-            {
-              "metric": "builtin:apps.web.activeSessions",
-              "aggregation": "NONE",
-              "type": "LINE",
-              "entityType": "APPLICATION",
-              "dimensions": [
-                {
-                  "id": "0",
-                  "name": "dt.entity.application",
-                  "values": [],
-                  "entityDimension": true
-                }
-              ],
-              "sortAscending": false,
-              "sortColumn": true,
-              "aggregationRate": "TOTAL"
-            }
-          ],
-          "resultMetadata": {}
-        },
-        "filtersPerEntityType": {}
-      }
-    },
-    {
       "name": "Markdown",
       "tileType": "MARKDOWN",
       "configured": true,
@@ -375,7 +217,7 @@
         "height": 76
       },
       "tileFilter": {},
-      "markdown": "###[Application Monitoring Overview](#dashboard;id=e04abe5e-3743-4cee-908a-202a7df535c3)"
+      "markdown": "### [Application Monitoring Overview](#dashboard;id=bbbbbbbb-a003-a017-0001-000000000036)"
     },
     {
       "name": "Markdown",
@@ -388,7 +230,370 @@
         "height": 76
       },
       "tileFilter": {},
-      "markdown": "###[Application Trending Overview](#dashboard;id=7b81a001-d8bd-4265-affc-9a20b0456607)"
+      "markdown": "### [Application Trending Overview](#dashboard;id=bbbbbbbb-a003-a017-0002-000000000036)"
+    },
+    {
+      "name": " ",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 304,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": " ",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:apps.web.actionCount.category",
+          "spaceAggregation": "VALUE",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Apdex category"
+          ],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "Apdex category",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "SATISFIED",
+                    "evaluator": "EQ"
+                  },
+                  {
+                    "value": "FRUSTRATED",
+                    "evaluator": "EQ"
+                  },
+                  {
+                    "value": "TOLERATING",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {},
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": [
+              {
+                "name": "TOLERATING",
+                "color": "#fff000"
+              },
+              {
+                "name": "FRUSTRATED",
+                "color": "#FF0000"
+              },
+              {
+                "name": "SATISFIED",
+                "color": "#39ff14"
+              }
+            ]
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A"
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(builtin:apps.web.actionCount.category:filter(and(or(eq(\"Apdex category\",TOLERATING),eq(\"Apdex category\",SATISFIED),eq(\"Apdex category\",FRUSTRATED)))):splitBy(\"Apdex category\"):value:auto:sort(value(sum,descending)):limit(10)):limit(100):names"
+      ]
+    },
+    {
+      "name": " ",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 684,
+        "width": 304,
+        "height": 266
+      },
+      "tileFilter": {},
+      "customName": " ",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:apps.web.activeSessions",
+          "spaceAggregation": "VALUE",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.application"
+          ],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "TOP_LIST",
+        "global": {},
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A"
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "visible": true
+          }
+        ],
+        "tableSettings": {},
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(builtin:apps.web.activeSessions:splitBy(\"dt.entity.application\"):value:auto:sort(value(sum,descending)):limit(10)):limit(100):names"
+      ]
+    },
+    {
+      "name": " ",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 0,
+        "width": 1672,
+        "height": 456
+      },
+      "tileFilter": {},
+      "customName": " ",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "builtin:apps.web.actionCount.category",
+          "spaceAggregation": "VALUE",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "Apdex category"
+          ],
+          "filterBy": {
+            "filterOperator": "AND",
+            "nestedFilters": [
+              {
+                "filter": "Apdex category",
+                "filterType": "DIMENSION",
+                "filterOperator": "OR",
+                "nestedFilters": [],
+                "criteria": [
+                  {
+                    "value": "TOLERATING",
+                    "evaluator": "EQ"
+                  },
+                  {
+                    "value": "FRUSTRATED",
+                    "evaluator": "EQ"
+                  },
+                  {
+                    "value": "SATISFIED",
+                    "evaluator": "EQ"
+                  }
+                ]
+              }
+            ],
+            "criteria": []
+          },
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "unitTransform": "auto",
+            "valueFormat": "auto",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "STACKED_AREA"
+            },
+            "seriesOverrides": [
+              {
+                "name": "SATISFIED",
+                "color": "#39ff14"
+              },
+              {
+                "name": "TOLERATING",
+                "color": "#FFFF00"
+              },
+              {
+                "name": "FRUSTRATED",
+                "color": "#FF0000"
+              }
+            ]
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A"
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=null&(builtin:apps.web.actionCount.category:filter(and(or(eq(\"Apdex category\",SATISFIED),eq(\"Apdex category\",FRUSTRATED),eq(\"Apdex category\",TOLERATING)))):splitBy(\"Apdex category\"):value:auto:sort(value(sum,descending)):limit(10)):limit(100):names"
+      ]
     }
   ]
 }
