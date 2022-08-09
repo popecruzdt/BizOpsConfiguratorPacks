@@ -61,7 +61,7 @@
         "height": 38
       },
       "tileFilter": {},
-      "markdown": "### [Analyze User Sessions](#usersearchoverview)"
+      "markdown": "### [Analyze User Sessions](/ui/user-sessions)"
     },
     {
       "name": "Top web applications",
