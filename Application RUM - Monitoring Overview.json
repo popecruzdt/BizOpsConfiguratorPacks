@@ -7,7 +7,7 @@
   },
   "id": "e04abe5e-3743-4cee-908a-202a7df535c3",
   "dashboardMetadata": {
-    "name": "${app.name} RUM - Monitoring Overview",
+    "name": "${mz.name} RUM - Monitoring Overview",
     "shared": true,
     "owner": "anthony.pope-cruz@dynatrace.com",
     "dashboardFilter": {
