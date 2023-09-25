@@ -1,0 +1,87 @@
+{
+    "name": "<PREFIX><NAMESPACE>",
+    "description": null,
+    "rules": [
+      {
+        "type": "PROCESS_GROUP",
+        "enabled": true,
+        "propagationTypes": [
+          "PROCESS_GROUP_TO_HOST"
+        ],
+        "conditions": [
+          {
+            "key": {
+              "attribute": "CLOUD_APPLICATION_NAMESPACE_NAME",
+              "type": "STATIC"
+            },
+            "comparisonInfo": {
+              "type": "STRING",
+              "operator": "EQUALS",
+              "value": "<NAMESPACE>",
+              "negate": false,
+              "caseSensitive": true
+            }
+          }
+        ]
+      }
+    ],
+    "dimensionalRules": [],
+    "entitySelectorBasedRules": [
+      {
+        "enabled": true,
+        "entitySelector": "type(\"KUBERNETES_NODE\"),toRelationship.isClusterOfNode(type(\"KUBERNETES_CLUSTER\"),fromRelationship.isClusterOfNamespace(type(\"CLOUD_APPLICATION_NAMESPACE\"),entityName.equals(\"<NAMESPACE>\")))"
+      },
+      {
+        "enabled": true,
+        "entitySelector": "type(\"KUBERNETES_SERVICE\"),toRelationship.isNamespaceOfKubernetesSvc(type(\"CLOUD_APPLICATION_NAMESPACE\"),entityName.equals(\"<NAMESPACE>\"))"
+      },
+      {
+        "enabled": true,
+        "entitySelector": "type(\"KUBERNETES_CLUSTER\"),fromRelationship.isClusterOfNamespace(type(\"CLOUD_APPLICATION_NAMESPACE\"),entityName.equals(\"<NAMESPACE>\"))"
+      },
+      {
+        "enabled": true,
+        "entitySelector": "type(\"CONTAINER_GROUP_INSTANCE\"),fromRelationship.isCgiOfNamespace(type(\"CLOUD_APPLICATION_NAMESPACE\"),entityName.equals(\"<NAMESPACE>\"))"
+      },
+      {
+        "enabled": true,
+        "entitySelector": "type(\"CONTAINER_GROUP\"),toRelationship.isPgOfCg(type(\"PROCESS_GROUP\"),toRelationship.isNamespaceOfPg(type(\"CLOUD_APPLICATION_NAMESPACE\"),entityName.equals(\"<NAMESPACE>\")))"
+      },
+      {
+        "enabled": true,
+        "entitySelector": "type(\"PROCESS_GROUP_INSTANCE\"),fromRelationship.isInstanceOf(type(\"PROCESS_GROUP\"),toRelationship.isNamespaceOfPg(type(\"CLOUD_APPLICATION_NAMESPACE\"),entityName.equals(\"<NAMESPACE>\")))"
+      },
+      {
+        "enabled": true,
+        "entitySelector": "type(\"SERVICE\"),tag(Tier:Database),toRelationship.CALLS(type(\"SERVICE\"),toRelationship.isNamespaceOfService(type(\"CLOUD_APPLICATION_NAMESPACE\"),entityName.equals(\"<NAMESPACE>\")))"
+      },
+      {
+        "enabled": true,
+        "entitySelector": "type(\"SYNTHETIC_TEST\"),fromRelationship.MONITORS(type(\"APPLICATION\"),fromRelationships.CALLS(type(\"SERVICE\"),toRelationship.isNamespaceOfService(type(\"CLOUD_APPLICATION_NAMESPACE\"),entityName.equals(\"<NAMESPACE>\"))))"
+      },
+      {
+        "enabled": true,
+        "entitySelector": "type(\"HTTP_CHECK\"),fromRelationship.MONITORS(type(\"APPLICATION\"),fromRelationships.CALLS(type(\"SERVICE\"),toRelationship.isNamespaceOfService(type(\"CLOUD_APPLICATION_NAMESPACE\"),entityName.equals(\"<NAMESPACE>\"))))"
+      },
+      {
+        "enabled": true,
+        "entitySelector": "type(\"APPLICATION\"),fromRelationships.CALLS(type(\"SERVICE\"),toRelationship.isNamespaceOfService(type(\"CLOUD_APPLICATION_NAMESPACE\"),entityName.equals(\"<NAMESPACE>\")))"
+      },
+      {
+        "enabled": true,
+        "entitySelector": "type(\"CLOUD_APPLICATION\"),toRelationship.isNamespaceOfCa(type(\"CLOUD_APPLICATION_NAMESPACE\"),entityName.equals(\"<NAMESPACE>\"))"
+      },
+      {
+        "enabled": true,
+        "entitySelector": "type(\"CLOUD_APPLICATION_NAMESPACE\"),entityName.equals(\"<NAMESPACE>\")"
+      },
+      {
+        "enabled": true,
+        "entitySelector": "type(\"PROCESS_GROUP\"),toRelationship.isNamespaceOfPg(type(\"CLOUD_APPLICATION_NAMESPACE\"),entityName.equals(\"<NAMESPACE>\"))"
+      },
+      {
+        "enabled": true,
+        "entitySelector": "type(SERVICE),toRelationship.isNamespaceOfService(type(\"CLOUD_APPLICATION_NAMESPACE\"),entityName.equals(\"<NAMESPACE>\"))"
+      }
+    ]
+}
