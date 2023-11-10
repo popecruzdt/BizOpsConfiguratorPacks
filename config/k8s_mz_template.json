@@ -73,6 +73,10 @@
       },
       {
         "enabled": true,
+        "entitySelector": "type(\"CLOUD_APPLICATION_INSTANCE\"),toRelationship.isNamespaceOfCai(type(\"CLOUD_APPLICATION_NAMESPACE\"),entityName.equals(\"<NAMESPACE>\"))"
+      },
+      {
+        "enabled": true,
         "entitySelector": "type(\"CLOUD_APPLICATION_NAMESPACE\"),entityName.equals(\"<NAMESPACE>\")"
       },
       {
